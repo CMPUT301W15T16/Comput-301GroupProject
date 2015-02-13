@@ -86,7 +86,7 @@ public class Case8 extends ActivityInstrumentationTestCase2<ApproverClaimListAct
 	
 	
 	//US08.05.02   allow approver view photo recept
-	public void testViewPhotographicReceipt() {
+	public void VeiwPhotoTest() {
 		ApproverClaimListActivity activity = getActivity();
 		ImageButton view = (Button) activity.findViewById(R.id.photograph);
 		ViewAsserts.assertOnScreen(activity.getWindow().getDecorView(),view);
