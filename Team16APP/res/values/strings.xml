@@ -8,5 +8,6 @@
     <string name="title_activity_add_item">AddItemActivity</string>
     <string name="title_activity_add_claim">AddClaimActivity</string>
     <string name="title_activity_take_photo">TakePhotoActivity</string>
+    <string name="title_activity_approver_claim_list">ApproverClaimListActivity</string>
 
 </resources>

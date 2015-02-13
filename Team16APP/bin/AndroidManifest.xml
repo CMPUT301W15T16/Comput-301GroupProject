@@ -38,6 +38,10 @@
             android:name=".TakePhotoActivity"
             android:label="@string/title_activity_take_photo" >
         </activity>
+        <activity
+            android:name=".ApproverClaimListActivity"
+            android:label="@string/title_activity_approver_claim_list" >
+        </activity>
     </application>
 
 </manifest>
