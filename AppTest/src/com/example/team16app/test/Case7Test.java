@@ -1,10 +1,9 @@
-// written by Di Meng 
 package com.example.team16app.test;
-//Written by Qi Tan
+//Written by Omoyeni 
 import junit.framework.TestCase;
 import android.widget.Toast;
 
-public class Case7 extends TestCase {
+public class Case7Test extends TestCase {
 	//US07.01.01
 		public void submitExpenseTest() {
 		//assuming Claim claim already has values in it

@@ -19,7 +19,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import junit.framework.TestCase;
 
-public class Case8 extends ActivityInstrumentationTestCase2<ApproverClaimListActivity> {
+public class Case8Test extends ActivityInstrumentationTestCase2<ApproverClaimListActivity> {
 
 
 	private Intent launch;
