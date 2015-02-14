@@ -75,7 +75,32 @@ public class Case4Test extends TestCase{
 	    
 	    
 	    
-	    
+	    //qtan
+	    //UC 04.04.01 Test Case: create a new expense item and add/delete flag, then test if we can get the flag
+	    public void testAddFlag() {
+		// create an expense 
+		ItemList itemList = new ItemList;
+		String ItemName = "aaa";
+		Item Flagtest = new Item(ItemName);
+		itemList_.addItem(Flagtest);
+		Flagtest.setDate("111");
+		Flagtest.setCategory("bbb");
+		Flagtest.setAmount(1);
+		Flagtest.setCurrency("CAD");
+		Flagtest.setDescription("ccc");
+		Item expense = new Item(expenseName);
+		//to add a flag then test if the project add it
+	        Flagtest.addFlag();
+		assertTrue("no flag added",Flagtest.getFlag());
+		//to delete that flag if it is added and test if we delete it
+		Flagtest.deleteFlag();
+		assertFalse("cant delete",Flagtest.getFlag());
+		
+				
+	}
+	
+	
+	
 	    //qtan
 	    //UC 04.05.01 Test Cases: view an Item item and its details
 	    public void viewItemTest() {
@@ -86,13 +111,13 @@ public class Case4Test extends TestCase{
             TextView ItemAmount = (TextView) activity.findViewById(R.id.ItemAmount);
             TextView ItemDescrption = (TextView) activity.findViewById(R.id.ItemDescrption);
             TextView ItemUnit = (TextView) activity.findViewById(R.id.ItemUnit);
-            assertNotNull("activity",activity);
-            assertNotNull("ItemName",ItemName);
-            assertNotNull("ItemDate",ItemDate);
-            assertNotNull("ItemCategory",ItemCategory);
-            assertNotNull("ItemAmount",ItemAmount);
-            assertNotNull("ItemUnit",ItemUnit);
-            assertNotNull("ItemDescrption",ItemDescrption);
+            assertNotNull("no activity",activity);
+            assertNotNull("no ItemName",ItemName);
+            assertNotNull("no ItemDate",ItemDate);
+            assertNotNull("no ItemCategory",ItemCategory);
+            assertNotNull("no ItemAmount",ItemAmount);
+            assertNotNull("no ItemUnit",ItemUnit);
+            assertNotNull("no ItemDescrption",ItemDescrption);
 	    }
 	    
 	    
@@ -130,7 +155,7 @@ public class Case4Test extends TestCase{
 	    
 	    //qtan
 	     //UC 04.07.01 Test Cases
-	    //make sure the delete works
+	    //make sure the delete works (EXOENSE ITEM LIST)
 	    public void deleteItemTest() {
 	        Date date1= new Date(111);
 	        Date date2= new Date(222);
@@ -150,6 +175,12 @@ public class Case4Test extends TestCase{
 
 
 }
+	    //qtan
+	    //UC 04.08.01
+	    // we can test it by select the Claimant after log in as "claimant" 
+	    //then select an claim by clicking to selcet the ItemList
+	    //to see if it is work
+	    //Specified operation in story board
 
 
 }
