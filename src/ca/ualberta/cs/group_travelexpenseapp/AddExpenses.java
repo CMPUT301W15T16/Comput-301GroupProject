@@ -1,11 +1,10 @@
 package ca.ualberta.cs.group_travelexpenseapp;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class AddExpenses extends ActionBarActivity {
+public class AddExpenses {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
