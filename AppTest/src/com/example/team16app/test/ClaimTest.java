@@ -14,6 +14,7 @@ public class ClaimTest extends TestCase {
 
 	//Chris Lin
 		//record claimant's claim Name, start date and end date
+		//US01.01.01
 		public void testClaim() {
 		    String claimName = "test";
 		    Date startDate = new Date(111);
@@ -25,6 +26,7 @@ public class ClaimTest extends TestCase {
 		}
 		//Chris Lin
 		//add destinations and reasons to the claim
+		//US01.02.01
 		public void AddDestinationTest() {
 		    String des = "Destination";
 		    String des2 ="Destination2";
@@ -40,6 +42,7 @@ public class ClaimTest extends TestCase {
 		}
 		//Chris Lin
 		// view claimant's claim
+		//US01.03.01
 		public void viewClaimTest() {
 		    ClaimActivity activity = claimActivity();
 		    TextView claimName = (TextView) activity.findViewById(R.id.ClaimName);
@@ -52,6 +55,7 @@ public class ClaimTest extends TestCase {
 		}
 		//Chris Lin
 		//edit expense Claim  name, dates 
+		//US01.04.01
 		public void editClaimTest() {
 		    String claimName = "test";
 		    Date startDate = new Date(111);
@@ -69,6 +73,7 @@ public class ClaimTest extends TestCase {
 		}
 		//Chris Lin
 		//delete expense claim while creating it
+		//US01.05.01
 		public void deleteClaimTest() {
 		    String claimName = "test";
 		    Date startDate = new Date(111);
