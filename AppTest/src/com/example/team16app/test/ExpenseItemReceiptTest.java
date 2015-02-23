@@ -22,7 +22,11 @@ public class ExpenseItemReceiptTest extends TestCase {
 		Item photo = new Item("photo");
 		assertTrue("Photo exist!!",photo.getPhoto() != null);
 	}
+	
+	
+	
 	//qtan
+	//US06.04.01
 	public class Sizeoverlimit {
 		//case 06-0401
 		//make sure the size of the image file is below 65536 bytes
