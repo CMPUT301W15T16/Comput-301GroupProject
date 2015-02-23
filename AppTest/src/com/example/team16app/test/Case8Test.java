@@ -20,6 +20,22 @@ import android.widget.ListView;
 import junit.framework.TestCase;
 
 public class Case8Test extends ActivityInstrumentationTestCase2<ApproverClaimListActivity> {
+	Instrumentation instrumentation;
+	Activity activity;
+	
+	public ApproverClaimListActivityTest() {
+		super(ApproverClaimListActivity.class);
+	}
+	
+	protected void setUpActivity() throws Exception {
+		super.setUp();
+		
+		//setup the activity allow user touch it
+		setActivityInitialTouchMode(true);
+
+		instrumentation = getInstrumentation();
+		activity = getActivity();
+	}
 
 
 	private Intent launch;
