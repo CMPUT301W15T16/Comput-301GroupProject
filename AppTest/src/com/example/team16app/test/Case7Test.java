@@ -67,11 +67,12 @@ public class Case7Test extends TestCase {
 		
 		//US07.05.01
 		public void approverCommentsTest() {
-			TextView approverName = (TextView) activity.findViewById(R.id.approverName);
-			TextView approverComments = (TextView) activity.findViewById(R.id.approverComments);
-			
-			assertNotNull("ApproverName",approverName);
-			assertNotNull("ApproverComments",approverComments);
-		}
+			if (claim.getApproverStatus == "Approved" || claim.getApproverStatus == "Returned"){
+				TextView approverName = (TextView) activity.findViewById(R.id.approverName);
+				TextView approverComments = (TextView) activity.findViewById(R.id.approverComments);
+				
+				assertNotNull("ApproverName",approverName);
+				if (approverComments){
+					assertNotNull("",approverComments);}		
 }
 }
