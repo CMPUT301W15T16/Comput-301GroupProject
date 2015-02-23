@@ -73,6 +73,6 @@ public class Case7Test extends TestCase {
 				
 				assertNotNull("ApproverName",approverName);
 				if (approverComments){
-					assertNotNull("",approverComments);}		
+					assertNotNull("ApproverComments",approverComments);}		
 }
 }
