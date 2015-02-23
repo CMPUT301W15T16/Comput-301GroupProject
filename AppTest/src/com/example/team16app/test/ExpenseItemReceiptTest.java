@@ -17,6 +17,7 @@ public class ExpenseItemReceiptTest extends TestCase {
 
 	//Chris Lin
 	//view receipt for an expense item
+	//US06.02.01
 	public void viewReceiptTest(){
 		Item photo = new Item("photo");
 		assertTrue("Photo exist!!",photo.getPhoto() != null);
