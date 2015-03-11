@@ -6,12 +6,22 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ca.ualberta.cs.group_travelexpenseapp.ApproverClaimlist" >
+    tools:context=".ClaimTags" >
+
+    <Button
+        android:id="@+id/newtag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:text="New Tag" />
 
     <ListView
-        android:id="@+id/approverclaimlist"
+        android:id="@+id/listView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/newtag"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true" >
 

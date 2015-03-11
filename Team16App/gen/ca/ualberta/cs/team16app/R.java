@@ -24,10 +24,64 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f080000;
+        public static final int Category=0x7f08000c;
+        public static final int action_settings=0x7f08002b;
+        public static final int addimg=0x7f080011;
+        public static final int addnewtag=0x7f080014;
+        public static final int addtag=0x7f080008;
+        public static final int album=0x7f080029;
+        public static final int amountspent=0x7f08000b;
+        public static final int approvebutton=0x7f08001c;
+        public static final int approverclaimlist=0x7f080016;
+        public static final int camera=0x7f080027;
+        public static final int checkBox1=0x7f080010;
+        public static final int claimenddate=0x7f08001a;
+        public static final int claimstartdate=0x7f080019;
+        public static final int clientclaimdescription=0x7f08001b;
+        public static final int clientclaimlist=0x7f080020;
+        public static final int clientexpenselist=0x7f080018;
+        public static final int clientname=0x7f080017;
+        public static final int currency=0x7f080012;
+        public static final int deleteclaim=0x7f080007;
+        public static final int deleteexpense=0x7f08000f;
+        public static final int deletetag=0x7f080013;
+        public static final int destination=0x7f080005;
+        public static final int editText2=0x7f08002a;
+        public static final int enddate=0x7f080002;
+        public static final int expensedate=0x7f08000e;
+        public static final int expensedescription=0x7f08000a;
+        public static final int listView1=0x7f08001f;
+        public static final int login=0x7f080024;
+        public static final int newclaim=0x7f080021;
+        public static final int newtag=0x7f08001e;
+        public static final int reason=0x7f080003;
+        public static final int reciptimg=0x7f080026;
+        public static final int register=0x7f080025;
+        public static final int returnbutton=0x7f08001d;
+        public static final int saveclaim=0x7f080009;
+        public static final int startdate=0x7f080000;
+        public static final int status=0x7f080004;
+        public static final int sumbitclaim=0x7f080001;
+        public static final int tagname=0x7f080015;
+        public static final int textView1=0x7f080022;
+        public static final int updateexpense=0x7f08000d;
+        public static final int uploadrecipt=0x7f080028;
+        public static final int username=0x7f080023;
+        public static final int viewexpenses=0x7f080006;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
+        public static final int activity_add_claim=0x7f030000;
+        public static final int activity_add_item=0x7f030001;
+        public static final int activity_add_tag=0x7f030002;
+        public static final int activity_approver_claim_list=0x7f030003;
+        public static final int activity_approver_claim_view=0x7f030004;
+        public static final int activity_approver_comments=0x7f030005;
+        public static final int activity_claim_tags=0x7f030006;
+        public static final int activity_claimant_claim_list=0x7f030007;
+        public static final int activity_claimant_item_list=0x7f030008;
+        public static final int activity_main=0x7f030009;
+        public static final int activity_reciept_attachment=0x7f03000a;
+        public static final int activity_register=0x7f03000b;
     }
     public static final class menu {
         public static final int main=0x7f070000;

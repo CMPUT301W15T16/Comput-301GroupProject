@@ -1,5 +1,6 @@
 package ca.ualberta.cs.team16app;
 
+import android.R;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -12,7 +13,7 @@ public class MainActivity extends Activity
 	{
 
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_list_item);
 	}
 
 	@Override
