@@ -9,28 +9,6 @@
     tools:context="ca.ualberta.cs.group_travelexpenseapp.AddClaim" >
 
     <EditText
-        android:id="@+id/startdate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/sumbitclaim"
-        android:ems="10"
-        android:hint="Start Date"
-        android:inputType="date" />
-
-    <EditText
-        android:id="@+id/enddate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/startdate"
-        android:layout_alignRight="@+id/sumbitclaim"
-        android:layout_below="@+id/startdate"
-        android:ems="10"
-        android:hint="End Date"
-        android:inputType="date" />
-
-    <EditText
         android:id="@+id/reason"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -54,16 +32,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:text="Submit" />
-
-    <EditText
-        android:id="@+id/destination"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/enddate"
-        android:layout_alignRight="@+id/enddate"
-        android:layout_below="@+id/enddate"
-        android:ems="10"
-        android:hint="Destination(s)" />
 
     <Button
         android:id="@+id/viewexpenses"
@@ -111,5 +79,46 @@
         android:layout_alignRight="@+id/viewexpenses"
         android:ems="10"
         android:text="In process" />
+
+    <EditText
+        android:id="@+id/claimName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/reason"
+        android:ems="10"
+        android:hint="Claim Name" />
+
+    <EditText
+        android:id="@+id/enddate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/startdate"
+        android:layout_alignRight="@+id/startdate"
+        android:layout_below="@+id/startdate"
+        android:ems="10"
+        android:hint="End Date"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/destination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/enddate"
+        android:layout_alignRight="@+id/reason"
+        android:layout_below="@+id/enddate"
+        android:ems="10"
+        android:hint="Destination(s)" />
+
+    <EditText
+        android:id="@+id/startdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/sumbitclaim"
+        android:layout_below="@+id/claimName"
+        android:ems="10"
+        android:hint="Start Date"
+        android:inputType="date" />
 
 </RelativeLayout>
