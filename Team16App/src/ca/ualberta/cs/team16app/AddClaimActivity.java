@@ -1,9 +1,14 @@
 package ca.ualberta.cs.team16app;
 
+
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class AddClaimActivity extends Activity {
 
@@ -31,4 +36,18 @@ public class AddClaimActivity extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
+	public void saveclaim(View v){
+		Toast.makeText(this,"added a claim", Toast.LENGTH_SHORT).show(); // show message
+		ClaimListController cm = new ClaimListController();
+		EditText textview = (EditText) findViewById(R.id.claimName);
+		EditText startdateView = (EditText) findViewById(R.id.startdate);
+		EditText enddateView = (EditText) findViewById(R.id.enddate);
+		//EditText descriptView = (EditText) findViewById(R.id.explain);
+		cm.addClaim(new Claim(textview.getText().toString()));
+						
+		Intent intent = new Intent(AddClaimActivity.this,ClaimListActivity.class);
+		startActivity(intent);
+	}
+	
 }

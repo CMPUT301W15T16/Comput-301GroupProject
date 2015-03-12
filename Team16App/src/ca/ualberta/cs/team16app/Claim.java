@@ -1,5 +1,6 @@
 package ca.ualberta.cs.team16app;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -8,8 +9,12 @@ import android.nfc.Tag;
 
 
 
-public class Claim
+public class Claim implements Serializable
 {
+	/**
+	 * Claim serializable ID
+	 */
+	private static final long serialVersionUID = -3335827024534601528L;
 	protected String claimName;
 	protected Date startdate;
 	protected Date enddate;
@@ -21,7 +26,7 @@ public class Claim
 	
     
     public Claim(String claimName) {
-    	super();
+    	//super();
 		ItemList = new ArrayList<Item>();
 		TagList = new ArrayList<Tag>();
     	this.claimName = claimName;

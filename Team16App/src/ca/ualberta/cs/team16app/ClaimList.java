@@ -1,12 +1,17 @@
 package ca.ualberta.cs.team16app;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
 
 
-public class ClaimList
+public class ClaimList implements Serializable
 {
+	/**
+	 * ClaimList serialization ID
+	 */
+	private static final long serialVersionUID = -7219682629357177429L;
 	protected ArrayList<Claim> claimList = null;
 	protected transient ArrayList<Listener> listeners = null;
 	
