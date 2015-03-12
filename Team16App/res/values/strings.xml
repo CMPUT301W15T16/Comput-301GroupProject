@@ -4,5 +4,7 @@
     <string name="app_name">Team16App</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_add_claim">AddClaimActivity</string>
+    <string name="title_activity_claim_list">ClaimListActivity</string>
 
 </resources>

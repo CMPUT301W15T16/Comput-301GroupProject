@@ -25,6 +25,7 @@
         android:layout_alignLeft="@+id/clientclaimlist"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/clientclaimlist"
+        android:onClick="newclaim"
         android:text="New Claim" />
 
 </RelativeLayout>

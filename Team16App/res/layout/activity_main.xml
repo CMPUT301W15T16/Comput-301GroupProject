@@ -50,6 +50,7 @@
         android:layout_below="@+id/username"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="78dp"
+        android:onClick="login"
         android:text="Log In" />
 
 </RelativeLayout>

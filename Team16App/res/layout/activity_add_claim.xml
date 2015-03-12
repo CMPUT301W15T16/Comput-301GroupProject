@@ -8,84 +8,20 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="ca.ualberta.cs.group_travelexpenseapp.AddClaim" >
 
-    <EditText
-        android:id="@+id/reason"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/status"
-        android:layout_alignLeft="@+id/enddate"
-        android:layout_alignRight="@+id/sumbitclaim"
-        android:layout_below="@+id/userName_create"
-        android:ems="10"
-        android:gravity="left|top"
-        android:hint="Reason(s) for travel"
-        android:inputType="textMultiLine" >
-
-        <requestFocus />
-    </EditText>
-
-    <Button
-        android:id="@+id/sumbitclaim"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:text="Submit" />
-
-    <Button
-        android:id="@+id/viewexpenses"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/deleteclaim"
-        android:layout_alignLeft="@+id/reason"
-        android:layout_alignRight="@+id/reason"
-        android:layout_marginBottom="44dp"
-        android:text="View/Add Expenses" />
-
-    <Button
-        android:id="@+id/choose_Claimant"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/saveclaim"
-        android:layout_alignLeft="@+id/deleteclaim"
-        android:layout_alignRight="@+id/viewexpenses"
-        android:text="Add Tag" />
-
     <Button
         android:id="@+id/deleteclaim"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/viewexpenses"
+        android:layout_alignLeft="@+id/reason"
         android:layout_alignTop="@+id/saveclaim"
         android:text="Delete" />
-
-    <Button
-        android:id="@+id/saveclaim"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/sumbitclaim"
-        android:layout_alignBottom="@+id/sumbitclaim"
-        android:layout_centerHorizontal="true"
-        android:text="Save" />
-
-    <AutoCompleteTextView
-        android:id="@+id/status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/viewexpenses"
-        android:layout_alignLeft="@+id/viewexpenses"
-        android:layout_alignRight="@+id/viewexpenses"
-        android:ems="10"
-        android:text="In process" />
 
     <EditText
         android:id="@+id/claimName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/reason"
+        android:layout_alignRight="@+id/saveclaim"
         android:ems="10"
         android:hint="Claim Name" />
 
@@ -105,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/enddate"
-        android:layout_alignRight="@+id/reason"
+        android:layout_alignRight="@+id/enddate"
         android:layout_below="@+id/enddate"
         android:ems="10"
         android:hint="Destination(s)" />
@@ -115,10 +51,45 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/sumbitclaim"
+        android:layout_alignRight="@+id/claimName"
         android:layout_below="@+id/claimName"
         android:ems="10"
         android:hint="Start Date"
         android:inputType="date" />
+
+    <AutoCompleteTextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/saveclaim"
+        android:layout_alignLeft="@+id/deleteclaim"
+        android:layout_marginBottom="50dp"
+        android:ems="10"
+        android:text="In process" />
+
+    <Button
+        android:id="@+id/saveclaim"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Save" />
+
+    <EditText
+        android:id="@+id/reason"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/status"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/userName_create"
+        android:layout_below="@+id/userName_create"
+        android:ems="10"
+        android:gravity="left|top"
+        android:hint="Reason(s) for travel"
+        android:inputType="textMultiLine" >
+
+        <requestFocus />
+    </EditText>
 
 </RelativeLayout>
