@@ -28,7 +28,7 @@
         android:text="Confirm" />
 
     <Button
-        android:id="@+id/album"
+        android:id="@+id/choose_Approver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/uploadrecipt"
@@ -40,9 +40,9 @@
         android:id="@+id/camera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/album"
+        android:layout_above="@+id/choose_Approver"
         android:layout_alignLeft="@+id/uploadrecipt"
-        android:layout_alignRight="@+id/album"
+        android:layout_alignRight="@+id/choose_Approver"
         android:text="From Camera" />
 
 </RelativeLayout>

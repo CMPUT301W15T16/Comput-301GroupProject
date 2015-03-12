@@ -8,53 +8,65 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="ca.ualberta.cs.group_travelexpenseapp.Register" >
 
-    <EditText
-        android:id="@+id/destination"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName" >
-
-        <requestFocus />
-    </EditText>
-
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/destination"
-        android:layout_below="@+id/destination"
-        android:ems="10"
-        android:hint="Username" />
-
     <Button
-        android:id="@+id/addtag"
+        android:id="@+id/choose_Approver"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
-        android:text="Claimant" />
-
-    <Button
-        android:id="@+id/album"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/addtag"
-        android:layout_alignBottom="@+id/addtag"
+        android:layout_alignBaseline="@+id/choose_Claimant"
+        android:layout_alignBottom="@+id/choose_Claimant"
         android:layout_toRightOf="@+id/textView1"
         android:text="Approver" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/choose_Claimant"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/choose_Approver"
+        android:layout_marginBottom="56dp"
+        android:text="Create Account" />
+
+    <Button
+        android:id="@+id/choose_Claimant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button1"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_marginBottom="67dp"
+        android:text="Claimant" />
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_below="@+id/editText2"
-        android:layout_marginTop="26dp"
+        android:layout_above="@+id/choose_Approver"
+        android:layout_alignLeft="@+id/password_create"
+        android:layout_marginBottom="43dp"
         android:text="Choose your role:"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/password_create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="31dp"
+        android:ems="10"
+        android:hint="Password" />
+
+    <EditText
+        android:id="@+id/userName_create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/password_create"
+        android:layout_alignLeft="@+id/password_create"
+        android:layout_alignRight="@+id/password_create"
+        android:layout_marginBottom="14dp"
+        android:ems="10"
+        android:hint="User name"
+        android:inputType="textPersonName" />
 
 </RelativeLayout>

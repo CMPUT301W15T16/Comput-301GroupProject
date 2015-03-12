@@ -33,21 +33,23 @@
     </EditText>
 
     <Button
-        android:id="@+id/login"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/username"
-        android:layout_centerHorizontal="true"
-        android:text="Log In" />
-
-    <Button
         android:id="@+id/register"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/login"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
         android:text="Create New Account" />
+
+    <Button
+        android:id="@+id/login"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/username"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="78dp"
+        android:text="Log In" />
 
 </RelativeLayout>

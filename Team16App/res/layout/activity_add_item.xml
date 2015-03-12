@@ -9,24 +9,31 @@
     tools:context="ca.ualberta.cs.group_travelexpenseapp.AddExpenses" >
 
     <EditText
-        android:id="@+id/expensedescription"
+        android:id="@+id/itemName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/amountspent"
-        android:layout_alignLeft="@+id/Category"
-        android:layout_alignRight="@+id/updateexpense"
-        android:layout_below="@+id/Category"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:ems="10"
-        android:gravity="left|top"
-        android:hint="Expense Description"
-        android:inputType="textMultiLine" />
+        android:hint="Item name" />
+
+    <EditText
+        android:id="@+id/expensedate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/itemName"
+        android:layout_alignRight="@+id/itemName"
+        android:layout_below="@+id/itemName"
+        android:ems="10"
+        android:hint="Expense Date"
+        android:inputType="date" />
 
     <EditText
         android:id="@+id/Category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/expensedate"
-        android:layout_alignRight="@+id/updateexpense"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/expensedate"
         android:layout_below="@+id/expensedate"
         android:ems="10"
         android:hint="Category" >
@@ -35,67 +42,71 @@
     </EditText>
 
     <EditText
-        android:id="@+id/expensedate"
+        android:id="@+id/expensedescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/updateexpense"
+        android:layout_alignLeft="@+id/Category"
+        android:layout_alignRight="@+id/Category"
+        android:layout_below="@+id/Category"
         android:ems="10"
-        android:hint="Expense Date"
-        android:inputType="date" />
+        android:gravity="left|top"
+        android:hint="Expense Description"
+        android:inputType="textMultiLine" />
+
+    <EditText
+        android:id="@+id/amountspent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/expensedescription"
+        android:layout_alignRight="@+id/expensedescription"
+        android:layout_below="@+id/expensedescription"
+        android:ems="10"
+        android:hint="Amount Spent"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/currency"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/amountspent"
+        android:layout_alignRight="@+id/amountspent"
+        android:layout_below="@+id/amountspent"
+        android:ems="10"
+        android:hint="Currency" />
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/currency"
+        android:layout_below="@+id/currency"
+        android:text="Incomplete item" />
+
+    <Button
+        android:id="@+id/addimg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/checkBox1"
+        android:layout_marginTop="32dp"
+        android:text="Attach Reciept" />
 
     <Button
         android:id="@+id/updateexpense"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignRight="@+id/addimg"
+        android:layout_below="@+id/addimg"
+        android:layout_marginTop="29dp"
         android:text="Update" />
 
     <Button
         android:id="@+id/deleteexpense"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/checkBox1"
-        android:layout_alignParentBottom="true"
+        android:layout_alignBaseline="@+id/updateexpense"
+        android:layout_alignBottom="@+id/updateexpense"
+        android:layout_alignLeft="@+id/addimg"
         android:text="Delete" />
-
-    <Button
-        android:id="@+id/addimg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/updateexpense"
-        android:layout_alignLeft="@+id/deleteexpense"
-        android:text="Attach Reciept" />
-
-    <EditText
-        android:id="@+id/currency"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/checkBox1"
-        android:layout_alignLeft="@+id/expensedescription"
-        android:layout_alignRight="@+id/expensedescription"
-        android:ems="10"
-        android:hint="Currency" />
-
-    <EditText
-        android:id="@+id/amountspent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/currency"
-        android:layout_alignLeft="@+id/expensedescription"
-        android:layout_alignRight="@+id/expensedescription"
-        android:ems="10"
-        android:hint="Amount Spent"
-        android:inputType="numberDecimal" />
-
-    <CheckBox
-        android:id="@+id/checkBox1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/addimg"
-        android:layout_alignLeft="@+id/expensedescription"
-        android:text="Incomplete item" />
 
 </RelativeLayout>
