@@ -2,7 +2,11 @@ package ca.ualberta.cs.team16app;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class AddExpenseActivity extends Activity
 {
@@ -24,4 +28,16 @@ public class AddExpenseActivity extends Activity
 		return true;
 	}
 
+	public void saveExpense(View v){
+		Toast.makeText(this,"added a expense", Toast.LENGTH_SHORT).show(); // show message
+		ExpenseListController cm = new ExpenseListController();
+		EditText textview = (EditText) findViewById(R.id.itemName);
+		EditText startdateView = (EditText) findViewById(R.id.expenseDate);
+		//EditText enddateView = (EditText) findViewById(R.id.enddate);
+		EditText descriptView = (EditText) findViewById(R.id.expenseDescription);
+		cm.addExpense(new Expense(textview.getText().toString()));
+						
+		Intent intent = new Intent(AddExpenseActivity.this,ExpenseListActivity.class);
+		startActivity(intent);
+	}
 }

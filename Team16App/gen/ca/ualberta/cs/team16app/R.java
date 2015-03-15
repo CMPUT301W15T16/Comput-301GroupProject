@@ -55,9 +55,9 @@ public final class R {
         public static final int deletetag=0x7f080012;
         public static final int editText1=0x7f080026;
         public static final int enddate=0x7f080004;
+        public static final int expenseDate=0x7f080009;
+        public static final int expenseDescription=0x7f08000b;
         public static final int expense_listView=0x7f080020;
-        public static final int expensedate=0x7f080009;
-        public static final int expensedescription=0x7f08000b;
         public static final int itemName=0x7f080008;
         public static final int login=0x7f080024;
         public static final int newclaim=0x7f080022;
@@ -72,7 +72,7 @@ public final class R {
         public static final int status=0x7f080007;
         public static final int tagname=0x7f080014;
         public static final int textView1=0x7f080027;
-        public static final int updateexpense=0x7f080010;
+        public static final int updateExpense=0x7f080010;
         public static final int uploadrecipt=0x7f08002a;
         public static final int userName_create=0x7f080006;
         public static final int username=0x7f080025;

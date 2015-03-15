@@ -5,6 +5,7 @@ import java.util.Collection;
 
 
 
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -42,16 +43,15 @@ ExpenseListManager.initManager(this.getApplicationContext());
 	     ClaimListController.getClaimList().addListener(new Listener() {
 	     	public void update() {
 	     		list.clear();
-	     		Collection<Expense> claims = ExpenseListController.getExpenseList().getExpenses();
-	     		list.addAll(claims);
+	     		Collection<Expense> expense = ExpenseListController.getExpenseList().getExpenses();
+	     		list.addAll(expense);
 	     		claimAdapter.notifyDataSetChanged();
 	     	}
 	     });
 		
 		
 		
-		
-		
+		    
 		
 		
 		listView.setOnItemClickListener(new OnItemClickListener(){
