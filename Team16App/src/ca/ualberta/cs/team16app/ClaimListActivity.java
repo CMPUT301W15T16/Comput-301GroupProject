@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 
+
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -18,6 +20,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 
 public class ClaimListActivity extends Activity {
@@ -56,6 +59,7 @@ public class ClaimListActivity extends Activity {
 	    //delete a claim
 	    listView.setOnItemLongClickListener(new OnItemLongClickListener() {
 
+
 			@Override
 			public boolean onItemLongClick(AdapterView<?> adapterView, View view,
 					int position, long id) {
@@ -83,8 +87,22 @@ public class ClaimListActivity extends Activity {
 				return false;
 			}	    	    	
 		});
+	    
+	    listView.setOnItemClickListener(new OnItemClickListener(){
+
+
+			@Override
+			public void onItemClick(AdapterView<?> adapterView, View view, int position,
+					long id) {
+				// TODO Auto-generated method stub
+				Intent intent = new Intent(ClaimListActivity.this,ExpenseListActivity.class);
+				startActivity(intent);
+				}
+			});
 		
 	}
+	
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

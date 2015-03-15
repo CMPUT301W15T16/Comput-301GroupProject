@@ -18,7 +18,7 @@
         android:text="Approver" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/add_expense_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/choose_Claimant"
@@ -31,7 +31,7 @@
         android:id="@+id/choose_Claimant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button1"
+        android:layout_above="@+id/add_expense_button"
         android:layout_alignLeft="@+id/textView1"
         android:layout_marginBottom="67dp"
         android:text="Claimant" />
