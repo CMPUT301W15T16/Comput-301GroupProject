@@ -17,6 +17,7 @@ public class Claim implements Serializable
 	private static final long serialVersionUID = -3335827024534601528L;
 	protected String claimName;
 	protected Date startdate;
+	protected ArrayList<Expense> items;
 	protected Date enddate;
 	protected String description;
     protected String status;
@@ -74,6 +75,7 @@ public class Claim implements Serializable
 		
 	}
 	
+	
 	public ArrayList<Item> getItemList(){
 		return ItemList;
 	}
@@ -102,4 +104,5 @@ public class Claim implements Serializable
 		return ("Claim"+getName()).hashCode();
 	}
 	
+
 }

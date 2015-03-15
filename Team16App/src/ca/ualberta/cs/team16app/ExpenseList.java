@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
+
 public class ExpenseList implements Serializable {
 
 	
@@ -32,6 +33,9 @@ public class ExpenseList implements Serializable {
 		return expenseList;
 	}
 
+	public Expense getPosition(int position) {
+		return expenseList.get(position);
+	}
 	public void addExpense(Expense testExpense) {
 		expenseList.add(testExpense);
 		notifyListeners();
@@ -86,4 +90,10 @@ public class ExpenseList implements Serializable {
 		getListeners().remove(l);
 	}
 
+	public void removeExpense(Expense expense) {
+		
+		expenseList.remove(expense);
+		notifyListeners();
+	}
+	
 }

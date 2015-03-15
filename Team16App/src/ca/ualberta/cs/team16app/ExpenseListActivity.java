@@ -3,12 +3,12 @@ package ca.ualberta.cs.team16app;
 import java.util.ArrayList;
 import java.util.Collection;
 
-
-
-
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.DialogInterface.OnClickListener;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,17 +16,18 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
 
 public class ExpenseListActivity extends Activity
 {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
+
 	{
 
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_expense_list);
-		
 		
 		
 ExpenseListManager.initManager(this.getApplicationContext());
@@ -36,35 +37,84 @@ ExpenseListManager.initManager(this.getApplicationContext());
 	   
 
 	     final ArrayList<Expense> list = new ArrayList<Expense>(expense);
-	     final ArrayAdapter<Expense> claimAdapter = new ArrayAdapter<Expense>(this, android.R.layout.simple_list_item_1, list);
-	     listView.setAdapter(claimAdapter);
+	     final ArrayAdapter<Expense> expenseAdapter = new ArrayAdapter<Expense>(this, android.R.layout.simple_list_item_1, list);
+	     listView.setAdapter(expenseAdapter);
 	     
 
-	     ClaimListController.getClaimList().addListener(new Listener() {
+	     ExpenseListController.getExpenseList().addListener(new Listener() {
 	     	public void update() {
 	     		list.clear();
 	     		Collection<Expense> expense = ExpenseListController.getExpenseList().getExpenses();
 	     		list.addAll(expense);
-	     		claimAdapter.notifyDataSetChanged();
+	     		expenseAdapter.notifyDataSetChanged();
 	     	}
 	     });
 		
-		
-		
-		    
-		
+	   //base on eclass youtube video by Abram Hindle: https://www.youtube.com/watch?v=7zKCuqScaRE
+		    //delete a claim
+		    listView.setOnItemLongClickListener(new OnItemLongClickListener() {
+
+				@Override
+				public boolean onItemLongClick(AdapterView<?> adapterView, View view,
+						int position, long id) {
+					//Toast.makeText(ClaimListActivity.this,"Delete "+ list.get(position).toString(), Toast.LENGTH_SHORT).show();
+					
+					AlertDialog.Builder adb = new AlertDialog.Builder(ExpenseListActivity.this); //set alert dialog for deleting
+					adb.setMessage("Delete "+list.get(position).toString()+ "?");
+					adb.setCancelable(true);
+					final int FinalPosition = position;
+					//set options for delete claims or cancel
+					adb.setPositiveButton("Delete", new OnClickListener(){
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							Expense expense = list.get(FinalPosition);
+							ExpenseListController.getExpenseList().deleteExpense(expense);						
+						}								
+					});
+					adb.setNegativeButton("Cancel", new OnClickListener(){
+						@Override
+						public void onClick(DialogInterface dialog, int which) {						
+							//do nothing here since we dont want to delete the claim
+						}					
+					});
+					adb.show();			
+					return true;
+				}	    	    	
+			});
 		
 		listView.setOnItemClickListener(new OnItemClickListener(){
 
-
+			@SuppressWarnings("deprecation")
 			@Override
-			public void onItemClick(AdapterView<?> adapterView, View view, int position,
-					long id) {
+			public void onItemClick(AdapterView<?> AdapterView, View view,
+					int position, long id) {
+				final int index = position;
+				AlertDialog.Builder adb = new AlertDialog.Builder(
+						ExpenseListActivity.this);
+				adb.setMessage("Expense: "
+						+ list.get(index).getName().toString()
+						+ "\nCategory: "
+						//+ list.get(index).getCategory().toString()
+						+ "\nDate: "
+						+ list.get(index).getDate().toGMTString()
+						//+ "\nAmount: "
+						//+ expenseList.get(index).getePrice().toString()
+						//+ "\nCurrency Type: "
+						//+ expenseList.get(index).geteCur().toString()
+						//+ "\nDescription: "
+						//+ expenseList.get(index).geteDescription().toString()
+
+				);
+				adb.show();
+			//public void onItemClick(AdapterView<?> adapterView, View view, int position,
+					//long id)
+					
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(ExpenseListActivity.this,AddExpenseActivity.class);
 				startActivity(intent);
 				}
 			});
+		
 		
 		
 		
@@ -86,4 +136,6 @@ ExpenseListManager.initManager(this.getApplicationContext());
 		Intent intent = new Intent(ExpenseListActivity.this,AddExpenseActivity.class);
 		startActivity(intent);
 		}
+
 }
+	  

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 
-
 public class ClaimList implements Serializable
 {
 	/**
@@ -74,5 +73,9 @@ public class ClaimList implements Serializable
 	public boolean contains(Claim testClaim) {
 		
 		return claimList.contains(testClaim);
+	}
+
+	public Claim getPosition(int position) {
+		return claimList.get(position);
 	}
 }

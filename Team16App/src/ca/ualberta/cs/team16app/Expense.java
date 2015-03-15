@@ -21,7 +21,11 @@
 
 package ca.ualberta.cs.team16app;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+
+
+
 
 public class Expense implements Serializable {
 
@@ -34,6 +38,8 @@ public class Expense implements Serializable {
 	protected Date date = new Date();	
 	protected String description;
     protected String status;
+    protected ArrayList<Expense> items;
+    protected transient ArrayList<Listener> itemListener;
     
 	public Expense(String expenseName) {
 		this.expenseName = expenseName;
@@ -53,6 +59,7 @@ public class Expense implements Serializable {
 		
 	}
 	
+
 	public boolean equals(Object compareExpense){
 		
 		if(compareExpense != null && compareExpense.getClass() == this.getClass()){
@@ -74,4 +81,17 @@ public class Expense implements Serializable {
 	public int hashCode(){
 		return ("Expense"+getName()).hashCode();
 	}
+
+	public void removeExpense(Expense expense) {
+			items.remove(expense);
+			notifyListener();
+	}
+
+	private void notifyListener() {
+		for (Listener listener : itemListener) {
+			listener.update();
+		}
+	}
+
+
 }

@@ -84,7 +84,7 @@ public class ClaimListActivity extends Activity {
 					}					
 				});
 				adb.show();			
-				return false;
+				return true;
 			}	    	    	
 		});
 	    
