@@ -17,7 +17,7 @@
         android:text="Delete" />
 
     <EditText
-        android:id="@+id/claimName"
+        android:id="@+id/claimNameInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -51,8 +51,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/claimName"
-        android:layout_below="@+id/claimName"
+        android:layout_alignRight="@+id/claimNameInfo"
+        android:layout_below="@+id/claimNameInfo"
         android:ems="10"
         android:hint="Start Date"
         android:inputType="date" />

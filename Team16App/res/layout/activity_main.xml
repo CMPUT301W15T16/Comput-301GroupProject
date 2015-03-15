@@ -33,7 +33,7 @@
         android:inputType="textPassword" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/editableClaimName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -47,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/editText1"
-        android:layout_below="@+id/textView1"
+        android:layout_below="@+id/editableClaimName"
         android:ems="10"
         android:gravity="center"
         android:hint="Enter Username" />

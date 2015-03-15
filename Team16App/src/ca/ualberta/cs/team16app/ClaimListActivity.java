@@ -95,7 +95,7 @@ public class ClaimListActivity extends Activity {
 			public void onItemClick(AdapterView<?> adapterView, View view, int position,
 					long id) {
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(ClaimListActivity.this,ExpenseListActivity.class);
+				Intent intent = new Intent(ClaimListActivity.this,ClaimInfoActivity.class);
 				startActivity(intent);
 				}
 			});

@@ -40,7 +40,7 @@ public class AddClaimActivity extends Activity {
 	public void saveclaim(View v){
 		Toast.makeText(this,"added a claim", Toast.LENGTH_SHORT).show(); // show message
 		ClaimListController cm = new ClaimListController();
-		EditText textview = (EditText) findViewById(R.id.claimName);
+		EditText textview = (EditText) findViewById(R.id.claimNameInfo);
 		EditText startdateView = (EditText) findViewById(R.id.startdate);
 		EditText enddateView = (EditText) findViewById(R.id.enddate);
 		//EditText descriptView = (EditText) findViewById(R.id.explain);

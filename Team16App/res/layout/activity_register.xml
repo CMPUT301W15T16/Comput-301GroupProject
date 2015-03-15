@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/choose_Claimant"
         android:layout_alignBottom="@+id/choose_Claimant"
-        android:layout_toRightOf="@+id/textView1"
+        android:layout_toRightOf="@+id/editableClaimName"
         android:text="Approver" />
 
     <Button
@@ -32,12 +32,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/add_expense_button"
-        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignLeft="@+id/editableClaimName"
         android:layout_marginBottom="67dp"
         android:text="Claimant" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/editableClaimName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/choose_Approver"
@@ -50,7 +50,7 @@
         android:id="@+id/password_create"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView1"
+        android:layout_above="@+id/editableClaimName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="31dp"

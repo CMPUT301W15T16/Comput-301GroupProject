@@ -27,7 +27,7 @@ public class Claim implements Serializable
 	
     
     public Claim(String claimName) {
-    	//super();
+    	super();
 		ItemList = new ArrayList<Item>();
 		TagList = new ArrayList<Tag>();
     	this.claimName = claimName;
