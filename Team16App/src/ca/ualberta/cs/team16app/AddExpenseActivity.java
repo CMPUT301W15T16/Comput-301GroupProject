@@ -33,8 +33,10 @@ public class AddExpenseActivity extends Activity
 		ExpenseListController cm = new ExpenseListController();
 		EditText textview = (EditText) findViewById(R.id.itemName);
 		EditText startdateView = (EditText) findViewById(R.id.expenseDate);
-		//EditText enddateView = (EditText) findViewById(R.id.enddate);
+		EditText categoryView = (EditText) findViewById(R.id.Category);
 		EditText descriptView = (EditText) findViewById(R.id.expenseDescription);
+		EditText costView = (EditText) findViewById(R.id.amountSpent);
+		EditText currencyView = (EditText) findViewById(R.id.currency);
 		cm.addExpense(new Expense(textview.getText().toString()));
 						
 		Intent intent = new Intent(AddExpenseActivity.this,ExpenseListActivity.class);

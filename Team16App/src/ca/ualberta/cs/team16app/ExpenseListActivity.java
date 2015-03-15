@@ -71,12 +71,27 @@ ExpenseListManager.initManager(this.getApplicationContext());
 							ExpenseListController.getExpenseList().deleteExpense(expense);						
 						}								
 					});
-					adb.setNegativeButton("Cancel", new OnClickListener(){
-						@Override
-						public void onClick(DialogInterface dialog, int which) {						
-							//do nothing here since we dont want to delete the claim
-						}					
+					
+					
+					
+					
+					adb.setNegativeButton("Edit", new OnClickListener() {
+						public void onClick(DialogInterface dialog, int which) {
+
+							Toast.makeText(
+									ExpenseListActivity.this,
+									"Open Item: "
+											+ list.get(FinalPosition)
+													.getName(), Toast.LENGTH_SHORT)
+									.show();
+							Intent intent = new Intent(ExpenseListActivity.this,
+									AddExpenseActivity.class);
+							intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+							intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+							startActivity(intent);
+						}
 					});
+					
 					adb.show();			
 					return true;
 				}	    	    	
@@ -93,16 +108,16 @@ ExpenseListManager.initManager(this.getApplicationContext());
 						ExpenseListActivity.this);
 				adb.setMessage("Expense: "
 						+ list.get(index).getName().toString()
-						+ "\nCategory: "
+						//+ "\nCategory: "
 						//+ list.get(index).getCategory().toString()
-						+ "\nDate: "
-						+ list.get(index).getDate().toGMTString()
+						//+ "\nDate: "
+						//+ list.get(index).getDate().toString()
 						//+ "\nAmount: "
-						//+ expenseList.get(index).getePrice().toString()
+						//+ list.get(index).getSpend().toString()
 						//+ "\nCurrency Type: "
-						//+ expenseList.get(index).geteCur().toString()
+						//+ list.get(index).getCurrency().toString()
 						//+ "\nDescription: "
-						//+ expenseList.get(index).geteDescription().toString()
+						//+ list.get(index).getDescription().toString()
 
 				);
 				adb.show();
@@ -110,8 +125,8 @@ ExpenseListManager.initManager(this.getApplicationContext());
 					//long id)
 					
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(ExpenseListActivity.this,AddExpenseActivity.class);
-				startActivity(intent);
+				//Intent intent = new Intent(ExpenseListActivity.this,AddExpenseActivity.class);
+				//startActivity(intent);
 				}
 			});
 		

@@ -34,7 +34,7 @@ public final class R {
         public static final int add_expense_button=0x7f080023;
         public static final int addimg=0x7f08000f;
         public static final int addnewtag=0x7f080013;
-        public static final int amountspent=0x7f08000c;
+        public static final int amountSpent=0x7f08000c;
         public static final int approvebutton=0x7f08001b;
         public static final int approverclaimlist=0x7f080015;
         public static final int approvercomment=0x7f08001d;

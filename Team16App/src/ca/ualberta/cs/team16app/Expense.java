@@ -35,8 +35,11 @@ public class Expense implements Serializable {
 	 */
 	private static final long serialVersionUID = 2342770718616942378L;
 	protected String expenseName;
+	protected String category;
+	private String spend;
+	private String description;
+	private String currency;
 	protected Date date = new Date();	
-	protected String description;
     protected String status;
     protected ArrayList<Expense> items;
     protected transient ArrayList<Listener> itemListener;
@@ -91,6 +94,25 @@ public class Expense implements Serializable {
 		for (Listener listener : itemListener) {
 			listener.update();
 		}
+	}
+
+	public Object getCategory() {
+		// TODO Auto-generated method stub
+		return this.category;
+	}
+
+	public Object getSpend() {
+		// TODO Auto-generated method stub
+		return this.spend;
+	}
+
+	public Object getCurrency() {
+		return this.currency;
+	}
+
+	public Object getDescription() {
+		// TODO Auto-generated method stub
+		return this.description;
 	}
 
 
