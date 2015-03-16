@@ -9,16 +9,18 @@ package ca.ualberta.cs.team16app;
 
 
 
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class ClaimInfoActivity extends Activity {
-
+	private Button tag_add;
 	private Claim claim;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,8 +30,13 @@ public class ClaimInfoActivity extends Activity {
 		TextView nameView= (TextView) findViewById(R.id.editableClaimName);
 		TextView beginView=(TextView) findViewById(R.id.editableSDate);
 		TextView endView=(TextView) findViewById(R.id.editableEDate);
+		tag_add = (Button) findViewById(R.id.tag);
 		
 		//nameView.setText(claim.getName());
+			
+		
+			
+		
 	}
 
 	@Override
@@ -53,6 +60,10 @@ public class ClaimInfoActivity extends Activity {
 	
 	public void itemlist(View v){
 		Intent intent =new Intent(ClaimInfoActivity.this,ExpenseListActivity.class);
+		startActivity(intent);	
+	}
+	public void tag_add(View v){
+		Intent intent =new Intent(ClaimInfoActivity.this,Activity_Add_Tag.class);
 		startActivity(intent);	
 	}
 
