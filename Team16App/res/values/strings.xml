@@ -14,6 +14,6 @@
     <string name="title_activity_approver_claim_view">ApproverClaimViewActivity</string>
     <string name="title_activity_approver_comments">ApproverCommentsActivity</string>
     <string name="title_activity_activity__add__tag">Activity_Add_Tag</string>
-    <string name="title_activity_activity_view_image">ViewReceiptActivity</string>
+    <string name="title_activity_view_image">ViewReceiptActivity</string>
 
 </resources>
