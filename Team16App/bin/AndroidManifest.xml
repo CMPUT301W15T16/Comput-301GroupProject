@@ -50,6 +50,14 @@
             android:name=".ApproverClaimListActivity"
             android:label="@string/title_activity_approver_claim_list" >
         </activity>
+        <activity
+            android:name=".ApproverClaimViewActivity"
+            android:label="@string/title_activity_approver_claim_view" >
+        </activity>
+        <activity
+            android:name=".ApproverCommentsActivity"
+            android:label="@string/title_activity_approver_comments" >
+        </activity>
     </application>
 
 </manifest>

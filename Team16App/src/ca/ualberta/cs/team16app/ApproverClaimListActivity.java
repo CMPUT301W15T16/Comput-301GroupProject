@@ -4,11 +4,15 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class ApproverClaimListActivity extends Activity {
 
@@ -38,6 +42,19 @@ public class ApproverClaimListActivity extends Activity {
 		    		claimAdapter.notifyDataSetChanged();
 		    	}
 		    });
+		    
+		    
+		    listView.setOnItemClickListener(new OnItemClickListener(){
+
+
+				@Override
+				public void onItemClick(AdapterView<?> adapterView, View view, int position,
+						long id) {
+					// TODO Auto-generated method stub
+					Intent intent = new Intent(ApproverClaimListActivity.this,ApproverClaimViewActivity.class);
+					startActivity(intent);
+					}
+				});
 	}
 
 	@Override
