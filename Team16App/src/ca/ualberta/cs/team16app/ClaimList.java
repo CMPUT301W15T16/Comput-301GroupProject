@@ -1,3 +1,9 @@
+/**
+ * This class is a model use for creating claim list
+ * 
+ * @author Chris Lin
+ */
+
 package ca.ualberta.cs.team16app;
 
 import java.io.Serializable;

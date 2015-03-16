@@ -1,3 +1,9 @@
+/**
+ * this class is an activity for creating a claim to a claim list
+ * 
+ * @author Chris Lin
+ */
+
 package ca.ualberta.cs.team16app;
 
 

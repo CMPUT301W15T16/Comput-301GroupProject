@@ -1,3 +1,9 @@
+/**
+ * this class is use for saving and loading claims that are created by users
+ * 
+ * @author Chris Lin
+ */
+
 package ca.ualberta.cs.team16app;
 
 import java.io.ByteArrayInputStream;

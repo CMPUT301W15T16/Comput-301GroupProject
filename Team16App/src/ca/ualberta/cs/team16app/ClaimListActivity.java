@@ -1,3 +1,9 @@
+/**
+ * this class is an activity View for viewing claims that are created on claim list
+ * 
+ * @author Chris Lin
+ */
+
 package ca.ualberta.cs.team16app;
 
 import java.util.ArrayList;

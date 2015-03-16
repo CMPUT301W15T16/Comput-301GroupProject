@@ -1,5 +1,9 @@
 package ca.ualberta.cs.team16app.test;
 
+import java.util.Date;
+
+import ca.ualberta.cs.team16app.Claim;
+import android.content.ClipData.Item;
 import junit.framework.TestCase;
 
 

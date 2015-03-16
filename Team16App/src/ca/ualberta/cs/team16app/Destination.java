@@ -1,3 +1,9 @@
+/**
+ * this class is a model use for getting destinations
+ * 
+ * @author Chris Lin
+ */
+
 package ca.ualberta.cs.team16app;
 
 public class Destination {

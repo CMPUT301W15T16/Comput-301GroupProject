@@ -1,5 +1,8 @@
 package ca.ualberta.cs.team16app.test;
 
+import ca.ualberta.cs.team16app.Claim;
+
+import ca.ualberta.cs.team16app.ClaimList;
 import android.app.Activity;
 import junit.framework.TestCase;
 
@@ -11,7 +14,7 @@ public class ClaimListingTest extends TestCase
 			    ClaimList claimlist = new ClaimList();
 			    int claimcount = claimlist.getClaimCount();
 			    Claim claim = new Claim(null);
-			    claimlist.getclaim(claim);
+			    claimlist.getClaim(claim);
 			    assertTrue("List works", claim.equals(claimlist.getclaim(claimcount)));
 			}
 			

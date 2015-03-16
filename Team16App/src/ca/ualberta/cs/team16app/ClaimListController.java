@@ -1,3 +1,10 @@
+/**
+ * this class is a Claim controller  use for telling models and views to update information 
+ * for claims an claimlist whenever user make a change
+ * 
+ * @author Chris Lin
+ */
+
 package ca.ualberta.cs.team16app;
 
 import java.io.IOException;
