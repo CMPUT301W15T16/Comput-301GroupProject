@@ -38,6 +38,25 @@
         android:layout_alignBaseline="@+id/deletetag"
         android:layout_alignBottom="@+id/deletetag"
         android:layout_alignLeft="@+id/tagname"
-        android:text="Save Tag" />
+        android:onClick="Addnewtag"
+        android:text="Add Tag" />
+
+    <ExpandableListView
+        android:id="@+id/tagview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tagname"
+        android:layout_marginRight="15dp"
+        android:layout_toLeftOf="@+id/tagname" >
+    </ExpandableListView>
+
+<ExpandableListView
+    android:id="@+id/tagview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/deletetag"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="18dp" >
+</ExpandableListView>
 
 </RelativeLayout>
