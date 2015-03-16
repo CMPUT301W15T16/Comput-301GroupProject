@@ -3,6 +3,7 @@ package ca.ualberta.cs.team16app;
 import java.util.ArrayList;
 import java.util.Collection;
 
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -120,6 +121,13 @@ ExpenseListManager.initManager(this.getApplicationContext());
 						+ list.get(index).getDescription().toString()
 
 				);
+				adb.setPositiveButton("View Photo", new DialogInterface.OnClickListener() {
+			           public void onClick(DialogInterface dialog, int id) {
+			        	   Intent intent = new Intent(ExpenseListActivity.this,
+									AddPhotoActivity.class);
+							startActivity(intent);
+			           }
+				});
 				adb.show();
 			//public void onItemClick(AdapterView<?> adapterView, View view, int position,
 					//long id)
