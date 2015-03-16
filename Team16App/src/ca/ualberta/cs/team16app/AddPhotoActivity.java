@@ -1,3 +1,10 @@
+/**
+ * This class allow user to take a photo from camera, or select a photo from phone's gallery.
+ * It will resize proccess and resize picture to be suitable for the app.
+ * 
+ * @author Tiancheng Shen
+ */
+
 package ca.ualberta.cs.team16app;
 
 import java.io.ByteArrayOutputStream;
@@ -79,7 +86,6 @@ public class AddPhotoActivity extends Activity {
 		picconfirm.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				if(select_result == 1){
 					saveAndFinish();
 				}
@@ -87,6 +93,10 @@ public class AddPhotoActivity extends Activity {
 		});	
 	}
 	
+	/**
+	 * Saves the image byte and stores the data in the intent to pass to
+	 * another activity.
+	 */
 	private void saveAndFinish() {
 		Intent intent = new Intent();		
 		intent.putExtra("imagebyte", imageByte);
@@ -94,11 +104,17 @@ public class AddPhotoActivity extends Activity {
 		finish();
 	}
 	
+	/**
+	 * This function processes an image into bytes by compressing and calling a scaling function upon it
+	 * 
+	 * @param the image's path and desired scaling size
+	 * @return String a image's byte array
+	 */
 	public String processImage(String path, double size_scale){
 		Bitmap bitmapOrg = resizeBitmap(path, size_scale);
 		ByteArrayOutputStream imageByte = new ByteArrayOutputStream();
 
-		bitmapOrg.compress(Bitmap.CompressFormat.JPEG, 95, imageByte);
+		bitmapOrg.compress(Bitmap.CompressFormat.JPEG, 100, imageByte);
 		ImageView test = (ImageView) findViewById(R.id.reciptimg);
 		test.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
 		test.setImageBitmap(bitmapOrg);
@@ -107,19 +123,30 @@ public class AddPhotoActivity extends Activity {
 		return bytefile64;
 	}
 	
+	/**
+	 * This function resizes Bitmaps based on the size_scale passed
+	 * 
+	 * @param the image's path and desired scaling size
+	 * @return a resized Bitmap
+	 */
 	private Bitmap resizeBitmap(String path, double size_scale) {
 		Bitmap bitmapOrg = BitmapFactory.decodeFile(path);
 		double width = bitmapOrg.getWidth();
 		double height = bitmapOrg.getHeight();
-		double ratio = 600.00 / width;
-		int newheight = (int) (ratio * height);
-		int newwidth = (int) (600.00 / size_scale);
-		int new_height = (int) (newheight / size_scale);
-		bitmapOrg = Bitmap.createScaledBitmap(bitmapOrg, newwidth, new_height,
+		//double ratio = 256.00 / width;
+		//int newheight = (int) (ratio * height);
+		int new_width = (int) (800.00 / size_scale);
+		int new_height = (int) (800.00 / size_scale);
+		bitmapOrg = Bitmap.createScaledBitmap(bitmapOrg, new_width, new_height,
 				true);
 		return bitmapOrg;
 	}
 	
+	/**
+	 * This displays the uploaded picture upon the activity screen on return from the Android webcam or mediaStore.
+	 * 
+	 * @param the requestCode, returnCode, and intent of the returning function
+	 */
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent imageReturnIntent) {
 		super.onActivityResult(requestCode, resultCode, imageReturnIntent);
@@ -140,7 +167,7 @@ public class AddPhotoActivity extends Activity {
 							test.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
 							test.setImageBitmap(BitmapFactory.decodeFile(filePath));
 							show_path = filePath;
-							imageByte = processImage(show_path,1);
+							imageByte = processImage(show_path,2);
 							select_result = 1;
 							break;
 						}
@@ -158,7 +185,7 @@ public class AddPhotoActivity extends Activity {
 					ImageView test = (ImageView) findViewById(R.id.reciptimg);
 					Bitmap bitmap = MediaStore.Images.Media.getBitmap( getApplicationContext().getContentResolver(),  capturedImageUri);
 					test.setImageBitmap(bitmap);
-					imageByte = processImage(show_path,1);
+					imageByte = processImage(show_path,2);
 					select_result = 1;
 					break;
 				} catch (FileNotFoundException e) {
@@ -174,6 +201,9 @@ public class AddPhotoActivity extends Activity {
 		}
 	}
 
+	/**
+	 * When the back button is pressed, finishes the current activity.
+	 */
 	public void onBackPressed() {
 		finish();
 	}
