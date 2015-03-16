@@ -37,16 +37,6 @@
         android:inputType="date" />
 
     <EditText
-        android:id="@+id/userName_create"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/enddate"
-        android:layout_alignRight="@+id/enddate"
-        android:layout_below="@+id/enddate"
-        android:ems="10"
-        android:hint="Destination(s)" />
-
-    <EditText
         android:id="@+id/startdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,16 +46,6 @@
         android:ems="10"
         android:hint="Start Date"
         android:inputType="date" />
-
-    <AutoCompleteTextView
-        android:id="@+id/status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/saveclaim"
-        android:layout_alignLeft="@+id/deleteclaim"
-        android:layout_marginBottom="50dp"
-        android:ems="10"
-        android:text="In process" />
 
     <Button
         android:id="@+id/saveclaim"
@@ -77,20 +57,43 @@
         android:onClick="saveclaim"
         android:text="Save" />
 
+    <AutoCompleteTextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/deleteclaim"
+        android:layout_alignLeft="@+id/deleteclaim"
+        android:ems="10"
+        android:text="In process" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/enddate"
+        android:text="Date example:1999-04-19" />
+
+    <EditText
+        android:id="@+id/userName_create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:ems="10"
+        android:hint="Destination(s)" />
+
     <EditText
         android:id="@+id/reason"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/status"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/userName_create"
+        android:layout_alignLeft="@+id/userName_create"
+        android:layout_alignRight="@+id/saveclaim"
         android:layout_below="@+id/userName_create"
         android:ems="10"
         android:gravity="left|top"
         android:hint="Reason(s) for travel"
-        android:inputType="textMultiLine" >
-
-        <requestFocus />
-    </EditText>
+        android:inputType="textMultiLine" />
 
 </RelativeLayout>
