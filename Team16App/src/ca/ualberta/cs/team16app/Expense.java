@@ -27,6 +27,7 @@ import java.util.Date;
 
 
 
+
 public class Expense implements Serializable {
 
 	
@@ -43,9 +44,15 @@ public class Expense implements Serializable {
     protected String status;
     protected ArrayList<Expense> items;
     protected transient ArrayList<Listener> itemListener;
+    private  ArrayList<Tag> tagList;
     
-	public Expense(String expenseName) {
+	public Expense(String expenseName, String cate, String spend, String cur,String des) {
 		this.expenseName = expenseName;
+		this.category = cate;
+		this.spend = spend;
+		this.currency = cur;
+		this.description = des;
+		
 	}
 
 	public String getName() {
@@ -114,6 +121,12 @@ public class Expense implements Serializable {
 		// TODO Auto-generated method stub
 		return this.description;
 	}
-
+	// get/set tags
+	public ArrayList<Tag> getTagList() {
+		return tagList;
+	}
+	public void setTags(ArrayList<Tag> tagList) {
+		this.tagList = tagList;
+	}
 
 }

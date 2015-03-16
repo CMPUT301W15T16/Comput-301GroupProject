@@ -3,6 +3,7 @@ package ca.ualberta.cs.team16app;
 import java.util.ArrayList;
 import java.util.Collection;
 
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -108,18 +109,25 @@ ExpenseListManager.initManager(this.getApplicationContext());
 						ExpenseListActivity.this);
 				adb.setMessage("Expense: "
 						+ list.get(index).getName().toString()
-						//+ "\nCategory: "
-						//+ list.get(index).getCategory().toString()
+						+ "\nCategory: "
+						+ list.get(index).getCategory().toString()
 						//+ "\nDate: "
 						//+ list.get(index).getDate().toString()
-						//+ "\nAmount: "
-						//+ list.get(index).getSpend().toString()
-						//+ "\nCurrency Type: "
-						//+ list.get(index).getCurrency().toString()
-						//+ "\nDescription: "
-						//+ list.get(index).getDescription().toString()
+						+ "\nAmount: "
+						+ list.get(index).getSpend().toString()
+						+ "\nCurrency Type: "
+						+ list.get(index).getCurrency().toString()
+						+ "\nDescription: "
+						+ list.get(index).getDescription().toString()
 
 				);
+				adb.setPositiveButton("View Photo", new DialogInterface.OnClickListener() {
+			           public void onClick(DialogInterface dialog, int id) {
+			        	   Intent intent = new Intent(ExpenseListActivity.this,
+									ViewReceiptActivity.class);
+							startActivity(intent);
+			           }
+				});
 				adb.show();
 			//public void onItemClick(AdapterView<?> adapterView, View view, int position,
 					//long id)
