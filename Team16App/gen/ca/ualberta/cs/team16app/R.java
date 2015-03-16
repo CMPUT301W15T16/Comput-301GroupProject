@@ -30,7 +30,7 @@ public final class R {
     }
     public static final class id {
         public static final int Category=0x7f08000b;
-        public static final int action_settings=0x7f080034;
+        public static final int action_settings=0x7f080036;
         public static final int add_expense_button=0x7f08002a;
         public static final int addimg=0x7f080010;
         public static final int addnewtag=0x7f080015;
@@ -54,6 +54,7 @@ public final class R {
         public static final int currency=0x7f08000e;
         public static final int deleteclaim=0x7f080000;
         public static final int deleteexpense=0x7f080012;
+        public static final int deleteimg=0x7f080035;
         public static final int deletetag=0x7f080014;
         public static final int editableClaimName=0x7f080022;
         public static final int editableEDate=0x7f080024;
@@ -62,6 +63,7 @@ public final class R {
         public static final int expenseDate=0x7f08000a;
         public static final int expenseDescription=0x7f08000c;
         public static final int expense_listView=0x7f080027;
+        public static final int imageView=0x7f080034;
         public static final int itemName=0x7f080009;
         public static final int newclaim=0x7f080029;
         public static final int newtag=0x7f080026;
@@ -98,6 +100,7 @@ public final class R {
         public static final int activity_main=0x7f03000b;
         public static final int activity_reciept_attachment=0x7f03000c;
         public static final int activity_register=0x7f03000d;
+        public static final int activity_show_image=0x7f03000e;
     }
     public static final class menu {
         public static final int activity__add__tag=0x7f070000;
@@ -116,6 +119,7 @@ public final class R {
         public static final int app_name=0x7f050000;
         public static final int hello_world=0x7f050002;
         public static final int title_activity_activity__add__tag=0x7f05000c;
+        public static final int title_activity_activity_view_image=0x7f05000d;
         public static final int title_activity_add_claim=0x7f050003;
         public static final int title_activity_add_expense=0x7f050006;
         public static final int title_activity_add_receipt_photo=0x7f050008;

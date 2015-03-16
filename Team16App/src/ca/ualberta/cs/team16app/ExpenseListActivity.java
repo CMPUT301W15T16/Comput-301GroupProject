@@ -124,7 +124,7 @@ ExpenseListManager.initManager(this.getApplicationContext());
 				adb.setPositiveButton("View Photo", new DialogInterface.OnClickListener() {
 			           public void onClick(DialogInterface dialog, int id) {
 			        	   Intent intent = new Intent(ExpenseListActivity.this,
-									AddPhotoActivity.class);
+									ViewReceiptActivity.class);
 							startActivity(intent);
 			           }
 				});
