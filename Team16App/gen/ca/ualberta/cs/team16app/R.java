@@ -112,6 +112,7 @@ public final class R {
         public static final int hello_world=0x7f050002;
         public static final int title_activity_add_claim=0x7f050003;
         public static final int title_activity_add_expense=0x7f050006;
+        public static final int title_activity_add_receipt_photo=0x7f050008;
         public static final int title_activity_claim_info=0x7f050007;
         public static final int title_activity_claim_list=0x7f050004;
         public static final int title_activity_expense_list=0x7f050005;

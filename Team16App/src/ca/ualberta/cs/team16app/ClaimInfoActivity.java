@@ -29,7 +29,7 @@ public class ClaimInfoActivity extends Activity {
 		TextView beginView=(TextView) findViewById(R.id.editableSDate);
 		TextView endView=(TextView) findViewById(R.id.editableEDate);
 		
-		nameView.setText(claim.getName());
+		//nameView.setText(claim.getName());
 	}
 
 	@Override

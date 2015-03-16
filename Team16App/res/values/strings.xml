@@ -9,5 +9,6 @@
     <string name="title_activity_expense_list">ExpenseListActivity</string>
     <string name="title_activity_add_expense">AddExpenseActivity</string>
     <string name="title_activity_claim_info">ClaimInfoActivity</string>
+    <string name="title_activity_add_receipt_photo">AddPhotoActivity</string>
 
 </resources>

@@ -42,6 +42,10 @@
             android:name=".ClaimInfoActivity"
             android:label="@string/title_activity_claim_info" >
         </activity>
+        <activity
+            android:name="ca.ualberta.cs.team16app.AddPhotoActivity"
+            android:label="@string/title_activity_add_receipt_photo" >
+        </activity>
     </application>
 
 </manifest>
