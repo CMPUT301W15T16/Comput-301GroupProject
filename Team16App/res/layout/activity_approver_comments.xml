@@ -28,6 +28,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/approvercomment"
         android:layout_marginBottom="184dp"
+        android:onClick="saveCommentButton"
         android:text="Save" />
 
 </RelativeLayout>

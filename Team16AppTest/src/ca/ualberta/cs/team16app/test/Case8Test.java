@@ -1,5 +1,13 @@
 package ca.ualberta.cs.team16app.test;
 
+import java.util.ArrayList;
+
+import android.content.ClipData.Item;
+import android.test.ViewAsserts;
+import android.widget.ListView;
+import ca.ualberta.cs.team16app.ApproverClaimListActivity;
+import ca.ualberta.cs.team16app.Claim;
+import ca.ualberta.cs.team16app.ClaimList;
 import junit.framework.TestCase;
 
 
@@ -77,16 +85,19 @@ public class Case8Test extends TestCase
 	//US08.03.02 & US08.04.02  approver can see the details of submitted claims
 	public void SubmittedClaimDetailsTest() {
 		ApproverClaimListActivity activity = getActivity();
-		ListView view = (ListView) activity.findViewById(R.id.claimlistview);
+		ListView view = (ListView) activity.findViewById(R.id.approverclaimlist);
 		ViewAsserts.assertOnScreen(activity.getWindow().getDecorView(),view);
 		ClaimList test = new ClaimList();
-		Item item = new Item("car",2012,"transpotation","USD",20000);
+		/*Item name = 
+		ArrayList<Item> item = new ArrayList<Item>();
+		item.add("car");
+		,2012,"transpotation","USD",20000);
 		Claim claim = new Claim(item);
-		assertTrue("expense is not in claim",claim.contains(item));
+		assertTrue("expense is not in claim",claim.contains(item));*/
 	}
 	
 	
-	//US08.05.02   allow approver view photo recept
+	//US08.05.02   allow approver view photo receipt
 	public void VeiwPhotoTest() {
 		ApproverClaimListActivity activity = getActivity();
 		ImageButton view = (Button) activity.findViewById(R.id.photograph);
@@ -100,7 +111,7 @@ public class Case8Test extends TestCase
 	//US08.07.02 & US08.08.02 approver return or approve claims and display his name so that user can see its status and name
 	public void ReturnClaimTest() {
 		Claim claim = new Claim(null);
-		claim.getStatus("returned");
+		status = claim.getStatus();
 		claim.getApprover("test approver");
 		AssertTrue("approvers don't match",claim.getApprover("Leon"),"test approver");
 		AssertTrue("claim is not returned",claim.getStatus("submitted"),"returned");

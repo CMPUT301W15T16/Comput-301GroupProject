@@ -8,6 +8,7 @@
 
 package ca.ualberta.cs.team16app;
 
+import ca.ualberta.cs.team16app.Claim.Status;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,16 +20,16 @@ import android.widget.Toast;
 
 public class ApproverClaimViewActivity extends Activity {
 
-	private Button returnClaim;
-	private Button approveClaim;
+	private Button returnClaimButton;
+	private Button approveClaimButton;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_approver_claim_view);
 		
-		returnClaim = (Button)findViewById(R.id.returnbutton);
-		approveClaim = (Button)findViewById(R.id.approvebutton);
+		returnClaimButton = (Button)findViewById(R.id.returnbutton);
+		approveClaimButton = (Button)findViewById(R.id.approvebutton);
 	}
 
 	@Override
@@ -50,10 +51,19 @@ public class ApproverClaimViewActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	public void returnClaim(View v){
+	public void returnClaimButton(View v){
 		Toast.makeText(this,"Returning claim: comment", Toast.LENGTH_SHORT).show(); // show message
 		
 		Intent intent = new Intent(ApproverClaimViewActivity.this,ApproverCommentsActivity.class);//
+		startActivity(intent);// go to approver comments
+	}
+	
+	public void approveClaimButton(View v){
+		Toast.makeText(this,"Claim Approved!", Toast.LENGTH_SHORT).show(); // show message
+		
+		Claim.Status status = Status.Approved;
+		//ClaimList.removeClaim(Claim);
+		Intent intent = new Intent(ApproverClaimViewActivity.this,ApproverClaimListActivity.class);//
 		startActivity(intent);// go to approver comments
 	}
 }

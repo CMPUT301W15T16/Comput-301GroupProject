@@ -5,9 +5,9 @@
  * on the approver's claim list*/
 
 
-
 package ca.ualberta.cs.team16app;
 
+import ca.ualberta.cs.team16app.Claim.Status;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,10 +18,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 public class ApproverCommentsActivity extends Activity {
 
 	private EditText  comments=null;
-	private Button saveComment;
+	private Button saveCommentButton;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +30,7 @@ public class ApproverCommentsActivity extends Activity {
 		setContentView(R.layout.activity_approver_comments);
 		
 		comments = (EditText)findViewById(R.id.approvercomment);
-		saveComment = (Button)findViewById(R.id.saveapprovercomment);
+		saveCommentButton = (Button)findViewById(R.id.saveapprovercomment);
 	}
 
 	@Override
@@ -52,7 +53,7 @@ public class ApproverCommentsActivity extends Activity {
 	}
 	
 	//click save button to return to claim list
-	public void saveComment(View v){
+	public void saveCommentButton(View v){
 		//user has to enter a comment to return a claim
 		if(comments.getText().toString().equals(""))
 		{
@@ -61,12 +62,29 @@ public class ApproverCommentsActivity extends Activity {
 		}
 		
 	 else{
-		Toast.makeText(this,"Claim Returned! Proceeding to Claim List", 
+		Toast.makeText(this,"Commented Saved and Claim Returned!", 
 				Toast.LENGTH_SHORT).show(); // show message
 			
 		Intent intent = new Intent(ApproverCommentsActivity.this,
 				ApproverClaimListActivity.class);
+		Claim.Status status = Status.Returned;   //change status of claim
 		startActivity(intent);// move to claim list
 		 }
 	}
+	
+	/*
+	//From: http://developer.android.com/training/basics/data-storage/files.html
+	File file = new File(context.getFilesDir(), filename);
+	String filename = "myfile";
+	String string = "Hello world!";
+	FileOutputStream outputStream;
+
+	try {
+	  outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
+	  outputStream.write(string.getBytes());
+	  outputStream.close();
+	} catch (Exception e) {
+	  e.printStackTrace();
+	}
+	*/
 }
