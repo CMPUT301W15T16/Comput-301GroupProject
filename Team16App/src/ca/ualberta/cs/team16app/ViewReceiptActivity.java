@@ -1,3 +1,9 @@
+/**
+ * This class let users view the single photo of an expense item, and they can delete and retake photo here.
+ * 
+ * @author Tiancheng Shen
+ */
+
 package ca.ualberta.cs.team16app;
 
 import android.app.Activity;
@@ -23,6 +29,9 @@ public class ViewReceiptActivity extends Activity {
 		// set the layout this activity
 		setContentView(R.layout.activity_show_image);
 		
+		/**
+		 * View image here
+		 */
 		image = (ImageView) findViewById(R.id.imageView);
 		image.setOnClickListener(new OnClickListener() {
 			@Override
@@ -35,6 +44,9 @@ public class ViewReceiptActivity extends Activity {
 		});
 	}
 	
+	/**
+	 * Retrieve the uploaded image from TakePhotoActivity to be used as a thumbnail in the story associated with this activity
+	 */
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
