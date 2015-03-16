@@ -65,8 +65,8 @@ public class MainActivity extends Activity
 	 else{
 		Toast.makeText(this,"Approver page", Toast.LENGTH_SHORT).show(); // show message
 			
-		Intent intent = new Intent(MainActivity.this,ClaimListActivity.class);//
-		startActivity(intent);// move to claim list since the approver claim list have not been done
+		Intent intent = new Intent(MainActivity.this,ApproverClaimListActivity.class);//
+		startActivity(intent);// move to approver claim list
 		 }
 	}
 }

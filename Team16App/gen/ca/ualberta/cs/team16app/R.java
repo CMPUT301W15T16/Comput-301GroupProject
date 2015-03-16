@@ -101,10 +101,11 @@ public final class R {
     public static final class menu {
         public static final int add_claim=0x7f070000;
         public static final int add_expense=0x7f070001;
-        public static final int claim_info=0x7f070002;
-        public static final int claim_list=0x7f070003;
-        public static final int expense_list=0x7f070004;
-        public static final int main=0x7f070005;
+        public static final int approver_claim_list=0x7f070002;
+        public static final int claim_info=0x7f070003;
+        public static final int claim_list=0x7f070004;
+        public static final int expense_list=0x7f070005;
+        public static final int main=0x7f070006;
     }
     public static final class string {
         public static final int action_settings=0x7f050001;
@@ -113,6 +114,7 @@ public final class R {
         public static final int title_activity_add_claim=0x7f050003;
         public static final int title_activity_add_expense=0x7f050006;
         public static final int title_activity_add_receipt_photo=0x7f050008;
+        public static final int title_activity_approver_claim_list=0x7f050009;
         public static final int title_activity_claim_info=0x7f050007;
         public static final int title_activity_claim_list=0x7f050004;
         public static final int title_activity_expense_list=0x7f050005;

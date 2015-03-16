@@ -43,8 +43,12 @@
             android:label="@string/title_activity_claim_info" >
         </activity>
         <activity
-            android:name="ca.ualberta.cs.team16app.AddPhotoActivity"
+            android:name=".AddPhotoActivity"
             android:label="@string/title_activity_add_receipt_photo" >
+        </activity>
+        <activity
+            android:name=".ApproverClaimListActivity"
+            android:label="@string/title_activity_approver_claim_list" >
         </activity>
     </application>
 

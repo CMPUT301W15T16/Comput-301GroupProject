@@ -10,5 +10,6 @@
     <string name="title_activity_add_expense">AddExpenseActivity</string>
     <string name="title_activity_claim_info">ClaimInfoActivity</string>
     <string name="title_activity_add_receipt_photo">AddPhotoActivity</string>
+    <string name="title_activity_approver_claim_list">ApproverClaimListActivity</string>
 
 </resources>
