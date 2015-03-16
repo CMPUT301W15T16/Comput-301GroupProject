@@ -1,3 +1,11 @@
+/*
+ * This file should allow the approver to see the claim details and 
+ * approve or return the claim. 
+ * The functions mentioned above are still being worked on. Also,
+ * to do: approver should be transferred to claim page or comment page
+ * depending on the option clicked */
+
+
 package ca.ualberta.cs.team16app;
 
 import android.app.Activity;
@@ -46,6 +54,6 @@ public class ApproverClaimViewActivity extends Activity {
 		Toast.makeText(this,"Returning claim: comment", Toast.LENGTH_SHORT).show(); // show message
 		
 		Intent intent = new Intent(ApproverClaimViewActivity.this,ApproverCommentsActivity.class);//
-		startActivity(intent);// move to approver comments
+		startActivity(intent);// go to approver comments
 	}
 }
