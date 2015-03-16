@@ -3,8 +3,6 @@
  * Also, when a claim is clicked allows the user to go to 
  * the claim view page to see claim in more detail*/
 
-
-
 package ca.ualberta.cs.team16app;
 
 import java.util.ArrayList;
@@ -20,7 +18,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
-
+/**
+ * This file allows the approver to view the list of claims.
+ * Also, when a claim is clicked allows the user to go to 
+ * the claim view page to see claim in more detail
+ */
 public class ApproverClaimListActivity extends Activity {
 
 	@Override

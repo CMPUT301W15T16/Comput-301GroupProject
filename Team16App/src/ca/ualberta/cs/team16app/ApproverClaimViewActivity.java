@@ -18,6 +18,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+/**
+ * 
+ * @author Team16
+ * 
+ *
+ */
+/**
+ * This file should allow the approver to see the claim details and 
+ * approve or return the claim. 
+ * The functions mentioned above are still being worked on. Also,
+ * To do: approver should be transferred to claim page or comment page
+ * depending on the option clicked
+ *
+ *
+ */
+
 public class ApproverClaimViewActivity extends Activity {
 
 	private Button returnClaimButton;

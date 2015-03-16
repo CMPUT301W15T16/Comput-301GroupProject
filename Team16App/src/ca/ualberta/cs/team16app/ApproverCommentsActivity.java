@@ -18,7 +18,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+/**
+ * 
+ * @author Team16
+ *
+ */
 
+/**
+ * 
+ * This file allows the approver to add a comment when returning a file
+ * TO DO: connect the approver_comment UI to the rest of the app,
+ * make sure that the claim that has been returned does not stay 
+ * on the approver's claim list
+ *
+ */
 public class ApproverCommentsActivity extends Activity {
 
 	private EditText  comments=null;
