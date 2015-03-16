@@ -46,8 +46,13 @@ public class Expense implements Serializable {
     protected transient ArrayList<Listener> itemListener;
     private  ArrayList<Tag> tagList;
     
-	public Expense(String expenseName) {
+	public Expense(String expenseName, String cate, String spend, String cur,String des) {
 		this.expenseName = expenseName;
+		this.category = cate;
+		this.spend = spend;
+		this.currency = cur;
+		this.description = des;
+		
 	}
 
 	public String getName() {

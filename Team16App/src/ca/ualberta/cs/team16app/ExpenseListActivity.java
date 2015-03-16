@@ -108,16 +108,16 @@ ExpenseListManager.initManager(this.getApplicationContext());
 						ExpenseListActivity.this);
 				adb.setMessage("Expense: "
 						+ list.get(index).getName().toString()
-						//+ "\nCategory: "
-						//+ list.get(index).getCategory().toString()
+						+ "\nCategory: "
+						+ list.get(index).getCategory().toString()
 						//+ "\nDate: "
 						//+ list.get(index).getDate().toString()
-						//+ "\nAmount: "
-						//+ list.get(index).getSpend().toString()
-						//+ "\nCurrency Type: "
-						//+ list.get(index).getCurrency().toString()
-						//+ "\nDescription: "
-						//+ list.get(index).getDescription().toString()
+						+ "\nAmount: "
+						+ list.get(index).getSpend().toString()
+						+ "\nCurrency Type: "
+						+ list.get(index).getCurrency().toString()
+						+ "\nDescription: "
+						+ list.get(index).getDescription().toString()
 
 				);
 				adb.show();
