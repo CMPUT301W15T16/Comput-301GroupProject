@@ -60,9 +60,18 @@ public class Expense implements Serializable {
 		return this.expenseName;
 	}
 	
+	public void setName(String name) {
+		this.expenseName = name;
+	}
+	
 	public Date getDate(){
 		return this.date;
 	}
+	
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	
 
 	public String toString(){
 		return getName();
@@ -107,20 +116,41 @@ public class Expense implements Serializable {
 		// TODO Auto-generated method stub
 		return this.category;
 	}
+	
+	public void setCategory(String cate) {
+		this.category = cate;
+	}
+	
 
 	public Object getSpend() {
 		// TODO Auto-generated method stub
 		return this.spend;
 	}
+	
+	public void setSpend(String cost) {
+		this.spend = cost;
+	}
+	
 
 	public Object getCurrency() {
 		return this.currency;
 	}
+	
+	public void setCurrency(String cur) {
+		this.currency = cur;
+	}
+	
 
 	public Object getDescription() {
 		// TODO Auto-generated method stub
 		return this.description;
 	}
+	
+	
+	public void setDescription(String des) {
+		this.description = des;
+	}
+	
 	// get/set tags
 	public ArrayList<Tag> getTagList() {
 		return tagList;
