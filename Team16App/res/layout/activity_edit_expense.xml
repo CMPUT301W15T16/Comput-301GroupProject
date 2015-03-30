@@ -98,7 +98,7 @@
         android:layout_alignRight="@+id/addimg"
         android:layout_below="@+id/addimg"
         android:layout_marginTop="29dp"
-        android:onClick="saveExpense"
+        android:onClick="editExpense"
         android:text="Update" />
 
     <Button

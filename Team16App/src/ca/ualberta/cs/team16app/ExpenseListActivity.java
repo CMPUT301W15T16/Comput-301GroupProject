@@ -59,7 +59,7 @@ ExpenseListManager.initManager(this.getApplicationContext());
 				public boolean onItemLongClick(AdapterView<?> adapterView, View view,
 						int position, long id) {
 					//Toast.makeText(ClaimListActivity.this,"Delete "+ list.get(position).toString(), Toast.LENGTH_SHORT).show();
-					
+					final int finalPosition = position;
 					AlertDialog.Builder adb = new AlertDialog.Builder(ExpenseListActivity.this); //set alert dialog for deleting
 					adb.setMessage("Delete "+list.get(position).toString()+ "?");
 					adb.setCancelable(true);
@@ -86,9 +86,10 @@ ExpenseListManager.initManager(this.getApplicationContext());
 													.getName(), Toast.LENGTH_SHORT)
 									.show();
 							Intent intent = new Intent(ExpenseListActivity.this,
-									AddExpenseActivity.class);
+									EditExpenseActivity.class);
 							intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 							intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+							intent.putExtra("pos", finalPosition);
 							startActivity(intent);
 						}
 					});

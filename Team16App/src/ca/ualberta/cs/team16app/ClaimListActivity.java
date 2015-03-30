@@ -7,7 +7,6 @@
 package ca.ualberta.cs.team16app;
 
 import java.util.ArrayList;
-
 import java.util.Collection;
 
 
@@ -83,29 +82,68 @@ public class ClaimListActivity extends Activity {
 						ClaimListController.getClaimList().removeClaim(claim);						
 					}								
 				});
-				adb.setNegativeButton("Cancel", new OnClickListener(){
+				adb.setNegativeButton("Edit", new OnClickListener(){
 					@Override
 					public void onClick(DialogInterface dialog, int which) {						
-						//do nothing here since we dont want to delete the claim
+						Intent intent = new Intent(ClaimListActivity.this,ClaimInfoActivity.class);
+						startActivity(intent);
 					}					
 				});
+				
+				adb.setNeutralButton("Add Expense", new OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						Intent intent = new Intent(ClaimListActivity.this,
+								ExpenseListActivity.class);
+						Toast.makeText(
+								ClaimListActivity.this,
+								"add new expenses ", Toast.LENGTH_SHORT).show();
+						intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+						// sent the finalPosition to ActivityNewClaim
+						//intent.putExtra("id", finalPosition);
+						startActivity(intent);
+
+					}
+
+				});
+
 				adb.show();			
 				return true;
 			}	    	    	
 		});
 	    
 	    listView.setOnItemClickListener(new OnItemClickListener(){
-
-
-			@Override
-			public void onItemClick(AdapterView<?> adapterView, View view, int position,
-					long id) {
+	    	@Override
+	    	public void onItemClick(AdapterView<?> AdapterView, View view,
+					int position, long id) {
+				final int index = position;
+				AlertDialog.Builder adb = new AlertDialog.Builder(
+						ClaimListActivity.this);
+				adb.setMessage("Claim: "
+						+ list.get(index).getName().toString()
+						+ "\nStart Date: "
+						//+ list.get(index).getStartDate().toString()
+						);
+				
+				
+				
+				adb.show();	
+	    		}
+	    	});
+	    	
+			//public void onItemClick(AdapterView<?> adapterView, View view, int position,
+			//		long id) {
+				
+				
+				
 				// TODO Auto-generated method stub
-				Intent intent = new Intent(ClaimListActivity.this,ClaimInfoActivity.class);
-				startActivity(intent);
-				}
-			});
-		
+				//Intent intent = new Intent(ClaimListActivity.this,ClaimInfoActivity.class);
+				//startActivity(intent);
+				//}
+			//});
+	    	
 	}
 	
 	

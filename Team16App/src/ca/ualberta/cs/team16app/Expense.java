@@ -112,17 +112,13 @@ public class Expense implements Serializable {
 		}
 	}
 
-	public Object getCategory() {
-		// TODO Auto-generated method stub
-		return this.category;
-	}
 	
 	public void setCategory(String cate) {
 		this.category = cate;
 	}
-	
+	 
 
-	public Object getSpend() {
+	public String getSpend() {
 		// TODO Auto-generated method stub
 		return this.spend;
 	}
@@ -132,7 +128,7 @@ public class Expense implements Serializable {
 	}
 	
 
-	public Object getCurrency() {
+	public String getCurrency() {
 		return this.currency;
 	}
 	
@@ -141,7 +137,7 @@ public class Expense implements Serializable {
 	}
 	
 
-	public Object getDescription() {
+	public String getDescription() {
 		// TODO Auto-generated method stub
 		return this.description;
 	}
@@ -158,5 +154,12 @@ public class Expense implements Serializable {
 	public void setTags(ArrayList<Tag> tagList) {
 		this.tagList = tagList;
 	}
+
+	public String getCategory() {
+		// TODO Auto-generated method stub
+		return this.category;
+	}
+
+
 
 }
