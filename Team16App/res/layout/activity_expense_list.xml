@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/button1"
         android:onClick="newExpense"
         android:text="Add Expense" />
 
@@ -21,5 +22,14 @@
         android:layout_alignParentTop="true" >
 
     </ListView>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:onClick="backToClaimList"
+        android:text="Back to Claim List" />
 
 </RelativeLayout>

@@ -160,6 +160,13 @@ ExpenseListManager.initManager(this.getApplicationContext());
 		Intent intent = new Intent(ExpenseListActivity.this,AddExpenseActivity.class);
 		startActivity(intent);
 		}
+	
+	public void backToClaimList(View v){
+	Toast.makeText(this,"back to the Claim list", Toast.LENGTH_SHORT).show(); // show message
+	
+	Intent intent = new Intent(ExpenseListActivity.this,ClaimListActivity.class);
+	startActivity(intent);
+	}
 
 }
 	  
