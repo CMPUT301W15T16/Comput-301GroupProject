@@ -31,11 +31,12 @@ public class ExpenseListActivity extends Activity
 		setContentView(R.layout.activity_expense_list);
 		
 		
-ExpenseListManager.initManager(this.getApplicationContext());
+		ExpenseListManager.initManager(this.getApplicationContext());
 		
 		ListView listView = (ListView) findViewById(R.id.expense_listView);
 	     Collection<Expense> expense = ExpenseListController.getExpenseList().getExpenses();
-	   
+	     Bundle extras = getIntent().getExtras();
+	     final int temp = extras.getInt("ide");
 
 	     final ArrayList<Expense> list = new ArrayList<Expense>(expense);
 	     final ArrayAdapter<Expense> expenseAdapter = new ArrayAdapter<Expense>(this, android.R.layout.simple_list_item_1, list);
@@ -90,6 +91,7 @@ ExpenseListManager.initManager(this.getApplicationContext());
 							intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 							intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 							intent.putExtra("pos", finalPosition);
+							intent.putExtra("ide",temp);
 							startActivity(intent);
 						}
 					});

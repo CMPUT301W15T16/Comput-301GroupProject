@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:onClick="editClaim"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="ca.ualberta.cs.group_travelexpenseapp.AddClaim" >
+
+    <Button
+        android:id="@+id/deleteclaim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/reason"
+        android:layout_alignTop="@+id/saveclaim"
+        android:text="Delete" />
+
+    <EditText
+        android:id="@+id/claimNameInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/saveclaim"
+        android:ems="10"
+        android:hint="Claim Name" />
+
+    <EditText
+        android:id="@+id/enddate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/startdate"
+        android:layout_alignRight="@+id/startdate"
+        android:layout_below="@+id/startdate"
+        android:ems="10"
+        android:hint="End Date"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/startdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/claimNameInfo"
+        android:layout_below="@+id/claimNameInfo"
+        android:ems="10"
+        android:hint="Start Date"
+        android:inputType="date" />
+
+    <Button
+        android:id="@+id/saveclaim"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="editClaim"
+        android:text="Save" />
+
+    <AutoCompleteTextView
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/deleteclaim"
+        android:layout_alignLeft="@+id/deleteclaim"
+        android:ems="10"
+        android:text="In process" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/enddate"
+        android:text="Date example:1999-04-19" />
+
+    <EditText
+        android:id="@+id/userName_create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:ems="10"
+        android:hint="Destination(s)" />
+
+    <EditText
+        android:id="@+id/reason"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/status"
+        android:layout_alignLeft="@+id/userName_create"
+        android:layout_alignRight="@+id/saveclaim"
+        android:layout_below="@+id/userName_create"
+        android:ems="10"
+        android:gravity="left|top"
+        android:hint="Reason(s) for travel"
+        android:inputType="textMultiLine" />
+
+</RelativeLayout>

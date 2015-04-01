@@ -1,6 +1,6 @@
 package ca.ualberta.cs.team16app;
 
-
+// wittten by Di Meng 1358503
 
 import android.app.Activity;
 import android.content.Intent;
@@ -40,9 +40,10 @@ public class EditExpenseActivity extends Activity {
 	
 	public void editExpense(View v){
 		Bundle extras = getIntent().getExtras();
+		int first = extras.getInt("ide");
 		int pos = extras.getInt("id");
 		Toast.makeText(this,"edit a expense", Toast.LENGTH_SHORT).show(); // show message
-		ExpenseListController cm = new ExpenseListController();
+		ClaimListController cm = new ClaimListController();
 		EditText textview = (EditText) findViewById(R.id.name);
 		EditText startdateView = (EditText) findViewById(R.id.expenseDate);
 		EditText categoryView = (EditText) findViewById(R.id.Category);
@@ -53,7 +54,7 @@ public class EditExpenseActivity extends Activity {
 		
 		
 		
-		Expense target = ExpenseListController.getExpenseList().getPosition(pos);
+		Expense target = ClaimListController.getClaimList().getPosition(first).getPosition(pos);
 		
 		target.setCategory(categoryView.getText().toString());
 		target.setCurrency(currencyView.getText().toString());
@@ -64,7 +65,7 @@ public class EditExpenseActivity extends Activity {
 		
 						
 		Intent intent = new Intent(EditExpenseActivity.this,ExpenseListActivity.class);
-		ExpenseListController.saveExpenseList();
+		ClaimListController.saveClaimList();
 		startActivity(intent);
 		
 	}

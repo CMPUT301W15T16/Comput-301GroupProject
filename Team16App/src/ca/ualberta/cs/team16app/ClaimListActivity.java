@@ -84,8 +84,12 @@ public class ClaimListActivity extends Activity {
 				});
 				adb.setNegativeButton("Edit", new OnClickListener(){
 					@Override
-					public void onClick(DialogInterface dialog, int which) {						
-						Intent intent = new Intent(ClaimListActivity.this,ClaimInfoActivity.class);
+					public void onClick(DialogInterface dialog, int which) {	
+						
+						Intent intent = new Intent(ClaimListActivity.this,EditClaimActivity.class);
+						intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+						intent.putExtra("ide", FinalPosition);
 						startActivity(intent);
 					}					
 				});
@@ -102,7 +106,7 @@ public class ClaimListActivity extends Activity {
 						intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 						// sent the finalPosition to ActivityNewClaim
-						//intent.putExtra("id", finalPosition);
+						intent.putExtra("ide", FinalPosition);
 						startActivity(intent);
 
 					}

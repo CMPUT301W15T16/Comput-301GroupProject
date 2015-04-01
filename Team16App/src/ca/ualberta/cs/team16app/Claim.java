@@ -10,6 +10,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
+
+
 import android.content.ClipData.Item;
 import android.nfc.Tag;
 
@@ -57,7 +59,7 @@ public class Claim implements Serializable
 	/**
 	 * start date of claims
 	 */
-	protected Date startdate;
+	protected String startdate;
 	
 	/**
 	 * list of expense items
@@ -83,7 +85,7 @@ public class Claim implements Serializable
     /**
      * list of destinations for a claim
      */
-    private ArrayList<Destination> DestList;
+    private String DestList;
 	
     
     // public Claim(String claimName, String description, Date startdate, Date enddate, Status status)
@@ -100,6 +102,7 @@ public class Claim implements Serializable
     	ItemList = new ArrayList<Item>();
 		TagList = new ArrayList<Tag>();
     	this.claimName = claimName;
+  
     	/*
     	this.description = description;
     	this.startdate = startdate;
@@ -134,17 +137,17 @@ public class Claim implements Serializable
 	 * 
 	 * @return startdate
 	 */
-	public Date getStartDate(){
+	public String getStartDate(){
 		return startdate;
 	}
 	
 	/**
 	 * set up start date for claims
 	 * 
-	 * @param startdate
+	 * @param string
 	 */
-	public void setStartDate(Date startdate){
-		this.startdate = startdate;
+	public void setStartDate(String string){
+		this.startdate = string;
 		
 	}
 
@@ -202,7 +205,7 @@ public class Claim implements Serializable
 	 * 
 	 * @return DestList
 	 */
-	public ArrayList<Destination> getDestList(){
+	public String getDestList(){
 		return DestList;
 	}
 	
@@ -226,6 +229,20 @@ public class Claim implements Serializable
 	
 	public int hashCode(){
 		return ("Claim"+getName()).hashCode();
+	}
+
+
+	public void setDestination(String string) {
+		// TODO Auto-generated method stub
+		this.DestList = string;
+		
+	}
+
+
+	
+
+	public Expense getPosition(int position) {
+		return items.get(position);
 	}
 	
 

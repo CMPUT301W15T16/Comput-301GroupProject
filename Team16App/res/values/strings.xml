@@ -16,5 +16,6 @@
     <string name="title_activity_activity__add__tag">Activity_Add_Tag</string>
     <string name="title_activity_view_image">ViewReceiptActivity</string>
     <string name="title_activity_edit_expense">EditExpenseActivity</string>
+    <string name="title_activity_edit_claim">EditClaimActivity</string>
 
 </resources>
