@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 public class GeolocationActivity extends Activity{
 
-	public static final String MOCK_PROVIDER = "GeolocationProvider";
+	public static final String Geo_PROVIDER = "GeolocationProvider";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

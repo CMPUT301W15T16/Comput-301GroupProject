@@ -18,5 +18,6 @@
     <string name="title_activity_edit_expense">EditExpenseActivity</string>
     <string name="title_activity_edit_claim">EditClaimActivity</string>
     <string name="title_activity_geolocation">GeolocationActivity</string>
+    <string name="location">My Current Location</string>
 
 </resources>
