@@ -26,6 +26,7 @@ public class EditClaimActivity extends Activity {
 	
 	// written by Di Meng
 	public void editClaim(View v){
+		ClaimListManager.initManager(this.getApplicationContext());
 		Bundle extras = getIntent().getExtras();
 		int pos = extras.getInt("ide");
 		Toast.makeText(this,"edit a expense", Toast.LENGTH_SHORT).show(); // show message

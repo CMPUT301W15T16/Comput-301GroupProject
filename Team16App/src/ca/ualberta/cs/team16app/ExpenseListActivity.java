@@ -30,25 +30,32 @@ public class ExpenseListActivity extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_expense_list);
 		
-		
+		Bundle extras = getIntent().getExtras();
+	     final int temp = extras.getInt("claimPos");
 		ExpenseListManager.initManager(this.getApplicationContext());
 		
 		ListView listView = (ListView) findViewById(R.id.expense_listView);
-	     Collection<Expense> expense = ExpenseListController.getExpenseList().getExpenses();
-	     Bundle extras = getIntent().getExtras();
-	     final int temp = extras.getInt("ide");
+	     //Collection<Expense> expense = ExpenseListController.getExpenseList().getExpenses();
+	     
+	     Collection<Expense> expense = ClaimListController.getClaimList()
+					.getPosition(temp).getExpense();
+	     
 
 	     final ArrayList<Expense> list = new ArrayList<Expense>(expense);
 	     final ArrayAdapter<Expense> expenseAdapter = new ArrayAdapter<Expense>(this, android.R.layout.simple_list_item_1, list);
 	     listView.setAdapter(expenseAdapter);
 	     
 
-	     ExpenseListController.getExpenseList().addListener(new Listener() {
+	
+	     
+	     ClaimListController.getClaimList().getPosition(temp).addListener(new Listener() {
 	     	public void update() {
 	     		list.clear();
-	     		Collection<Expense> expense = ExpenseListController.getExpenseList().getExpenses();
-	     		list.addAll(expense);
-	     		expenseAdapter.notifyDataSetChanged();
+				Collection<Expense> expenseCol = ClaimListController.getClaimList()
+						.getPosition(temp).getExpense();
+				list.addAll(expenseCol);
+				//http://developer.android.com/reference/android/widget/ArrayAdapter.html
+				expenseAdapter.notifyDataSetChanged();
 	     	}
 	     });
 		
@@ -70,7 +77,9 @@ public class ExpenseListActivity extends Activity
 						@Override
 						public void onClick(DialogInterface dialog, int which) {
 							Expense expense = list.get(FinalPosition);
-							ExpenseListController.getExpenseList().deleteExpense(expense);						
+							ClaimListController.getClaimList().getPosition(temp)
+							.removeExpense(expense);
+													
 						}								
 					});
 					
@@ -91,7 +100,7 @@ public class ExpenseListActivity extends Activity
 							intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 							intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 							intent.putExtra("pos", finalPosition);
-							intent.putExtra("ide",temp);
+							intent.putExtra("claimPos",temp);
 							startActivity(intent);
 						}
 					});
@@ -157,9 +166,14 @@ public class ExpenseListActivity extends Activity
 	}
 
 	public void newExpense(View v){
+		Bundle extras = getIntent().getExtras();
+	     final int temp = extras.getInt("claimPos");
 		Toast.makeText(this,"Adding a expense", Toast.LENGTH_SHORT).show(); // show message
 		
 		Intent intent = new Intent(ExpenseListActivity.this,AddExpenseActivity.class);
+		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		intent.putExtra("claimPos", temp);
 		startActivity(intent);
 		}
 	

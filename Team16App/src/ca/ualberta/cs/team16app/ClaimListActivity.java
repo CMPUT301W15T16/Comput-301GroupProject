@@ -91,6 +91,7 @@ public class ClaimListActivity extends Activity {
 						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 						intent.putExtra("ide", FinalPosition);
 						startActivity(intent);
+						
 					}					
 				});
 				
@@ -106,7 +107,7 @@ public class ClaimListActivity extends Activity {
 						intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 						// sent the finalPosition to ActivityNewClaim
-						intent.putExtra("ide", FinalPosition);
+						intent.putExtra("claimPos", FinalPosition);
 						startActivity(intent);
 
 					}
