@@ -14,13 +14,13 @@ import android.widget.TextView;
 // Edited by Tiancheng Shen
 // Part of the codes are cited from lab sample "MockLocationTester"
 
-public class Geolocation extends Activity{
+public class GeolocationActivity extends Activity{
 
 	public static final String MOCK_PROVIDER = "GeolocationProvider";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_geolocation);
 		
 		LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 		Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);

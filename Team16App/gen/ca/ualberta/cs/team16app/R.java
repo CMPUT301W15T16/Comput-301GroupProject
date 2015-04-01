@@ -63,6 +63,7 @@ public final class R {
         public static final int expenseDate=0x7f08000a;
         public static final int expenseDescription=0x7f08000c;
         public static final int expense_listView=0x7f080028;
+        public static final int geolocation=0x7f080039;
         public static final int gps=0x7f08002c;
         public static final int imageView=0x7f080036;
         public static final int name=0x7f080009;
@@ -137,6 +138,7 @@ public final class R {
         public static final int title_activity_edit_claim=0x7f05000f;
         public static final int title_activity_edit_expense=0x7f05000e;
         public static final int title_activity_expense_list=0x7f050005;
+        public static final int title_activity_geolocation=0x7f050010;
         public static final int title_activity_view_image=0x7f05000d;
     }
     public static final class style {
