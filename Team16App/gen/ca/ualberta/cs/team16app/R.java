@@ -30,7 +30,7 @@ public final class R {
     }
     public static final class id {
         public static final int Category=0x7f08000b;
-        public static final int action_settings=0x7f08003b;
+        public static final int action_settings=0x7f08003c;
         public static final int add_expense_button=0x7f08002c;
         public static final int addimg=0x7f080010;
         public static final int addnewtag=0x7f080015;
@@ -63,7 +63,14 @@ public final class R {
         public static final int expenseDate=0x7f08000a;
         public static final int expenseDescription=0x7f08000c;
         public static final int expense_listView=0x7f080029;
-        public static final int geolocation=0x7f08003c;
+        public static final int geolocation1=0x7f080040;
+        public static final int geolocation2=0x7f080043;
+        public static final int geolocation3=0x7f080042;
+        public static final int geolocation4=0x7f080041;
+        public static final int geolocation5=0x7f08003f;
+        public static final int geolocation6=0x7f08003e;
+        public static final int geolocation7=0x7f08003d;
+        public static final int geolocation8=0x7f08003b;
         public static final int gps=0x7f08002d;
         public static final int homeGeo=0x7f08002e;
         public static final int imageView=0x7f080039;

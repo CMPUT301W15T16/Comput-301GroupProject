@@ -71,6 +71,11 @@ public class EditExpenseActivity extends Activity {
 		intent.putExtra("claimPos", first);
 		ClaimListController.saveClaimList();
 		startActivity(intent);
-		
+	}
+	
+	public void geolocation(MenuItem menu){
+		Toast.makeText(this, "Geolocation", Toast.LENGTH_SHORT).show();
+		Intent intent = new Intent(EditExpenseActivity.this, GeolocationActivity.class);
+		startActivity(intent);
 	}
 }

@@ -71,11 +71,6 @@ public class MainActivity extends Activity
 		 }
 	}
 	
-	public void geolocation(MenuItem menu){
-		Toast.makeText(this, "Geolocation", Toast.LENGTH_SHORT).show();
-		Intent intent = new Intent(MainActivity.this, GeolocationActivity.class);
-		startActivity(intent);
-	}
 }
 	
 

@@ -179,4 +179,10 @@ public class ClaimListActivity extends Activity {
 		Intent intent = new Intent(ClaimListActivity.this,AddClaimActivity.class);
 		startActivity(intent);
 		}
+	
+	public void geolocation(MenuItem menu){
+		Toast.makeText(this, "Geolocation", Toast.LENGTH_SHORT).show();
+		Intent intent = new Intent(ClaimListActivity.this, GeolocationActivity.class);
+		startActivity(intent);
+	}
 }

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -53,6 +54,12 @@ public class EditClaimActivity extends Activity {
 		ClaimListController.saveClaimList();
 		startActivity(intent);
 		
+	}
+	
+	public void geolocation(MenuItem menu){
+		Toast.makeText(this, "Geolocation", Toast.LENGTH_SHORT).show();
+		Intent intent = new Intent(EditClaimActivity.this, GeolocationActivity.class);
+		startActivity(intent);
 	}
 
 }

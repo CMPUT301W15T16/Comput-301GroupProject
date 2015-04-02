@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -60,6 +61,12 @@ public class AddExpenseActivity extends Activity
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		intent.putExtra("claimPos", first);
+		startActivity(intent);
+	}
+	
+	public void geolocation(MenuItem menu){
+		Toast.makeText(this, "Geolocation", Toast.LENGTH_SHORT).show();
+		Intent intent = new Intent(AddExpenseActivity.this, GeolocationActivity.class);
 		startActivity(intent);
 	}
 }

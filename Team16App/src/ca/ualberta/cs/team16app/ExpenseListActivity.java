@@ -11,6 +11,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.DialogInterface.OnClickListener;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -184,5 +185,11 @@ public class ExpenseListActivity extends Activity
 	startActivity(intent);
 	}
 
+	public void geolocation(MenuItem menu){
+		Toast.makeText(this, "Geolocation", Toast.LENGTH_SHORT).show();
+		Intent intent = new Intent(ExpenseListActivity.this, GeolocationActivity.class);
+		startActivity(intent);
+	}
+	
 }
 	  
