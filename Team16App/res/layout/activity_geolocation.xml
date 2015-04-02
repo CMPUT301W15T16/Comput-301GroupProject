@@ -14,4 +14,37 @@
         android:layout_height="wrap_content"
         android:text="@string/location" />
 
+    <TextView
+        android:id="@+id/textHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/gps"
+        android:layout_centerVertical="true"
+        android:text="My home geolocation:" />
+
+    <TextView
+        android:id="@+id/homeGeo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textHome"
+        android:layout_below="@+id/textHome"
+        android:text="@string/home" />
+
+    <Button
+        android:id="@+id/setHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/homeGeo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="76dp"
+        android:text="Set Home Geolocation" />
+
+    <Button
+        android:id="@+id/openMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/setHome"
+        android:layout_centerHorizontal="true"
+        android:text="Open Map" />
+
 </RelativeLayout>

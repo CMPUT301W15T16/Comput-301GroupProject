@@ -30,7 +30,7 @@ public final class R {
     }
     public static final class id {
         public static final int Category=0x7f08000b;
-        public static final int action_settings=0x7f080039;
+        public static final int action_settings=0x7f08003b;
         public static final int add_expense_button=0x7f08002c;
         public static final int addimg=0x7f080010;
         public static final int addnewtag=0x7f080015;
@@ -39,12 +39,11 @@ public final class R {
         public static final int approverNameReturns=0x7f080020;
         public static final int approverclaimlist=0x7f080017;
         public static final int approvercomment=0x7f08001f;
-        public static final int button1=0x7f080022;
         public static final int button2=0x7f080023;
-        public static final int camera=0x7f080032;
+        public static final int camera=0x7f080034;
         public static final int checkBox1=0x7f08000f;
-        public static final int choose_Approver=0x7f080034;
-        public static final int choose_Claimant=0x7f080035;
+        public static final int choose_Approver=0x7f080036;
+        public static final int choose_Claimant=0x7f080037;
         public static final int claimNameInfo=0x7f080003;
         public static final int claimenddate=0x7f08001b;
         public static final int claimstartdate=0x7f08001a;
@@ -55,7 +54,7 @@ public final class R {
         public static final int currency=0x7f08000e;
         public static final int deleteclaim=0x7f080000;
         public static final int deleteexpense=0x7f080012;
-        public static final int deleteimg=0x7f080038;
+        public static final int deleteimg=0x7f08003a;
         public static final int deletetag=0x7f080014;
         public static final int editableClaimName=0x7f080024;
         public static final int editableEDate=0x7f080026;
@@ -64,30 +63,33 @@ public final class R {
         public static final int expenseDate=0x7f08000a;
         public static final int expenseDescription=0x7f08000c;
         public static final int expense_listView=0x7f080029;
-        public static final int geolocation=0x7f08003a;
+        public static final int geolocation=0x7f08003c;
         public static final int gps=0x7f08002d;
-        public static final int imageView=0x7f080037;
+        public static final int homeGeo=0x7f08002e;
+        public static final int imageView=0x7f080039;
         public static final int name=0x7f080009;
         public static final int newclaim=0x7f08002b;
         public static final int newtag=0x7f080028;
-        public static final int password_create=0x7f080036;
+        public static final int openMap=0x7f08002f;
+        public static final int password_create=0x7f080038;
         public static final int reason=0x7f080001;
-        public static final int reciptimg=0x7f080031;
+        public static final int reciptimg=0x7f080033;
         public static final int returnbutton=0x7f08001e;
         public static final int saveapprovercomment=0x7f080021;
         public static final int saveclaim=0x7f080002;
+        public static final int setHome=0x7f080022;
         public static final int startdate=0x7f080005;
         public static final int status=0x7f080006;
         public static final int tag=0x7f080027;
         public static final int tagname=0x7f080013;
         public static final int tagview=0x7f080016;
-        public static final int textView1=0x7f080007;
+        public static final int textHome=0x7f080007;
         public static final int updateExpense=0x7f080011;
-        public static final int uploadrecipt=0x7f080033;
+        public static final int uploadrecipt=0x7f080035;
         public static final int userName_create=0x7f080008;
-        public static final int user_approver=0x7f08002f;
-        public static final int user_claimant=0x7f080030;
-        public static final int username=0x7f08002e;
+        public static final int user_approver=0x7f080031;
+        public static final int user_claimant=0x7f080032;
+        public static final int username=0x7f080030;
     }
     public static final class layout {
         public static final int activity_add_claim=0x7f030000;
@@ -127,6 +129,7 @@ public final class R {
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
         public static final int hello_world=0x7f050002;
+        public static final int home=0x7f050012;
         public static final int location=0x7f050011;
         public static final int title_activity_activity__add__tag=0x7f05000c;
         public static final int title_activity_add_claim=0x7f050003;
