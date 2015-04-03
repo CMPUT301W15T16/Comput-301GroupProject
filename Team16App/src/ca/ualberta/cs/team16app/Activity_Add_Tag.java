@@ -2,7 +2,6 @@ package ca.ualberta.cs.team16app;
 
 import java.util.ArrayList;
 import java.util.Collection;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.AlertDialog;

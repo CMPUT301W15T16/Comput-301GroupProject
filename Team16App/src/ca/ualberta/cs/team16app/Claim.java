@@ -244,6 +244,18 @@ public class Claim implements Serializable
 	public Expense getPosition(int position) {
 		return items.get(position);
 	}
+
+
 	
+	/**
+	 * This function returns the id of a story. StoryId = <Title>-<Author> (no
+	 * spaces)
+	 * 
+	 * @return StoryId
+	 */
+	public String getClaimId() {
+		return this.claimName.replaceAll("\\s+", "") + "-"
+				+ this.startdate.replaceAll("\\s+", "");
+	}
 
 }

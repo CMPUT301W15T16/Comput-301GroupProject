@@ -6,17 +6,26 @@
 
 package ca.ualberta.cs.team16app;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+
+
+import ca.ualberta.cs.team16app.elasitcSearch.ESClient;
+
+
 
 
 
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.DialogInterface.OnClickListener;
+import android.net.ConnectivityManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -130,12 +139,29 @@ public class ClaimListActivity extends Activity {
 						+ "\nStart Date: "
 						//+ list.get(index).getStartDate().toString()
 						);
+				adb.setPositiveButton("Submit", new OnClickListener(){
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// nothing		
+						Claim claim = list.get(index);
+						pushClaim(claim);
+						
+						
+					}								
+				});
 				
-				
+				adb.setNegativeButton("Cancel", new OnClickListener(){
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// nothing						
+					}								
+				});
 				
 				adb.show();	
 	    		}
 	    	});
+
+		
 	    	
 			//public void onItemClick(AdapterView<?> adapterView, View view, int position,
 			//		long id) {
@@ -151,6 +177,21 @@ public class ClaimListActivity extends Activity {
 	}
 	
 	
+	/**
+	 * This function checks whether an Internet connection is available to the
+	 * activity.
+	 * 
+	 * Tutorial from:
+	 * http://stackoverflow.com/questions/9570237/android-check-internet
+	 * -connection
+	 * 
+	 * @return boolean
+	 */
+	
+	private boolean isNetworkConnected() {
+		ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		return (cm.getActiveNetworkInfo() != null);
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -178,4 +219,77 @@ public class ClaimListActivity extends Activity {
 		Intent intent = new Intent(ClaimListActivity.this,AddClaimActivity.class);
 		startActivity(intent);
 		}
+	
+	
+	private class pushClaimTask extends AsyncTask<String, String, String> {
+		Claim claim;
+		public pushClaimTask(Claim claimClicked) {
+			this.claim = claimClicked;
+		}
+		@Override
+		protected String doInBackground(String... arg0) {
+			ESClient client = new ESClient();
+			try {
+				client.insertClaim(this.claim);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
+		}
+		
+		/**
+		 * Toast message appears after the claim is published successfully.
+		 */
+		protected void onPostExecute(String result) {
+			Toast.makeText(ClaimListActivity.this,
+					"Pushed " + this.claim.getName(), Toast.LENGTH_LONG)
+					.show();
+		}
+	}
+
+	/**
+	 * This function publishes a claim on the 
+	 * WebServer.
+	 * 
+	 * 
+	 */
+	public void pushClaim(Claim claimClicked) {
+		if (isNetworkConnected()) {
+		//Since we need to give the HTTP client some time
+		//to publish the story, we need to use AsyncTasks.
+		new pushClaimTask(claimClicked).execute();
+		}
+		else {
+			// Else Display Message that Internet is not available and
+			createAlertDialog();
+		}
+	}
+	
+	private void createAlertDialog() {
+		AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+
+		// set title
+		alertDialogBuilder.setTitle("Network Error!");
+
+		// set dialog message
+		alertDialogBuilder
+				.setMessage(
+						"There's no network connection! Cannot Push a claim.")
+				.setCancelable(false)
+				.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int id) {
+						// close current activity and go back to Local Library.
+
+					}
+				});
+		// create alert dialog
+		AlertDialog alertDialog = alertDialogBuilder.create();
+
+		// show it
+		alertDialog.show();
+
+	}
+	
+	
 }
