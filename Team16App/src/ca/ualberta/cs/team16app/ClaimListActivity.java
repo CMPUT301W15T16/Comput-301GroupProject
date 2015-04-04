@@ -100,6 +100,7 @@ public class ClaimListActivity extends Activity {
 						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 						intent.putExtra("ide", FinalPosition);
 						startActivity(intent);
+						
 					}					
 				});
 				
@@ -115,7 +116,7 @@ public class ClaimListActivity extends Activity {
 						intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 						// sent the finalPosition to ActivityNewClaim
-						intent.putExtra("ide", FinalPosition);
+						intent.putExtra("claimPos", FinalPosition);
 						startActivity(intent);
 
 					}
@@ -220,6 +221,7 @@ public class ClaimListActivity extends Activity {
 		startActivity(intent);
 		}
 	
+
 	
 	private class pushClaimTask extends AsyncTask<String, String, String> {
 		Claim claim;
@@ -292,4 +294,11 @@ public class ClaimListActivity extends Activity {
 	}
 	
 	
+
+	public void geolocation(MenuItem menu){
+		Toast.makeText(this, "Geolocation", Toast.LENGTH_SHORT).show();
+		Intent intent = new Intent(ClaimListActivity.this, GeolocationActivity.class);
+		startActivity(intent);
+	}
+
 }

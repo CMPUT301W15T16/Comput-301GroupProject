@@ -8,8 +8,8 @@ package ca.ualberta.cs.team16app;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
-
 
 
 import android.content.ClipData.Item;
@@ -28,6 +28,7 @@ public class Claim implements Serializable
 	 * claim Name
 	 */
 	protected String claimName;
+	protected transient ArrayList<Listener> itemListener;
 	
 	
 	/**
@@ -64,7 +65,7 @@ public class Claim implements Serializable
 	/**
 	 * list of expense items
 	 */
-	protected ArrayList<Expense> items;
+	//protected ArrayList<Expense> items;
 	/**
 	 * end date of claims
 	 */
@@ -77,7 +78,7 @@ public class Claim implements Serializable
      * current status for a claim
      */
     protected Status status = Status.In_Progress;
-    private ArrayList<Item> ItemList;
+    protected ArrayList<Expense> ItemList;
     /**
      * list of tags for claims
      */
@@ -99,7 +100,7 @@ public class Claim implements Serializable
      * @param status
      */
     public Claim(String claimName) {
-    	ItemList = new ArrayList<Item>();
+    	ItemList = new ArrayList<Expense>();
 		TagList = new ArrayList<Tag>();
     	this.claimName = claimName;
   
@@ -196,7 +197,7 @@ public class Claim implements Serializable
 	}
 	
 	
-	public ArrayList<Item> getItemList(){
+	public ArrayList<Expense> getItemList(){
 		return ItemList;
 	}
 	
@@ -242,11 +243,19 @@ public class Claim implements Serializable
 	
 
 	public Expense getPosition(int position) {
-		return items.get(position);
+		return ItemList.get(position);
 	}
 
 
-	
+	public void addExpense(Expense expense) {
+		ItemList.add(expense);
+		//notifyListener();
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
 	/**
 	 * This function returns the id of a story. StoryId = <Title>-<Author> (no
 	 * spaces)
@@ -254,8 +263,45 @@ public class Claim implements Serializable
 	 * @return StoryId
 	 */
 	public String getClaimId() {
-		return this.claimName.replaceAll("\\s+", "") + "-"
-				+ this.startdate.replaceAll("\\s+", "");
+		return this.claimName+ "-"
+				+ this.startdate;
+		}
+
+	private void notifyListener() {
+		for (Listener listener : itemListener) {
+			listener.update();
+		}
+	}
+
+
+	public Collection<Expense> getExpense() {
+		// TODO Auto-generated method stub
+		return ItemList;
+	}
+
+
+	public void addListener(Listener listener) {
+		// TODO Auto-generated method stub
+		getListeners().add(listener);
+		
+	}
+
+
+
+
+	private ArrayList<Listener> getListeners() {
+		if (itemListener == null) {
+			itemListener = new ArrayList<Listener>();
+		}
+		return itemListener;
+	}
+
+
+	public void removeExpense(Expense expense) {
+		ItemList.remove(expense);
+		notifyListener();
+		
+
 	}
 
 }

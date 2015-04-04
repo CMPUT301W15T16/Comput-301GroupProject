@@ -8,6 +8,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -177,4 +178,9 @@ public class Activity_Add_Tag extends Activity {
 						
 	}
 
+	public void geolocation(MenuItem menu){
+		Toast.makeText(this, "Geolocation", Toast.LENGTH_SHORT).show();
+		Intent intent = new Intent(Activity_Add_Tag.this, GeolocationActivity.class);
+		startActivity(intent);
+	}
 }

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -42,18 +43,30 @@ public class AddExpenseActivity extends Activity
 	}
 
 	public void saveExpense(View v){
+		ClaimListManager.initManager(this.getApplicationContext());
+		Bundle extras = getIntent().getExtras();
+		int first = extras.getInt("claimPos");
 		Toast.makeText(this,"added a expense", Toast.LENGTH_SHORT).show(); // show message
-		ExpenseListController cm = new ExpenseListController();
+		ClaimListController cm = new ClaimListController();
 		EditText textview = (EditText) findViewById(R.id.name);
 		EditText startdateView = (EditText) findViewById(R.id.expenseDate);
 		EditText categoryView = (EditText) findViewById(R.id.Category);
 		EditText descriptView = (EditText) findViewById(R.id.expenseDescription);
 		EditText costView = (EditText) findViewById(R.id.amountSpent);
 		EditText currencyView = (EditText) findViewById(R.id.currency);
-		cm.addExpense(new Expense(textview.getText().toString(),categoryView.getText().toString(),costView.getText().toString()
+		ClaimListController.getClaimList().getPosition(first).addExpense(new Expense(textview.getText().toString(),categoryView.getText().toString(),costView.getText().toString()
 				,currencyView.getText().toString(),descriptView.getText().toString()));
 						
 		Intent intent = new Intent(AddExpenseActivity.this,ExpenseListActivity.class);
+		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		intent.putExtra("claimPos", first);
+		startActivity(intent);
+	}
+	
+	public void geolocation(MenuItem menu){
+		Toast.makeText(this, "Geolocation", Toast.LENGTH_SHORT).show();
+		Intent intent = new Intent(AddExpenseActivity.this, GeolocationActivity.class);
 		startActivity(intent);
 	}
 }

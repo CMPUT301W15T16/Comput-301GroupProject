@@ -12,13 +12,13 @@
         android:id="@+id/approvercomment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/saveapprovercomment"
+        android:layout_above="@+id/approverNameReturns"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:ems="10"
         android:gravity="left|top"
-        android:hint="Please add some comment"
+        android:hint="Please add a comment"
         android:inputType="textMultiLine" />
 
     <Button
@@ -27,8 +27,22 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/approvercomment"
-        android:layout_marginBottom="184dp"
         android:onClick="saveCommentButton"
         android:text="Save" />
+
+    <EditText
+        android:id="@+id/approverNameReturns"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/saveapprovercomment"
+        android:layout_alignLeft="@+id/approvercomment"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="125dp"
+        android:ems="10"
+        android:hint="Please enter returner&apos;s name"
+        android:inputType="textPersonName" >
+
+        <requestFocus />
+    </EditText>
 
 </RelativeLayout>

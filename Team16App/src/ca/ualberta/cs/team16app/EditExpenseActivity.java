@@ -39,9 +39,10 @@ public class EditExpenseActivity extends Activity {
 	}
 	
 	public void editExpense(View v){
+		ClaimListManager.initManager(this.getApplicationContext());
 		Bundle extras = getIntent().getExtras();
-		int first = extras.getInt("ide");
-		int pos = extras.getInt("id");
+		int first = extras.getInt("claimPos");
+		int pos = extras.getInt("pos");
 		Toast.makeText(this,"edit a expense", Toast.LENGTH_SHORT).show(); // show message
 		ClaimListController cm = new ClaimListController();
 		EditText textview = (EditText) findViewById(R.id.name);
@@ -65,8 +66,16 @@ public class EditExpenseActivity extends Activity {
 		
 						
 		Intent intent = new Intent(EditExpenseActivity.this,ExpenseListActivity.class);
+		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		intent.putExtra("claimPos", first);
 		ClaimListController.saveClaimList();
 		startActivity(intent);
-		
+	}
+	
+	public void geolocation(MenuItem menu){
+		Toast.makeText(this, "Geolocation", Toast.LENGTH_SHORT).show();
+		Intent intent = new Intent(EditExpenseActivity.this, GeolocationActivity.class);
+		startActivity(intent);
 	}
 }

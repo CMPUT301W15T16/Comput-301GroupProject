@@ -35,6 +35,7 @@ import android.widget.Toast;
 public class ApproverCommentsActivity extends Activity {
 
 	private EditText  comments=null;
+	private EditText approverName=null;
 	private Button saveCommentButton;
 	
 	@Override
@@ -43,6 +44,7 @@ public class ApproverCommentsActivity extends Activity {
 		setContentView(R.layout.activity_approver_comments);
 		
 		comments = (EditText)findViewById(R.id.approvercomment);
+		approverName = (EditText)findViewById(R.id.approverNameReturns);
 		saveCommentButton = (Button)findViewById(R.id.saveapprovercomment);
 	}
 
@@ -68,9 +70,10 @@ public class ApproverCommentsActivity extends Activity {
 	//click save button to return to claim list
 	public void saveCommentButton(View v){
 		//user has to enter a comment to return a claim
-		if(comments.getText().toString().equals(""))
+		if(comments.getText().toString().equals("")
+				||approverName.getText().toString().equals(""))
 		{
-		Toast.makeText(getApplicationContext(), "Please enter a comment",
+		Toast.makeText(getApplicationContext(), "Make sure both entries are filled!",
 		Toast.LENGTH_SHORT).show();
 		}
 		

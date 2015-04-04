@@ -56,4 +56,9 @@ public class AddClaimActivity extends Activity {
 		startActivity(intent);
 	}
 	
+	public void geolocation(MenuItem menu){
+		Toast.makeText(this, "Geolocation", Toast.LENGTH_SHORT).show();
+		Intent intent = new Intent(AddClaimActivity.this, GeolocationActivity.class);
+		startActivity(intent);
+	}
 }

@@ -9,7 +9,7 @@
     tools:context="ca.ualberta.cs.team16app.ClaimInfoActivity" >
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/setHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -22,8 +22,8 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button1"
-        android:layout_alignLeft="@+id/button1"
+        android:layout_above="@+id/setHome"
+        android:layout_alignLeft="@+id/setHome"
         android:layout_alignParentRight="true"
         android:text="Edit Claim" />
 

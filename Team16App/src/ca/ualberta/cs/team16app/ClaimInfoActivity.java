@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ClaimInfoActivity extends Activity {
 	private Button tag_add;
@@ -65,6 +66,12 @@ public class ClaimInfoActivity extends Activity {
 	public void tag_add(View v){
 		Intent intent =new Intent(ClaimInfoActivity.this,Activity_Add_Tag.class);
 		startActivity(intent);	
+	}
+	
+	public void geolocation(MenuItem menu){
+		Toast.makeText(this, "Geolocation", Toast.LENGTH_SHORT).show();
+		Intent intent = new Intent(ClaimInfoActivity.this, GeolocationActivity.class);
+		startActivity(intent);
 	}
 
 }
