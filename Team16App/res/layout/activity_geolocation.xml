@@ -15,14 +15,6 @@
         android:text="@string/location" />
 
     <TextView
-        android:id="@+id/textHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/gps"
-        android:layout_centerVertical="true"
-        android:text="My home geolocation:" />
-
-    <TextView
         android:id="@+id/homeGeo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,21 +22,30 @@
         android:layout_below="@+id/textHome"
         android:text="@string/home" />
 
-    <Button
-        android:id="@+id/setHome"
+    <TextView
+        android:id="@+id/textHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/homeGeo"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="76dp"
-        android:text="Set Home Geolocation" />
+        android:layout_alignLeft="@+id/gps"
+        android:layout_below="@+id/gps"
+        android:layout_marginTop="152dp"
+        android:text="My home geolocation:" />
 
     <Button
         android:id="@+id/openMap"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/setHome"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="26dp"
         android:text="Open Map" />
+
+    <Button
+        android:id="@+id/setHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/openMap"
+        android:layout_centerHorizontal="true"
+        android:text="Set Home Geolocation" />
 
 </RelativeLayout>
