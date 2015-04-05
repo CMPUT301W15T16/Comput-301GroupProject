@@ -114,14 +114,14 @@ public class Claim implements Serializable
     	*/
 	}
 
-    public Claim(String Name, String start, String end, String des) {
+    public Claim(String Name, String start, String end, String des,String dest) {
     	ItemList = new ArrayList<Expense>();
 		TagList = new ArrayList<Tag>();
 		this.claimName = Name;
 		this.startdate = start;
 		this.enddate = end;
 		this.description = des;
-		
+		this.DestList = dest;
 	}
     
 	/**

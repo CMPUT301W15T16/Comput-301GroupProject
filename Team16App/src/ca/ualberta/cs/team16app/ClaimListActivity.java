@@ -141,6 +141,8 @@ public class ClaimListActivity extends Activity {
 						+ list.get(index).getStartDate().toString()
 						+"\nEnd Date: "
 						+ list.get(index).getEndDate().toString()
+						+"Destination: "
+						+list.get(index).getDestList().toString()
 						+"\nDescribtion: "
 						+ list.get(index).getDescription().toString()
 						

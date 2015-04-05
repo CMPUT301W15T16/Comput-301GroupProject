@@ -11,9 +11,10 @@ public class Destination {
 	private String DestName;
 	private String reason;
 	
-	public Destination(String DestName){
+	public Destination(String DestName,String reason){
 		super();
 		this.DestName = DestName;
+		this.reason = reason;
 	}
 	
 	public String getDestName(){
