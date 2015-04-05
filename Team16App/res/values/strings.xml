@@ -21,5 +21,6 @@
     <string name="location">My Current Location</string>
     <string name="home">Home Geolocation</string>
     <string name="title_activity_dest_list">DestListActivity</string>
+    <string name="title_activity_add_dest">AddDestActivity</string>
 
 </resources>

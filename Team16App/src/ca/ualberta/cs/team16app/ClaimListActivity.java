@@ -91,18 +91,6 @@ public class ClaimListActivity extends Activity {
 						ClaimListController.getClaimList().removeClaim(claim);						
 					}								
 				});
-				adb.setNegativeButton("Edit", new OnClickListener(){
-					@Override
-					public void onClick(DialogInterface dialog, int which) {	
-						
-						Intent intent = new Intent(ClaimListActivity.this,EditClaimActivity.class);
-						intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-						intent.putExtra("ide", FinalPosition);
-						startActivity(intent);
-						
-					}					
-				});
 				
 				adb.setNeutralButton("Add Expense", new OnClickListener() {
 
@@ -120,7 +108,25 @@ public class ClaimListActivity extends Activity {
 						startActivity(intent);
 
 					}
+				});
+					adb.setNegativeButton("Destination List", new OnClickListener() {
 
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							Intent intent = new Intent(ClaimListActivity.this,
+									DestListActivity.class);
+							Toast.makeText(
+									ClaimListActivity.this,
+									"adding destinations ", Toast.LENGTH_SHORT).show();
+							/*
+							intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+							intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+							// sent the finalPosition to ActivityNewClaim
+							intent.putExtra("claimPos", FinalPosition);
+							*/
+							startActivity(intent);
+
+						}
 				});
 
 				adb.show();			
@@ -157,6 +163,20 @@ public class ClaimListActivity extends Activity {
 						
 					}								
 				});
+				
+				adb.setNeutralButton("Edit", new OnClickListener(){
+					@Override
+					public void onClick(DialogInterface dialog, int which) {	
+						
+						Intent intent = new Intent(ClaimListActivity.this,EditClaimActivity.class);
+						intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+						intent.putExtra("ide", index);
+						startActivity(intent);
+						
+					}					
+				});
+				
 				
 				adb.setNegativeButton("Cancel", new OnClickListener(){
 					@Override

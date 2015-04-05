@@ -84,4 +84,6 @@ public class ClaimList implements Serializable
 	public Claim getPosition(int position) {
 		return claimList.get(position);
 	}
+
+	
 }

@@ -6,8 +6,15 @@
 
 package ca.ualberta.cs.team16app;
 
-public class Destination {
+import java.io.Serializable;
 
+public class Destination implements Serializable
+{
+
+	/**
+	 *  claim serializable ID
+	 */
+	private static final long serialVersionUID = 160313322756243038L;
 	private String DestName;
 	private String reason;
 	

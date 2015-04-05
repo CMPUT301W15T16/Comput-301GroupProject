@@ -89,6 +89,7 @@ public class Claim implements Serializable
      * list of destinations for a claim
      */
     private String DestList;
+    private String Destination;
 	
     
     // public Claim(String claimName, String description, Date startdate, Date enddate, Status status)
@@ -244,6 +245,14 @@ public class Claim implements Serializable
 		return DestList;
 	}
 	
+	public String getDest(){
+		return Destination;
+		
+	}
+	
+	public void setDest(String destination){
+		this.Destination = destination;
+	}
 	
 	public boolean equals(Object compareClaim){
 		

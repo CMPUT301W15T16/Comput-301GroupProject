@@ -9,19 +9,20 @@
     tools:context="ca.ualberta.cs.team16app.DestListActivity" >
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/addnewDest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
+        android:onClick="addnewDest"
         android:text="Add new Destination" />
 
     <ListView
-        android:id="@+id/listView1"
+        android:id="@+id/destList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button1"
+        android:layout_above="@+id/addnewDest"
         android:layout_below="@+id/textView2" >
 
     </ListView>
