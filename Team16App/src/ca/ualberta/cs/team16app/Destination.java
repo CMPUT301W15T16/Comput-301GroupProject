@@ -41,4 +41,9 @@ public class Destination implements Serializable
 	public void setReason(String reason){
 		this.reason = reason;
 	}
+	
+	public String toString(){
+		return getDestName();
+		
+	}
 }

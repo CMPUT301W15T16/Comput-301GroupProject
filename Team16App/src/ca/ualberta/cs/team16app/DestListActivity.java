@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 
 public class DestListActivity extends Activity {
@@ -80,11 +81,34 @@ public class DestListActivity extends Activity {
 						// nothing						
 					}								
 				});
+			
 				adb.show();			
 				return true;
 			}	    	    	
 		});
 	    
+	    listView.setOnItemClickListener(new OnItemClickListener(){
+	    	@Override
+	    	public void onItemClick(AdapterView<?> AdapterView, View view,
+					int position, long id) {
+				final int index = position;
+				AlertDialog.Builder adb = new AlertDialog.Builder(
+						DestListActivity.this);
+				adb.setMessage("Claim: "
+						+ list.get(index).getDestName().toString()
+						+"\nDescribtion: "
+						+ list.get(index).getReason().toString()
+						
+						);
+				adb.setNegativeButton("Close", new OnClickListener(){
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// nothing						
+					}								
+				});
+				adb.show();				
+	    	}	    	    	
+	    });	
 	}
 		
 	 
