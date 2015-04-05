@@ -12,6 +12,8 @@ import java.util.Collection;
 import java.util.Date;
 
 
+
+
 import android.content.ClipData.Item;
 import android.nfc.Tag;
 
@@ -69,7 +71,7 @@ public class Claim implements Serializable
 	/**
 	 * end date of claims
 	 */
-	protected Date enddate;
+	protected String enddate;
 	/**
 	 * description for a claim
 	 */
@@ -112,6 +114,15 @@ public class Claim implements Serializable
     	*/
 	}
 
+    public Claim(String Name, String start, String end, String des) {
+    	ItemList = new ArrayList<Expense>();
+		TagList = new ArrayList<Tag>();
+		this.claimName = Name;
+		this.startdate = start;
+		this.enddate = end;
+		this.description = des;
+		
+	}
     
 	/**
 	 * this method is used for displaying names
@@ -121,6 +132,29 @@ public class Claim implements Serializable
 	public String getName() {
 	
 		return claimName;
+	}
+	
+	
+	/**
+	 * this method is used for displaying description
+	 * 
+	 * @return claimName
+	 */
+	public String getDescription() {
+		
+		return description;
+	}
+	
+	
+	
+	/**
+	 * set up names for claims 
+	 * 
+	 * @param claimName
+	 */
+	public void setDescription(String des){
+		this.description = des;
+		
 	}
 	
 	/**
@@ -157,7 +191,7 @@ public class Claim implements Serializable
 	 * 
 	 * @return enddate
 	 */
-	public Date getEndDate(){
+	public String getEndDate(){
 	
 		return enddate;
 	}
@@ -167,7 +201,7 @@ public class Claim implements Serializable
 	 * 
 	 * @param enddate
 	 */
-	public void setEndDate(Date enddate){
+	public void setEndDate(String enddate){
 		this.enddate = enddate;
 		
 	}

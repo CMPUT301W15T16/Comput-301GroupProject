@@ -45,7 +45,7 @@ public class ClaimListActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_claimant_claim_list);
-	ClaimListManager.initManager(this.getApplicationContext());
+		ClaimListManager.initManager(this.getApplicationContext());
 		
 		
 		//base on eclass youtube video by Abram Hindle: https://www.youtube.com/watch?v=7zKCuqScaRE
@@ -138,7 +138,12 @@ public class ClaimListActivity extends Activity {
 				adb.setMessage("Claim: "
 						+ list.get(index).getName().toString()
 						+ "\nStart Date: "
-						//+ list.get(index).getStartDate().toString()
+						+ list.get(index).getStartDate().toString()
+						+"\nEnd Date: "
+						+ list.get(index).getEndDate().toString()
+						+"\nDescribtion: "
+						+ list.get(index).getDescription().toString()
+						
 						);
 				adb.setPositiveButton("Submit", new OnClickListener(){
 					@Override

@@ -49,8 +49,8 @@ public class AddClaimActivity extends Activity {
 		EditText textview = (EditText) findViewById(R.id.claimNameInfo);
 		EditText startdateView = (EditText) findViewById(R.id.startdate);
 		EditText enddateView = (EditText) findViewById(R.id.enddate);
-		//EditText descriptView = (EditText) findViewById(R.id.explain);
-		cm.addClaim(new Claim(textview.getText().toString()));
+		EditText descriptView = (EditText) findViewById(R.id.reason);
+		cm.addClaim(new Claim(textview.getText().toString(),startdateView.getText().toString(),enddateView.getText().toString(),descriptView.getText().toString()));
 						
 		Intent intent = new Intent(AddClaimActivity.this,ClaimListActivity.class);
 		startActivity(intent);
