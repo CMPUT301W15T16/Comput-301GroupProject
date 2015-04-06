@@ -20,6 +20,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.DialogInterface.OnClickListener;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.os.AsyncTask;
@@ -65,39 +66,10 @@ public class ApproverClaimListActivity extends Activity {
 		setContentView(R.layout.activity_approver_claim_list);
 	ClaimListManager.initManager(this.getApplicationContext());
 	
-	//base on eclass youtube video by Abram Hindle: https://www.youtube.com/watch?v=7zKCuqScaRE
-			//adding and update claims onto claim list
-			ListView listView = (ListView) findViewById(R.id.approverclaimlist);		
-			Collection<Claim> claims = ClaimListController.getClaimList().getClaims();			
-			
-			final ArrayList<Claim> list = new ArrayList<Claim>(claims);// share the list, not gonna change it		
-			final ArrayAdapter<Claim> claimAdapter = new ArrayAdapter<Claim>(this, android.R.layout.simple_list_item_1, list);
-		    listView.setAdapter(claimAdapter);
-		
+		initializeGlobals();
+		attemptNetworkConnection();
 		    
-		    //update to make our adapter now that list has been changed
-		    ClaimListController.getClaimList().addListener(new Listener(){
-		    	@Override
-		    	public void update(){
-		    		list.clear();
-		    		Collection<Claim> claims = ClaimListController.getClaimList().getClaims();
-		    		list.addAll(claims);
-		    		claimAdapter.notifyDataSetChanged();
-		    	}
-		    });
-		    
-		    
-		    listView.setOnItemClickListener(new OnItemClickListener(){
-
-
-				@Override
-				public void onItemClick(AdapterView<?> adapterView, View view, int position,
-						long id) {
-					// TODO Auto-generated method stub
-					Intent intent = new Intent(ApproverClaimListActivity.this,ApproverClaimViewActivity.class);
-					startActivity(intent);
-					}
-				});
+		   
 	}
 
 	@Override
@@ -132,6 +104,9 @@ public class ApproverClaimListActivity extends Activity {
 			// some time to connect to the Internet, we have to use
 			// AsyncTask.
 			new getStoriesAndDisplay().execute();
+			Toast.makeText(this, "Downloaded: " ,
+					Toast.LENGTH_LONG).show();
+			
 		} else {
 			// Else Display Message that Internet is not available and
 			// return to Local Library.
@@ -229,9 +204,21 @@ public class ApproverClaimListActivity extends Activity {
 		
 		Collection<Claim> claims = ClaimListController.getClaimList().getClaims();	
 		
-		final ArrayList<Claim> list = new ArrayList<Claim>(claims);// share the list, not gonna change it		
+		final ArrayList<Claim> list = onlineStoryLibrary;// share the list, not gonna change it		
 		final ArrayAdapter<Claim> claimAdapter = new ArrayAdapter<Claim>(this, android.R.layout.simple_list_item_1, list);
 	    listView.setAdapter(claimAdapter);
+	    
+	    
+	  //update to make our adapter now that list has been changed
+	    ClaimListController.getClaimList().addListener(new Listener(){
+	    	@Override
+	    	public void update(){
+	    		list.clear();
+	    		Collection<Claim> claims = ClaimListController.getClaimList().getClaims();
+	    		list.addAll(claims);
+	    		claimAdapter.notifyDataSetChanged();
+	    	}
+	    });
 
 		// tutorial used =
 		// http://stackoverflow.com/questions/9097723/adding-a-onclicklistener-to-listview-android
@@ -242,11 +229,50 @@ public class ApproverClaimListActivity extends Activity {
 
 				// This is the story object that is returned when a list item is
 				// clicked.
-				Claim claim = (Claim) listView.getItemAtPosition(position);
-				//viewStory(story);
+				//Claim claim = (Claim) listView.getItemAtPosition(position);
+				
+				final int index = position;
+				AlertDialog.Builder adb = new AlertDialog.Builder(
+						ApproverClaimListActivity.this);
+				adb.setMessage("Claim: "
+						+ list.get(index).getName().toString()
+						+ "\nStart Date: "
+						+ list.get(index).getStartDate().toString()
+						+"\nEnd Date: "
+						+ list.get(index).getEndDate().toString()
+						+"\nDestination: "
+						+list.get(index).getDestList().toString()
+						+"\nDescribtion: "
+						+ list.get(index).getDescription().toString()
+						);
+				
+				adb.setPositiveButton("view expense", new OnClickListener(){
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						Intent intent = new Intent(ApproverClaimListActivity.this,
+								ApproverExpenseListActivity.class);
+						Toast.makeText(
+								ApproverClaimListActivity.this,
+								"add new expenses ", Toast.LENGTH_SHORT).show();
+						intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+						// sent the finalPosition to ActivityNewClaim
+						intent.putExtra("claimPos", index);
+						startActivity(intent);
 
+					}								
+				});
+				
+				//viewStory(story);
+				adb.show();	
 			}
 		});
+		
+		
+		
+		
+		
+		
 	}
 
 	private void createAlertDialog() {

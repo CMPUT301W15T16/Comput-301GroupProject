@@ -22,5 +22,6 @@
     <string name="home">Home Geolocation</string>
     <string name="title_activity_dest_list">DestListActivity</string>
     <string name="title_activity_add_dest">AddDestActivity</string>
+    <string name="title_activity_approver_expense_list">ApproverExpenseListActivity</string>
 
 </resources>
