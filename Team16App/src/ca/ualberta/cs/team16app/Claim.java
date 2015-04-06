@@ -14,6 +14,7 @@ import java.util.Date;
 
 
 
+
 import android.content.ClipData.Item;
 import android.nfc.Tag;
 
@@ -336,6 +337,26 @@ public class Claim implements Serializable
 		notifyListener();
 		
 
+	}
+	
+	/**
+	 * This function sets the filename automatically and returns it.
+	 * 
+	 * @return filename the filename
+	 */
+	public String getFilename() {
+		String filename = getClaimId() + ".sav";
+		return filename;
+	}
+	
+	/**
+	 * This function gets the cache filename and returns it.
+	 * 
+	 * @return filename the filename
+	 */
+	public String getCacheFileName(){
+		String filename = getClaimId() + ".cache";
+		return filename;
 	}
 
 }
