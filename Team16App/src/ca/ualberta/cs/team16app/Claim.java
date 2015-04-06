@@ -90,6 +90,7 @@ public class Claim implements Serializable
      * list of destinations for a claim
      */
     private String DestList;
+    private String Destination;
 	
     
     // public Claim(String claimName, String description, Date startdate, Date enddate, Status status)
@@ -115,14 +116,14 @@ public class Claim implements Serializable
     	*/
 	}
 
-    public Claim(String Name, String start, String end, String des) {
+    public Claim(String Name, String start, String end, String des,String dest,boolean overwrite) {
     	ItemList = new ArrayList<Expense>();
 		TagList = new ArrayList<Tag>();
 		this.claimName = Name;
 		this.startdate = start;
 		this.enddate = end;
 		this.description = des;
-		
+		this.DestList = dest;
 	}
     
 	/**
@@ -245,6 +246,14 @@ public class Claim implements Serializable
 		return DestList;
 	}
 	
+	public String getDest(){
+		return Destination;
+		
+	}
+	
+	public void setDest(String destination){
+		this.Destination = destination;
+	}
 	
 	public boolean equals(Object compareClaim){
 		

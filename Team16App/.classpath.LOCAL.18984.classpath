@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry kind="lib" path="D:/gson/gson-2.3.1.jar" sourcepath="">
+		<attributes>
+			<attribute name="javadoc_location" value="file:/C:/Users/leon/Desktop/Comput-301GroupProject/Team16App/libs/"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/gson/gson-2.3.1-javadoc.jar"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>

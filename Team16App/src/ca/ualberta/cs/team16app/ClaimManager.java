@@ -63,11 +63,11 @@ public class ClaimManager {
 	 * @return false if claim already exists, true otherwise
 	 */
 	public boolean createclaim(String name, String start,
-			String end, String des,boolean overwrite
+			String end, String des,String din, boolean overwrite
 			) {
 
 		Claim newclaim = new Claim(name, start, end,
-				des);
+				des,din, overwrite);
 
 		boolean claimExists = saveclaim(newclaim, overwrite);
 		return claimExists;

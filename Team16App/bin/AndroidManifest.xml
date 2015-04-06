@@ -7,9 +7,10 @@
     <uses-sdk
         android:minSdkVersion="17"
         android:targetSdkVersion="17" />
-	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-	<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
-	<uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -84,6 +85,14 @@
         <activity
             android:name="ca.ualberta.cs.team16app.GeolocationActivity"
             android:label="@string/title_activity_geolocation" >
+        </activity>
+        <activity
+            android:name="ca.ualberta.cs.team16app.DestListActivity"
+            android:label="@string/title_activity_dest_list" >
+        </activity>
+        <activity
+            android:name="ca.ualberta.cs.team16app.AddDestActivity"
+            android:label="@string/title_activity_add_dest" >
         </activity>
     </application>
 
