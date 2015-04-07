@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 
+
 import ca.ualberta.cs.team16app.elasitcSearch.ESClient;
 
 
@@ -230,17 +231,7 @@ public class ClaimListActivity extends Activity {
 		return true;
 	}
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
-	}
+
 	
 	 //click new claim button to add a claim 
 	public void newclaim(View v){
@@ -330,4 +321,19 @@ public class ClaimListActivity extends Activity {
 		startActivity(intent);
 	}
 
+	public boolean onOptionsItemSelected(MenuItem item) {
+		
+		int id = item.getItemId();
+		if (id == R.id.logoff) {
+			Intent intent = new Intent(ClaimListActivity.this,
+					MainActivity.class);
+			Toast.makeText(
+					ClaimListActivity.this,
+					"logoff ", Toast.LENGTH_SHORT).show();
+			startActivity(intent);
+			
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
 }

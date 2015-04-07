@@ -3,10 +3,10 @@
     tools:context="ca.ualberta.cs.team16app.ClaimListActivity" >
 
     <item android:id="@+id/geolocation1" android:onClick="geolocation" android:title="Geolocation"></item><item
-        android:id="@+id/action_settings"
+        android:id="@+id/logoff"
         android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
+        android:showAsAction="ifRoom"
+        android:title="logoff"/>
     
 
 </menu>
