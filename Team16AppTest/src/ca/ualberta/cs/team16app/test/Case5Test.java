@@ -1,44 +1,51 @@
 package ca.ualberta.cs.team16app.test;
 
+import android.app.Activity;
+import android.test.ViewAsserts;
+import android.text.Html.ImageGetter;
+import android.view.View;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import ca.ualberta.cs.team16app.Claim;
+import ca.ualberta.cs.team16app.ClaimList;
+import ca.ualberta.cs.team16app.ClaimListController;
+import ca.ualberta.cs.team16app.Expense;
+import ca.ualberta.cs.team16app.ExpenseList;
+import ca.ualberta.cs.team16app.ViewReceiptActivity;
 import junit.framework.TestCase;
 
 
 public class Case5Test extends TestCase
 {
 	// written by Di Meng  US05.01.01 as a Claimant view the item expenses details and photo
-	public void SubmittedItemsTest() {
+	public void testSubmittedItems() {
 		// init the controller
-		ItemListController list = new ItemListController();
+		//ClaimListController list = new ItemListController();
 		// set all values
-		Item item = new Item();
-		item.getStartDate(20121212);
-		item.getEndDate(20130101);
-		item.getCatagory("Meal");
-		item.getName("approver test");
-		item.getCurrency("EUR");
-		item.getCost(1000);
-		item.addDescribtion("test comment");
-		ItemListController test_con = new ItemListController();
-		test_con.add(item);
-		Item output = list.get(0);
+		Expense expense = new Expense("view test", "fuel", "spend", "CAN","test comment");
+		
+		ExpenseList expenseList = new ExpenseList();
+		expenseList.addExpense(expense);
+		Expense output = expenseList.getPosition(0);
 		
 		// do the test
-		assertEquals("start date not same",item.getStartDate(0),output.getStartDate(0));
-		assertEquals("end date not same",item.getEndDate(0),output.getEndDate(0));
-		assertEquals("catagory not same",item.getCatagory(null),output.getCatagory(null));
-		assertEquals("name not same",item.getName,output.getName);
-		assertEquals("currenty is not same",item.getCurrency("CYN"),output.getCurrency("CYN"));
-		assertEquals("cost not same",item.getCost(0),output.getCost(0));
-		assertEquals("Describtion not equal","hello world",Item.getDescribtion());
+		assertEquals("start date not same",expense.getDate(),output.getDate());
+		assertEquals("end date not same",expense.getCategory(),output.getCategory());
+		assertEquals("catagory not same",expense.getCurrency(),output.getCurrency());
+		assertEquals("name not same",expense.getName(),output.getName());
+		assertEquals("Description not equal","test comment",expense.getDescription());
 	}
 	
-	public void ViewPhotoTest() {
-		ClaimantItemListActivity activity = getActivity();
-		ImageButton view = (Button) activity.findViewById(R.id.photograph);
+	/*public void testViewPhoto() {
+		ViewReceiptActivity activity = getActivity();
+		ImageButton view = (ImageButton) activity.findViewById(R.id.tagview);
 		ViewAsserts.assertOnScreen(activity.getWindow().getDecorView(),view);
 		assertNotNull("not empty",view.getDrawable());
 		assertTrue(View.VISIBLE == view.getVisibility());
-	}
+		
+	}*/
 
 
 }

@@ -1,5 +1,16 @@
 package ca.ualberta.cs.team16app.test;
 
+import java.security.InvalidParameterException;
+
+import android.app.Activity;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
+import ca.ualberta.cs.team16app.Claim;
+import ca.ualberta.cs.team16app.ClaimList;
+import ca.ualberta.cs.team16app.Expense;
+import ca.ualberta.cs.team16app.Claim.Status;
+import ca.ualberta.cs.team16app.ExpenseList;
 import junit.framework.TestCase;
 
 
@@ -8,78 +19,98 @@ public class Case7Test extends TestCase
 
 	//Written by Omoyeni 
 	//US07.01.01
-			public void submitExpenseTest() {
-			//assuming Claim claim already has values in it
-				claim.submit();
-				claim.disableEdit();
-				claim.setCurrentStatus("Submitted");
+	//Test that claim has been submitted
+			public void testSubmitExpense() {
+				Claim claim = new Claim("Claim1");
+				Status status = Status.Submitted;
+				
+				claim.setStartDate("20121212");
+				claim.setEndDate("20130101");
+				claim.setDest("Laos");
+				claim.setDescription("test comment");
+				ClaimList claimlist = new ClaimList();
+				claimlist.addClaim(claim);
+
+				claim.setStatus(status);
 			
-				assertTrue("Status not equal to submitted", claim.getCurrentStatus == "Submitted");
-				assertFalse("Changes can still be made", findViewById() instanceof EditText);
+				assertTrue("Status not equal to submitted", claim.getStatus().equals(status));
 			}
-			/*This code below is adapted from http://developer.android.com/guide/topics/ui/controls/text.html*/
-			EditText editText = (EditText) findViewById(R.id.search);
-			editText.setOnEditorActionListener(new OnEditorActionListener() {
-			    @Override
-			    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-			        boolean handled = false;
-			        if (actionId == EditorInfo.IME_ACTION_SUBMIT) {
-			            disableEdit(); /*check this page for view only text: 
-			            http://developer.android.com/reference/android/widget/TextView.html */
-			            handled = true;
-			        }
-			        return handled;
-			    }
-			});
 			
 			
 			//US07.02.01
-			public void missingValuesTest() {
-				if (submit == true){
-					for (int i = 0; i < expenseList.size; i++){
-						if (expenseList.getItem(i) == null){
-							Toast.makeText(this, "Missing values!", Toast.LENGTH_LONG).show();
-					}
-				}
-				}
-				
-				for (int i = 0; i < expenseList.size; i++){
-					assertNotNull("There is an item in expenseList that is null", getItem(i));
-				}
-			}
+			//Test that claim info (that is, expense) is not missing any values 
+			// ---TOAST ADDED TO APP FOR VISUAL WARNING---
+
 			
 			//US07.03.01
-			public void returnedClaimTest() {
-				if (claim.getApproverStatus == "Return"){
-					claim.setCurrentStatus("Returned");
-				}
+			//Test that claim has been returned
+			public void testReturnedClaim() {
+				Claim claim = new Claim("Claim1");
+				Status status = Status.Submitted;
 				
-				assertTrue("Claim status is not equal to approver's updated status", claim.getCurrentStatus.equals(claim.getApproverStatus));
-				assertTrue("Changes can still not be made", findViewById() instanceof EditText);
+				claim.setStartDate("20121212");
+				claim.setEndDate("20130101");
+				claim.setDest("Laos");
+				claim.setDescription("test comment");
+				
+				claim.setStatus(status);
+				
+				Status status1 = Status.Returned;
+				claim.setStatus(status1);
+				
+				assertTrue("Claim status is not equal to approver's updated status",
+						claim.getStatus().equals(status1));
+				//assertTrue("Changes can still not be made", findViewById() instanceof EditText);
 			}
 			
 			//US07.04.01
+			//Test that approved claim has been updated as approved
 			public void approvedClaimTest() {
-				if (claim.getApproverStatus == "Approved"){
-					claim.setCurrentStatus("Approved");
-				}
+				Claim claim = new Claim("Claim1");
+				Status status = Status.Submitted;
+				claim.setStatus(status);
 				
-				assertTrue("Claim status not updated", claim.getCurrentStatus.equals(claim.getApproverStatus));
-				assertFalse("Still editable", findViewById() instanceof EditText);
+				claim.setStartDate("20121212");
+				claim.setEndDate("20130101");
+				claim.setDest("Laos");
+				claim.setDescription("test comment");
+				ClaimList claimlist = new ClaimList();
+				claimlist.addClaim(claim);
+				
+				
+				Status status2 = Status.Approved;
+				claim.setStatus(status2);
+						
+				assertTrue("Claim status not updated", claim.getStatus().equals(status2));
+				//assertFalse("Still editable", findViewById() instanceof EditText);
 			}
 			
-			//US07.05.01
-			public void approverCommentsTest() {
-				if (claim.getApproverStatus == "Approved" || claim.getApproverStatus == "Returned"){
-					TextView approverName = (TextView) activity.findViewById(R.id.approverName);
-					TextView approverComments = (TextView) activity.findViewById(R.id.approverComments);
+		/*	//US07.05.01
+			//Test that approver can comment on returned claim
+			public void testApproverComments(){
+				Claim claim = new Claim("Claim1");
+				Status status = Status.Returned;
+				
+				claim.setStartDate("20121212");
+				claim.setEndDate("20130101");
+				claim.setDest("Laos");
+				claim.setDescription("test comment");
+				ClaimList claimlist = new ClaimList();
+				claimlist.addClaim(claim);
+				
+				if ( claim.getStatus()== status){
+					TextView approverName = (TextView) Activity.findViewById(R.id.approverName);
+					TextView approverComments = (TextView) Activity.findViewById(R.id.approverComments);
 					
-					assertNotNull("ApproverName",approverName);
-					if (approverComments){
-						assertNotNull("ApproverComments",approverComments);}		
+					assertNotNull("ApproverName is empty",approverName);
+					if (approverName != null){
+						assertEquals("ApproverName is not correct",approverComments);}
+					assertNotNull("ApproverComment is empty",approverComments);
+					if (approverComments != null){
+						assertEquals("ApproverComments is not correct",approverComments);}		
 	
 				}
 
-			}
+			}*/
 
 }
