@@ -67,7 +67,7 @@
             android:label="@string/title_activity_approver_comments" >
         </activity>
         <activity
-            android:name="ca.ualberta.cs.team16app.Activity_Add_Tag"
+            android:name="ca.ualberta.cs.team16app.AddTagActivity"
             android:label="@string/title_activity_activity__add__tag" >
         </activity>
         <activity
