@@ -35,12 +35,13 @@ public final class R {
         public static final int addnewDest=0x7f09000b;
         public static final int addnewtag=0x7f09001a;
         public static final int amountSpent=0x7f09000e;
-        public static final int approve=0x7f090029;
+        public static final int approve=0x7f09002a;
         public static final int approvebutton=0x7f090024;
         public static final int approverNameReturns=0x7f090027;
         public static final int approverclaimlist=0x7f09001c;
         public static final int approvercomment=0x7f090026;
         public static final int camera=0x7f09003f;
+        public static final int cancel=0x7f090028;
         public static final int category=0x7f090011;
         public static final int categorySpinner=0x7f090010;
         public static final int checkBox1=0x7f090015;
@@ -90,9 +91,8 @@ public final class R {
         public static final int reason=0x7f090001;
         public static final int reasonDest=0x7f09000a;
         public static final int reciptimg=0x7f09003e;
-        public static final int return1=0x7f09002a;
+        public static final int return1=0x7f090029;
         public static final int returnbutton=0x7f090025;
-        public static final int saveapprovercomment=0x7f090028;
         public static final int saveclaim=0x7f090002;
         public static final int setHome=0x7f09002c;
         public static final int startdate=0x7f090005;

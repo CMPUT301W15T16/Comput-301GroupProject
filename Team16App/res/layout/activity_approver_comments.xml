@@ -22,19 +22,19 @@
         android:inputType="textMultiLine" />
 
     <Button
-        android:id="@+id/saveapprovercomment"
+        android:id="@+id/cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/approvercomment"
-        android:onClick="saveCommentButton"
-        android:text="Save" />
+        android:onClick="return()"
+        android:text="cancel" />
 
     <EditText
         android:id="@+id/approverNameReturns"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/saveapprovercomment"
+        android:layout_above="@+id/cancel"
         android:layout_alignLeft="@+id/approvercomment"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="125dp"
@@ -46,21 +46,23 @@
     </EditText>
 
     <Button
-        android:id="@+id/approve"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/saveapprovercomment"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="36dp"
-        android:text="approve" />
-
-    <Button
         android:id="@+id/return1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/approve"
         android:layout_alignBottom="@+id/approve"
-        android:layout_centerHorizontal="true"
+        android:layout_toRightOf="@+id/approve"
+        android:onClick="returned"
         android:text="return" />
+
+    <Button
+        android:id="@+id/approve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/cancel"
+        android:layout_alignBottom="@+id/cancel"
+        android:layout_alignLeft="@+id/approverNameReturns"
+        android:onClick="approve"
+        android:text="approve" />
 
 </RelativeLayout>
