@@ -45,4 +45,22 @@
         <requestFocus />
     </EditText>
 
+    <Button
+        android:id="@+id/approve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/saveapprovercomment"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="36dp"
+        android:text="approve" />
+
+    <Button
+        android:id="@+id/return1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/approve"
+        android:layout_alignBottom="@+id/approve"
+        android:layout_centerHorizontal="true"
+        android:text="return" />
+
 </RelativeLayout>
