@@ -15,6 +15,7 @@ import java.util.Collection;
 
 
 
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -253,13 +254,30 @@ public class ApproverClaimListActivity extends Activity {
 								ApproverExpenseListActivity.class);
 						Toast.makeText(
 								ApproverClaimListActivity.this,
-								"add new expenses ", Toast.LENGTH_SHORT).show();
+								"view expenses ", Toast.LENGTH_SHORT).show();
 						intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 						// sent the finalPosition to ActivityNewClaim
 						intent.putExtra("claim", list.get(index));
 						startActivity(intent);
 
+					}								
+				});
+				
+				adb.setNegativeButton("Add Comments", new OnClickListener(){
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						Claim claim = list.get(index);
+						Intent intent = new Intent(ApproverClaimListActivity.this,
+								ApproverCommentsActivity.class);
+						Toast.makeText(
+								ApproverClaimListActivity.this,
+								"add comments ", Toast.LENGTH_SHORT).show();
+						intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+						// sent the finalPosition to ActivityNewClaim
+						intent.putExtra("claim", list.get(index));
+						startActivity(intent);					
 					}								
 				});
 				
