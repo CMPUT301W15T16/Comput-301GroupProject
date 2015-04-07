@@ -257,7 +257,7 @@ public class ApproverClaimListActivity extends Activity {
 						intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 						// sent the finalPosition to ActivityNewClaim
-						intent.putExtra("claimPos", index);
+						intent.putExtra("claim", list.get(index));
 						startActivity(intent);
 
 					}								
