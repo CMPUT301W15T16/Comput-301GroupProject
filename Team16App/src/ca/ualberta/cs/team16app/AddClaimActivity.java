@@ -44,7 +44,6 @@ public class AddClaimActivity extends Activity {
 	}
 	
 	public void saveclaim(View v){
-		Toast.makeText(this,"added a claim", Toast.LENGTH_SHORT).show(); // show message
 		ClaimListController cm = new ClaimListController();
 		EditText textview = (EditText) findViewById(R.id.claimNameInfo);
 		EditText startdateView = (EditText) findViewById(R.id.startdate);
@@ -54,8 +53,24 @@ public class AddClaimActivity extends Activity {
 		cm.addClaim(new Claim(textview.getText().toString(),startdateView.getText().toString(),enddateView.getText().toString(),descriptView.getText().toString(),destView.getText().toString(),true));
 		
 		
-		Intent intent = new Intent(AddClaimActivity.this,ClaimListActivity.class);
-		startActivity(intent);
+		String name = textview.getText().toString();
+		String start = startdateView.getText().toString();
+		String  end = enddateView.getText().toString();
+		String dest = destView.getText().toString();
+		String des = descriptView.getText().toString();
+		
+		if(name.equals("")||start.equals("")||end.equals("")||dest.equals("")||des.equals("")){
+			Toast.makeText(getApplicationContext(), "Make sure every entries are filled!",
+			Toast.LENGTH_SHORT).show();
+			
+		}
+		else{
+			Toast.makeText(this,"added a claim", Toast.LENGTH_SHORT).show();
+			Intent intent = new Intent(AddClaimActivity.this,ClaimListActivity.class);
+			startActivity(intent);
+		}
+		
+		
 	}
 	
 	public void geolocation(MenuItem menu){

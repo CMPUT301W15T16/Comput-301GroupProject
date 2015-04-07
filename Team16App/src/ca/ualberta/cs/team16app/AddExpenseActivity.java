@@ -86,24 +86,44 @@ public class AddExpenseActivity extends Activity
 		ClaimListManager.initManager(this.getApplicationContext());
 		Bundle extras = getIntent().getExtras();
 		int first = extras.getInt("claimPos");
-		Toast.makeText(this,"added a expense", Toast.LENGTH_SHORT).show(); // show message
+		
 		ClaimListController cm = new ClaimListController();
+		
+		
 		EditText textview = (EditText) findViewById(R.id.name);
 		EditText startdateView = (EditText) findViewById(R.id.expenseDate);
-		//EditText categoryView = (EditText) findViewById(R.id.Category);
 		Spinner expenseCategorySpinner = (Spinner) findViewById(R.id.categorySpinner);
 		EditText descriptView = (EditText) findViewById(R.id.expenseDescription);
 		EditText costView = (EditText) findViewById(R.id.amountSpent);
-		//EditText currencyView = (EditText) findViewById(R.id.currencyText);
 		Spinner expenseCurrencySpinner = (Spinner) findViewById(R.id.currencySpinner);
+		
+		
 		ClaimListController.getClaimList().getPosition(first).addExpense(new Expense(textview.getText().toString(),expenseCategorySpinner.getSelectedItem().toString(),costView.getText().toString()
 				,expenseCurrencySpinner.getSelectedItem().toString(),descriptView.getText().toString()));
-						
-		Intent intent = new Intent(AddExpenseActivity.this,ExpenseListActivity.class);
-		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		intent.putExtra("claimPos", first);
-		startActivity(intent);
+		
+		String name = textview.getText().toString();
+		String start = startdateView.getText().toString();
+		String  cat = expenseCategorySpinner.getSelectedItem().toString();
+		String cost = costView.getText().toString();
+		String cur = expenseCurrencySpinner.getSelectedItem().toString();
+		String des = descriptView.getText().toString();
+		
+		if(name.equals("")||start.equals("")||cat.equals("")||cost.equals("")||cur.equals("")||des.equals("")){
+			Toast.makeText(getApplicationContext(), "Make sure every entries are filled!",
+			Toast.LENGTH_SHORT).show();
+			
+		}
+		
+		else{
+			Toast.makeText(this,"added a expense", Toast.LENGTH_SHORT).show(); // show message
+			Intent intent = new Intent(AddExpenseActivity.this,ExpenseListActivity.class);
+			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			intent.putExtra("claimPos", first);
+			startActivity(intent);
+		}
+		
+		
 	}
 	
 	public void geolocation(MenuItem menu){
