@@ -1,5 +1,7 @@
 package ca.ualberta.cs.team16app;
 
+import java.util.ArrayList;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
@@ -7,13 +9,18 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 public class AddExpenseActivity extends Activity
 {
 
+	private ArrayAdapter<String> categorySpinnerAdapter;
+	private ArrayAdapter<String> currencySpinnerAdapter;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -30,6 +37,39 @@ public class AddExpenseActivity extends Activity
         		startActivity(intent);
         	}
         });	
+        
+        // set category spinner
+        Spinner expenseCategorySpinner = (Spinner) findViewById(R.id.categorySpinner);
+		ArrayList<String> category = new ArrayList<String>();
+		category.add("Air Fare");
+		category.add("Ground Transpotation");
+		category.add("Vehicle Rental");
+		category.add("Private Automobile");
+		category.add("Fuel");
+		category.add("Parking");
+		category.add("Registration");
+		category.add("Accomodation");
+		category.add("Meal");
+		category.add("Supplies");
+		categorySpinnerAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, category);
+		categorySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		expenseCategorySpinner.setAdapter(categorySpinnerAdapter);
+
+		// set currency spinner
+		Spinner expenseCurrencySpinner = (Spinner) findViewById(R.id.currencySpinner);
+		ArrayList<String> currency = new ArrayList<String>();
+		currency.add("USD");
+		currency.add("CAD");
+		currency.add("EUR");
+		currency.add("GBP");
+		currency.add("CHF");
+		currency.add("JPY");
+		currency.add("CNY");
+
+		currencySpinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, currency);
+		currencySpinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		expenseCurrencySpinner.setAdapter(currencySpinnerAdapter);
+
 		
 	}
 
@@ -50,12 +90,14 @@ public class AddExpenseActivity extends Activity
 		ClaimListController cm = new ClaimListController();
 		EditText textview = (EditText) findViewById(R.id.name);
 		EditText startdateView = (EditText) findViewById(R.id.expenseDate);
-		EditText categoryView = (EditText) findViewById(R.id.Category);
+		//EditText categoryView = (EditText) findViewById(R.id.Category);
+		Spinner expenseCategorySpinner = (Spinner) findViewById(R.id.categorySpinner);
 		EditText descriptView = (EditText) findViewById(R.id.expenseDescription);
 		EditText costView = (EditText) findViewById(R.id.amountSpent);
-		EditText currencyView = (EditText) findViewById(R.id.currency);
-		ClaimListController.getClaimList().getPosition(first).addExpense(new Expense(textview.getText().toString(),categoryView.getText().toString(),costView.getText().toString()
-				,currencyView.getText().toString(),descriptView.getText().toString()));
+		//EditText currencyView = (EditText) findViewById(R.id.currencyText);
+		Spinner expenseCurrencySpinner = (Spinner) findViewById(R.id.currencySpinner);
+		ClaimListController.getClaimList().getPosition(first).addExpense(new Expense(textview.getText().toString(),expenseCategorySpinner.getSelectedItem().toString(),costView.getText().toString()
+				,expenseCurrencySpinner.getSelectedItem().toString(),descriptView.getText().toString()));
 						
 		Intent intent = new Intent(AddExpenseActivity.this,ExpenseListActivity.class);
 		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

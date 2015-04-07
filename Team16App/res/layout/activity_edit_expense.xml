@@ -29,31 +29,6 @@
         android:inputType="date" />
 
     <EditText
-        android:id="@+id/Category"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/expenseDate"
-        android:layout_below="@+id/expenseDate"
-        android:ems="10"
-        android:hint="Category" >
-
-        <requestFocus />
-    </EditText>
-
-    <EditText
-        android:id="@+id/expenseDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/Category"
-        android:layout_alignRight="@+id/Category"
-        android:layout_below="@+id/Category"
-        android:ems="10"
-        android:gravity="left|top"
-        android:hint="Expense Description"
-        android:inputType="textMultiLine" />
-
-    <EditText
         android:id="@+id/amountSpent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -64,50 +39,82 @@
         android:hint="Amount Spent"
         android:inputType="numberDecimal" />
 
-    <EditText
-        android:id="@+id/currency"
+    <TextView
+        android:id="@+id/category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/amountSpent"
-        android:layout_alignRight="@+id/amountSpent"
-        android:layout_below="@+id/amountSpent"
+        android:layout_alignRight="@+id/deleteexpense"
+        android:layout_below="@+id/expenseDate"
+        android:text="Category"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Spinner
+        android:id="@+id/categorySpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/expenseDate"
+        android:layout_below="@+id/category" />
+
+    <EditText
+        android:id="@+id/expenseDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/categorySpinner"
+        android:layout_alignRight="@+id/categorySpinner"
+        android:layout_below="@+id/categorySpinner"
         android:ems="10"
-        android:hint="Currency" />
+        android:gravity="left|top"
+        android:hint="Expense Description"
+        android:inputType="textMultiLine" />
+
+    <Spinner
+        android:id="@+id/currencySpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/currencyText"
+        android:layout_below="@+id/currencyText" />
 
     <CheckBox
         android:id="@+id/checkBox1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/currency"
-        android:layout_below="@+id/currency"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/currencySpinner"
         android:text="Incomplete item" />
 
     <Button
         android:id="@+id/addimg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/checkBox1"
-        android:layout_marginTop="32dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/checkBox1"
+        android:layout_toRightOf="@+id/checkBox1"
         android:text="Attach Reciept" />
 
-    <Button
-        android:id="@+id/updateExpense"
+    <TextView
+        android:id="@+id/currencyText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/addimg"
-        android:layout_below="@+id/addimg"
-        android:layout_marginTop="29dp"
-        android:onClick="editExpense"
-        android:text="Update" />
+        android:layout_alignLeft="@+id/amountSpent"
+        android:layout_below="@+id/amountSpent"
+        android:text="Currency"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Button
         android:id="@+id/deleteexpense"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/updateExpense"
-        android:layout_alignBottom="@+id/updateExpense"
-        android:layout_alignLeft="@+id/addimg"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
         android:text="Delete" />
+
+    <Button
+        android:id="@+id/updateExpense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="editExpense"
+        android:text="Update" />
 
 </RelativeLayout>
