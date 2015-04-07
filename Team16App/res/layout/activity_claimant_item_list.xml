@@ -6,7 +6,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ca.ualberta.cs.group_travelexpenseapp.Client_claimlist" >
+    tools:context="ca.ualberta.cs.group_travelexpenseapp.Client_claimlist"
+    android:background="@drawable/bg" >
 
     <ListView
         android:id="@+id/clientclaimlist"
