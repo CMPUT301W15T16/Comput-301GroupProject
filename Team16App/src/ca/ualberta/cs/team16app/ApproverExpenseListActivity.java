@@ -1,10 +1,17 @@
 package ca.ualberta.cs.team16app;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 public class ApproverExpenseListActivity extends Activity {
@@ -15,6 +22,22 @@ public class ApproverExpenseListActivity extends Activity {
 		setContentView(R.layout.activity_approver_expense_list);
 		Intent intent = getIntent();
 		Claim claim = (Claim) intent.getSerializableExtra("claim");
+		
+		
+		
+		
+		Collection<Expense> expense = claim.getExpense();
+		
+		 final ArrayList<Expense> list = new ArrayList<Expense>(expense);
+		ListView listView = (ListView) findViewById(R.id.expense_listView);
+		final ArrayAdapter<Expense> expenseAdapter = new ArrayAdapter<Expense>(this, android.R.layout.simple_list_item_1, list);
+	     
+		listView.setAdapter(expenseAdapter);
+
+		
+		
+		
+		
 	}
 
 	@Override
