@@ -126,6 +126,7 @@ public class ApproverCommentsActivity extends Activity {
 		claim.approverName = approverName.getText().toString();
 		claim.comment = comments.getText().toString();
 		claim.setST(2); 
+		pushClaim(claim);
 		Intent intent = new Intent(ApproverCommentsActivity.this,
 				ApproverClaimListActivity.class);
 		//Claim.Status status = Status.Returned;   //change status of claim
