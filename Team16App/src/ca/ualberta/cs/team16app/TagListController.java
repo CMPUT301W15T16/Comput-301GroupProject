@@ -30,11 +30,11 @@ public class TagListController {
 						
 				} catch (ClassNotFoundException e) {		
 					e.printStackTrace();				
-					throw new RuntimeException("Could not deserialize ClaimList from ClaimListManager");			
+					throw new RuntimeException("Could not deserialize TagList from TagListManager");			
 				} catch (IOException e) {
 											
 					e.printStackTrace();			
-					throw new RuntimeException("Could not deserialize ClaimList from ClaimListManager");			
+					throw new RuntimeException("Could not deserialize TagList from TagListManager");			
 				}					
 			}			
 			return tagList;			
@@ -51,7 +51,7 @@ public class TagListController {
 			
 				e.printStackTrace();
 				
-				throw new RuntimeException("Could not deserialize ClaimList from ClaimListManager");
+				throw new RuntimeException("Could not deserialize TagList from TagListManager");
 				
 			}
 			
@@ -65,7 +65,11 @@ public class TagListController {
 			
 		}
 		
-		
+		public void removeTag(Tag tag) {
+			
+			getTagList().removeTag(tag);
+				
+		}
 		
 		
 	}

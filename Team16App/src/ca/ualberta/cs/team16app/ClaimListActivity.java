@@ -181,10 +181,16 @@ public class ClaimListActivity extends Activity {
 				});
 				
 				
-				adb.setNegativeButton("Cancel", new OnClickListener(){
+				adb.setNegativeButton("Addtags", new OnClickListener(){
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						// nothing						
+						// nothing		
+						Intent intent = new Intent(ClaimListActivity.this,AddTagActivity.class);//
+						intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+						intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+						String s = list.get(index).getName().toString();
+						intent.putExtra("claimname",s);
+						startActivity(intent);
 					}								
 				});
 				

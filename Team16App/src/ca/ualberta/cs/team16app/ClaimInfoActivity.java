@@ -64,7 +64,7 @@ public class ClaimInfoActivity extends Activity {
 		startActivity(intent);	
 	}
 	public void tag_add(View v){
-		Intent intent =new Intent(ClaimInfoActivity.this,Activity_Add_Tag.class);
+		Intent intent =new Intent(ClaimInfoActivity.this,AddTagActivity.class);
 		startActivity(intent);	
 	}
 	

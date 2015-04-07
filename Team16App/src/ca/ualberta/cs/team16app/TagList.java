@@ -9,6 +9,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import android.content.Context;
+
 
 public class TagList implements Serializable
 {
@@ -48,11 +50,11 @@ public class TagList implements Serializable
 		tagList.add(testTag);
 		notifyListeners();
 	}
-	
-	public void removeClaim(Tag testTag) {
+	public void removeTag(Tag testTag) {
 		tagList.remove(testTag);
 		notifyListeners();
 	}
+	
 	
 	private void notifyListeners() {
 		
@@ -83,7 +85,12 @@ public class TagList implements Serializable
 		return tagList.contains(testTag);
 	}
 
-	public Tag getPosition(int position) {
+	public Tag getTagname(int position) {
 		return tagList.get(position);
 	}
+
+	
+
+	
+	
 }
