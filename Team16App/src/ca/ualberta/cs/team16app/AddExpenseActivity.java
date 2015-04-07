@@ -1,3 +1,25 @@
+/**
+ * This is an Activity file for add Expense
+ * Team16App: travel expense tracking application
+ * Copyright (C) 2015 peijen  Chris Lin 
+ * dmeng  Di Meng 
+ * tshen
+ * qtan  Qi Tan 
+ * yuentung  
+ * omoyeni  Omoyeni Adeyemo 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+ */
+
 package ca.ualberta.cs.team16app;
 
 import java.util.ArrayList;
@@ -37,6 +59,9 @@ public class AddExpenseActivity extends Activity
         		startActivity(intent);
         	}
         });	
+        /**
+         * get the expense category items and add them into the category
+         */
         
         // set category spinner
         Spinner expenseCategorySpinner = (Spinner) findViewById(R.id.categorySpinner);
@@ -58,6 +83,9 @@ public class AddExpenseActivity extends Activity
 		// set currency spinner
 		Spinner expenseCurrencySpinner = (Spinner) findViewById(R.id.currencySpinner);
 		ArrayList<String> currency = new ArrayList<String>();
+		/**
+		 * get currency type
+		 */
 		currency.add("USD");
 		currency.add("CAD");
 		currency.add("EUR");
@@ -86,7 +114,9 @@ public class AddExpenseActivity extends Activity
 		ClaimListManager.initManager(this.getApplicationContext());
 		Bundle extras = getIntent().getExtras();
 		int first = extras.getInt("claimPos");
-		 
+		/**
+		 * save the differnet element from the edit edit to show them in the claimlist page
+		 */
 		ClaimListController cm = new ClaimListController();
 		
 		
@@ -107,12 +137,17 @@ public class AddExpenseActivity extends Activity
 		String cost = costView.getText().toString();
 		String cur = expenseCurrencySpinner.getSelectedItem().toString();
 		String des = descriptView.getText().toString();
-		
+		/**
+		 * make sure none of the input of the expense is null
+		 */
 		if(name.equals("")||start.equals("")||cat.equals("")||cost.equals("")||cur.equals("")||des.equals("")){
 			Toast.makeText(getApplicationContext(), "Make sure every entries are filled!",
 			Toast.LENGTH_SHORT).show();
 			
 		}
+		/**
+		 * for add a new expense
+		 */
 		
 		else{
 			Toast.makeText(this,"added a expense", Toast.LENGTH_SHORT).show(); // show message
@@ -125,6 +160,11 @@ public class AddExpenseActivity extends Activity
 		
 		
 	}
+	/**
+	 * 
+	 * @param menu
+	 * jump to geolocation by click button
+	 */
 	
 	public void geolocation(MenuItem menu){
 		Toast.makeText(this, "Geolocation", Toast.LENGTH_SHORT).show();

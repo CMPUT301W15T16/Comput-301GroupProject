@@ -1,3 +1,28 @@
+/**
+ * This class is The Tag function activity
+ * 
+ * @author Qi Tan
+ */
+/**
+ * Team16App: travel expense tracking application
+ * Copyright (C) 2015 peijen  Chris Lin 
+ * dmeng  Di Meng 
+ * tshen
+ * qtan  Qi Tan 
+ * yuentung  
+ * omoyeni  Omoyeni Adeyemo 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License
+ * along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+ */
 package ca.ualberta.cs.team16app;
 
 import java.util.ArrayList;
@@ -21,13 +46,21 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 
 public class AddTagActivity extends Activity {
+	/**
+	 * CorrespondingClaimName is get from claim name for let user check the matched claim name when user use tag
+	 * this page's interface is based on the activity_add_tag.xml
+	 */
+	
 	private String CorrespondingClaimName;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_tag);
 	
-		//save the name
+		/**
+		 * save the claim name from ClaimListAcivity
+		 * adding and update the tag into taglist and show that in textview
+		 */
 		Intent intent1 = getIntent();
 		CorrespondingClaimName=intent1.getStringExtra("claimname");
 		
@@ -45,7 +78,11 @@ public class AddTagActivity extends Activity {
 	    listView.setAdapter(tagAdapter);
 	
 	    
-	    //update to make our adapter now that list has been changed
+	    /**
+	     * update to make our adapter 
+	     * now that list has been changed
+	     * 
+	     */
 	   TagListController.getTagList().addListener(new Listener(){
 	    	@Override
 	    	public void update(){
@@ -62,6 +99,10 @@ public class AddTagActivity extends Activity {
 			@Override
 			public boolean onItemLongClick(AdapterView<?> adapterView, View view,
 					int position, long id) {
+				/**
+				 * set the long click funtion to the claim list
+				 * to make the Delete to delete and cancel to cancel
+				 */
 				//Toast.makeText(ClaimListActivity.this,"Delete "+ list.get(position).toString(), Toast.LENGTH_SHORT).show();
 				
 				AlertDialog.Builder adb = new AlertDialog.Builder(AddTagActivity.this); //set alert dialog for deleting
@@ -94,20 +135,25 @@ public class AddTagActivity extends Activity {
 	    //delete a tag
 	   
 	    
-
+	
 	 
 
 		@Override
 		public boolean onCreateOptionsMenu(Menu menu) {
-			// Inflate the menu; this adds items to the action bar if it is present.
+			/**
+			 * Inflate the menu; this adds items to the action bar if it is present.
+			 */
+		  
 			getMenuInflater().inflate(R.menu.activity__add__tag, menu);
 			return true;
 			}
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
+		/**
+		* Handle action bar item clicks here. The action bar will
+		* automatically handle clicks on the Home/Up button, so long
+		* as you specify a parent activity in AndroidManifest.xml.
+		 */
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
 			return true;
@@ -115,7 +161,11 @@ public class AddTagActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
-	//clicking to add new tag
+	/**clicking to add new tag
+	 * 
+	 * @param v addnewtag button
+	 * and save the claimname and the tag name into tag for showing it in add tag page
+	 */
 	public void  Addnewtag(View v){
 		Toast.makeText(this,"added a tag", Toast.LENGTH_SHORT).show(); // show message
 		TagListController tc = new TagListController();
@@ -124,6 +174,11 @@ public class AddTagActivity extends Activity {
 		
 			
 	}
+	/**
+	 * 
+	 * @param menu 
+	 * click the geolocation in the topright coner to go to the geolocationacivity
+	 */
 
 	public void geolocation(MenuItem menu){
 		Toast.makeText(this, "Geolocation", Toast.LENGTH_SHORT).show();
