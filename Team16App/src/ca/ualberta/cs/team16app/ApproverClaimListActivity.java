@@ -143,6 +143,7 @@ public class ApproverClaimListActivity extends Activity {
 	 */
 	private void fetchDataFromServer() {
 		onlineStoryLibrary = client.getAllClaims();
+		
 		cManagerInst.cacheData(onlineStoryLibrary);
 	}
 

@@ -220,6 +220,7 @@ public class ApproverCommentsActivity extends Activity {
 		protected String doInBackground(String... arg0) {
 			ESClient client = new ESClient();
 			try {
+				client.deleteClaim(this.claim);
 				client.insertClaim(this.claim);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
