@@ -187,7 +187,7 @@ public class ApproverCommentsActivity extends Activity {
 	public void pushClaim(Claim claimClicked) {
 		if (isNetworkConnected()) {
 		//Since we need to give the HTTP client some time
-		//to publish the story, we need to use AsyncTasks.
+		//to publish the claim, we need to use AsyncTasks.
 		new pushClaimTask(claimClicked).execute();
 		}
 		else {

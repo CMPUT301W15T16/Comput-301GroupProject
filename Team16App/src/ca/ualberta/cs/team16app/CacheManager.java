@@ -154,7 +154,7 @@ public class CacheManager {
 	}
 
 	/**
-	 * Cleans the given directory to be the predefined maximum size allowed (in bytes).
+	 * Cleans the given directory 
 	 * 
 	 * @param dir the directory to be cleaned
 	 * @param bytes the max size allowed (in bytes)
