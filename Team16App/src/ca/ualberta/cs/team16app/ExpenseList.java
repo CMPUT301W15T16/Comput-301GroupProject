@@ -20,7 +20,11 @@
  */
 package ca.ualberta.cs.team16app;
 
-
+/**
+ * this is a model to show store the ExpenseList
+ * 
+ * 
+ * */
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;

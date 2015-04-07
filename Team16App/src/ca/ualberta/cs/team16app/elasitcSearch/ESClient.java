@@ -51,7 +51,7 @@ import com.google.gson.reflect.TypeToken;
  * https://github.com/rayzhangcl/ESDemo
  * 
  * @author Chenlei Zhang - Original Owner
- * @author Minhal Syed - Modified Original Code
+ * @author Dimeng - Modified Original Code
  */
 public class ESClient {
 
@@ -61,7 +61,7 @@ public class ESClient {
 	// JSON Utilities
 	private Gson gson = new Gson();
 
-	public static final String WEBSERVICE_URI = "http://cmput301.softwareprocess.es:8080/cmput301w15t10/";
+	public static final String WEBSERVICE_URI = "http://cmput301.softwareprocess.es:8080/cmput301w15t16/";
 	public static final String CLAIM_FOLDER = "claim/";
 	public static final String SEARCH_PRETTY = "_search?pretty=1&q=";
 	public static final int MAX_STORIES = 20;

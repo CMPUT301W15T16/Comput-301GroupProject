@@ -82,6 +82,7 @@ public class Expense implements Serializable {
 
 	public boolean equals(Object compareExpense){
 		
+		
 		if(compareExpense != null && compareExpense.getClass() == this.getClass()){
 			return this.equals((Expense)compareExpense);
 		}

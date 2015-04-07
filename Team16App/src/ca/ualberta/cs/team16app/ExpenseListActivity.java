@@ -40,6 +40,11 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 
+
+/**
+ * this is a Activity to show that expense list
+ * 
+ * */
 public class ExpenseListActivity extends Activity
 {
 

@@ -34,7 +34,12 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
+/**
+ * this is a activity to edit the expense
+ * 
+ * 
+ * 
+ * */
 public class EditExpenseActivity extends Activity {
 	
 	private ArrayAdapter<String> categorySpinnerAdapter;

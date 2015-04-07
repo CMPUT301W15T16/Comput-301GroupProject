@@ -1,3 +1,13 @@
+/**
+ * This is the Elastic Search Client Class.
+ * This code has been taken and modified from:
+ * https://github.com/rayzhangcl/ESDemo
+ * 
+ * @author Chenlei Zhang - Original Owner
+ * @author Dimeng - Modified Original Code
+ */
+
+
 package ca.ualberta.cs.team16app.elasitcSearch;
 
 import java.util.Collection;
