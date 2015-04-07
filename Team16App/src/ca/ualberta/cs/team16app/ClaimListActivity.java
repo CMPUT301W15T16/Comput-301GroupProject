@@ -83,9 +83,9 @@ public class ClaimListActivity extends Activity {
 	    ClaimListController.getClaimList().addListener(new Listener(){
 	    	@Override
 	    	public void update(){
-	    		//list.clear();
-	    		//Collection<Claim> claims = ClaimListController.getClaimList().getClaims();
-	    		//list.addAll(claims);
+	    		list.clear();
+	    		Collection<Claim> claims = ClaimListController.getClaimList().getClaims();
+	    		list.addAll(claims);
 	    		claimAdapter.notifyDataSetChanged();
 	    	}
 	    });

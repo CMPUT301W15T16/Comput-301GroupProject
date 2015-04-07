@@ -159,6 +159,13 @@ public class DestListActivity extends Activity {
 		Intent intent = new Intent(DestListActivity.this,AddDestActivity.class);
 		startActivity(intent);
 		}	
+	public void backtoclaim(View v){
+
+		Toast.makeText(this,"back to claim list", Toast.LENGTH_SHORT).show(); // show message
+		
+		Intent intent = new Intent(DestListActivity.this,ClaimListActivity.class);
+		startActivity(intent);
+	}
 	   
 }
 	

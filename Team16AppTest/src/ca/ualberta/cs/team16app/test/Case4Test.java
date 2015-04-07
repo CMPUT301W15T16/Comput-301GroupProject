@@ -1,489 +1,129 @@
 package ca.ualberta.cs.team16app.test;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+
+import ca.ualberta.cs.team16app.Claim;
+import ca.ualberta.cs.team16app.ClaimList;
+import ca.ualberta.cs.team16app.Expense;
+import ca.ualberta.cs.team16app.ExpenseList;
+import android.content.ClipData.Item;
+import android.widget.ListView;
+import android.widget.TextView;
 import junit.framework.TestCase;
 
-
+//All tests in this class edited by omoyeni
 public class Case4Test extends TestCase
 {
 
     //qtan
     //UC 04.06.01 Test Cases:
-    //make sure the edit works
-    public void editItemTest() {
-        Date date1= new Date(111);
-        Date date2= new Date(222);
-        String category1 = "aaa";
-        String category2 = "bbb";
-        String text1 = "ccc";
-        String text2 = "ddd";
-        int amount1 = 1;
-        int amount2 = 2;
-        String unit1 ="CAD";
-        String unit2= "USD";
-        Item Item = new Item(data1, category1, amount1,unit1,text1);
-        Item.setDate(data2);
-        Item.setCategory(category2);
-        Item.setText(amount2);
-        Item.setAmount(unit2);
-        Item.setUnit(text2);
+    //make sure the edit works for Expenses
+    public void testEditItem() {
+    	Expense expense1 = new Expense("expenseName", "fuel", "spend", "CAN","des");
+    	
+    	assertTrue("Name not set", expense1.getName().toString().equals("expenseName"));
+    	assertTrue("Category not set", expense1.getCategory().toString().equals("fuel"));
+    	assertTrue("Spend not set", expense1.getSpend().toString().equals("spend"));
+    	assertTrue("Currency not set", expense1.getCurrency().toString().equals("CAN"));
+    	assertTrue("Description not set", expense1.getDescription().toString().equals("des"));
 
-        assertTrue("Date did not change", date2.equals(Item.getDate()));
-        assertTrue("Category did not change", category2.equals(Item.getStartCategory()));
-        assertTrue("Unit did not change", unit2.equals(Item.getUnit()));
-        assertTrue("Amount did not change", amount2.equals(Item.getAmount()));
-        assertTrue("Description did not change", text2.equals(Item.getDescription()));
+		expense1.setName("expense2");
+		expense1.setCategory("parking");
+		expense1.setSpend("12");
+		expense1.setCurrency("USD");
+		expense1.setDescription("des2");
+
+		assertTrue("Name not changed", expense1.getName().toString().equals("expense2"));
+    	assertTrue("Category not changed", expense1.getCategory().toString().equals("parking"));
+    	assertTrue("Spend not changed", expense1.getSpend().toString().equals("12"));
+    	assertTrue("Currency not changed", expense1.getCurrency().toString().equals("USD"));
+    	assertTrue("Description not changed", expense1.getDescription().toString().equals("des2"));
     }
     
     
     
     //qtan
      //UC 04.07.01 Test Cases
-    //make sure the delete works (EXOENSE ITEM LIST)
-    public void deleteItemTest() {
-        Date date1= new Date(111);
-        Date date2= new Date(222);
-        String category1 = "aaa";
-        String text1 = "ccc";       
-        int amount1 = 1;
-        String unit1 ="CAD";
-        Item item = new item(data1, category1, amount1,unit1,text1);
-        ItemList itemList = new ItemList();
-        ItemList.addItem(item);
-        assertTrue("Item list size isn's big enough",ItemList.size() == 1);
-        assertTrue("not created",ItemList.contains(item));
-        claimList.deleteItem(item);
-        assertTrue("Item list size isn't small enough",ItemList.size() == 0);
-        assertFalse("Test Item still contained?",ItemList.contains(item));
-    
+    //make sure the delete works (EXPENSE ITEM LIST)
+    public void testDeleteItem() {
+    	Expense expense1 = new Expense("expenseName", "fuel", "spend", "USD","des");
+    	
+    	ExpenseList expenseList = new ExpenseList();
+    	
+    	expenseList.addExpense(expense1);
+    	expenseList.deleteExpense(expense1);
+        
+    	assertTrue("Expense not deleted", expenseList.size()== 0);
 
     }
+
   //qtan
     //UC 04.08.01
     // we can test it by select the Claimant after log in as "claimant" 
-    //then select an claim by clicking to selcet the ItemList
-    //to see if it is work//qtan
-//UC 04.01.01 Test Cases to test if one Item claim has a date,category,textual description,amount spent, and unit on its Item item
-public void testItemItems040101(){
-    //Data initial
-    Item Item = Case.newItem();
-    Item Item2 =Case.newItem();
-    //qtan
-    //UC 04.06.01 Test Cases:
-    //make sure the edit works
-    public void editItemTest() {
-        Date date1= new Date(111);
-        Date date2= new Date(222);
-        String category1 = "aaa";
-        String category2 = "bbb";
-        String text1 = "ccc";
-        String text2 = "ddd";
-        int amount1 = 1;
-        int amount2 = 2;
-        String unit1 ="CAD";
-        String unit2= "USD";
-        Item Item = new Item(data1, category1, amount1,unit1,text1);
-        Item.setDate(data2);
-        Item.setCategory(category2);
-        Item.setText(amount2);
-        Item.setAmount(unit2);
-        Item.setUnit(text2);
-
-        assertTrue("Date did not change", date2.equals(Item.getDate()));
-        assertTrue("Category did not change", category2.equals(Item.getStartCategory()));
-        assertTrue("Unit did not change", unit2.equals(Item.getUnit()));
-        assertTrue("Amount did not change", amount2.equals(Item.getAmount()));
-        assertTrue("Description did not change", text2.equals(Item.getDescription()));
-    }
-    
-    
+    //then select a claim by clicking to selcet the ItemList
+    //to see if it is work
     
     //qtan
-     //UC 04.07.01 Test Cases
-    //make sure the delete works (EXOENSE ITEM LIST)
-    public void deleteItemTest() {
-        Date date1= new Date(111);
-        Date date2= new Date(222);
-        String category1 = "aaa";
-        String text1 = "ccc";       
-        int amount1 = 1;
-        String unit1 ="CAD";
-        Item item = new item(data1, category1, amount1,unit1,text1);
-        ItemList itemList = new ItemList();
-    Date date1= new Date(111);
-    Date date2= new Date(222);
-    String category1 = "aaa";
-    String category2 = "bbb";
-    String text1 = "ccc";
-    String text2 = "ddd";
-    int amount1 = 1;
-    int amount2 = 2;
-    String unit1 ="CAD";
-    String unit2= "USD";
-
-
-
-
-    //Add 2 different Item in one Claim Case 
-    Case.addItemDate(Item,date1);
-    Case.addItemDate(Item2,date2);
-    Case.addItemCategory(Item,category1);
-    Case.addItemCategory(Item2,category2);
-    Case.addItemDescription(Item,text1);
-    Case.addItemDescription(Item2,text2);
-    Case.addItemAmountSpent(Item,amount1);
-    Case.addItemAmountSpent(Item2,amount2);
-    Case.addItemUnit(Item,unit1);
-    Case.addItemUnit(Item2,unit2);
-
-
-
-
-    //test if it is work
-    assertTrue("Date1 is not wrote in", date1.equals(Case.getItemDate(Item)));
-    assertTrue("Date2 is not wrote in", date2.equals(Case.getItemDate(Item2)));
-    assertTrue("Category1 is not worte in", category1.equals(Case.getItemCategory(Item)));
-    assertTrue("Category2 is not worte in", category2.equals(Case.getItemCategory(Item2)));
-    assertTrue("Amount1 is not worte in", amount1.equals(Case.getItemAmount(Item)));
-    assertTrue("Amount2 is not worte in", amount2.equals(Case.getItemAmount(Item2)));
-    assertTrue("Unit1 is not worte in", unit1.equals(Case.getItemUnit(Item)));
-    assertTrue("Unit2 is not worte in", unit2.equals(Case.getItemUnit(Item2)));
-    assertTrue("Description1 is not worte in", text1.equals(Case.getItemDescription(Item)));
-    assertTrue("Description2 is not worte in", text2.equals(Case.getItemDescription(Item2)));
-    
-    
-    
+//UC 04.01.01 Test Cases to test that you can make more than one expense item
+	public void testClaimComplete(){
+	    
+		Expense expense1 = new Expense("expenseName", "fuel", "spend", "CAN","des");
+		
+		Expense expense2 = new Expense("expenseName2", "registration", "spend2", "USD","des2");
+		
+		ExpenseList expenseList = new ExpenseList();
+		expenseList.addExpense(expense1);
+		expenseList.addExpense(expense2);
+		
+		assertTrue("expense1 not part of expenseList", expenseList.contains(expense1));
+		assertTrue("expense2 not in expenseList", expenseList.contains(expense2));
+	}
+	
+ 
     //qtan
     //UC 04.02.01 Test Cases:
-    //make sure the category is  one of air fare, ground transport, vehicle rental, private automobile, fuel, parking, registration, accommodation, meal, or supplies
-    public void testItemItems040102(Item item){
-        String[] myStringArray = {"air fare", "ground transport", "vehicle rental", "private automobile", "fuel", "parking", "registration", "accommodation", "meal","supplies"}
-        assertTrue("out of option", myStringArray.contains(item.getCategory()));
-         }
+    //make sure the category for expense item is  one of air fare, ground transport, 
+	//vehicle rental, private automobile, fuel, parking, registration, accommodation, 
+	//meal, or supplies ---- SPINNERS WERE ADDED TO SOLVE THIS
     
-    
+   
     //qtan
     //UC 04.03.01 Test Cases:
     //make sure the currency is one of CAD, USD, EUR, GBP, CHF, JPY, or CNY
-    public void testItemItems040103(Item item){
-    	String[] myStringArray2 = {CAD, USD, EUR, GBP, CHF, JPY, CNY}
-    	assertTrue("out of option", myStringArray2.contains(item.getUnit()));
-    }
+	// ----SPINNERS WERE ADDED TO SOLVE THIS -------
     
     
-    
-    //qtan
-    //UC 04.04.01 Test Case: create a new expense item and add/delete flag, then test if we can get the flag
-    public void testAddFlag() {
-	// create an expense 
-	ItemList itemList = new ItemList;
-	String ItemName = "aaa";
-	Item Flagtest = new Item(ItemName);
-	itemList_.addItem(Flagtest);
-	Flagtest.setDate("111");
-	Flagtest.setCategory("bbb");
-	Flagtest.setAmount(1);//qtan
-//UC 04.01.01 Test Cases to test if one Item claim has a date,category,textual description,amount spent, and unit on its Item item
-public void testItemItems040101(){
-    //Data initial
-    Item Item = Case.newItem();
-    Item Item2 =Case.newItem();
-    Date date1= new Date(111);
-    Date date2= new Date(222);
-    String category1 = "aaa";
-    String category2 = "bbb";
-    String text1 = "ccc";
-    String text2 = "ddd";
-    int amount1 = 1;
-    int amount2 = 2;
-    String unit1 ="CAD";
-    String unit2= "USD";
-
-
-
-
-    //Add 2 different Item in one Claim Case 
-    Case.addItemDate(Item,date1);
-    Case.addItemDate(Item2,date2);
-    Case.addItemCategory(Item,category1);
-    Case.addItemCategory(Item2,category2);
-    Case.addItemDescription(Item,text1);
-    Case.addItemDescription(Item2,text2);
-    Case.addItemAmountSpent(Item,amount1);
-    Case.addItemAmountSpent(Item2,amount2);
-    Case.addItemUnit(Item,unit1);
-    Case.addItemUnit(Item2,unit2);
-
-
-
-
-    //test if it is work
-    assertTrue("Date1 is not wrote in", date1.equals(Case.getItemDate(Item)));
-    assertTrue("Date2 is not wrote in", date2.equals(Case.getItemDate(Item2)));
-    assertTrue("Category1 is not worte in", category1.equals(Case.getItemCategory(Item)));
-    assertTrue("Category2 is not worte in", category2.equals(Case.getItemCategory(Item2)));
-    assertTrue("Amount1 is not worte in", amount1.equals(Case.getItemAmount(Item)));
-    assertTrue("Amount2 is not worte in", amount2.equals(Case.getItemAmount(Item2)));
-    assertTrue("Unit1 is not worte in", unit1.equals(Case.getItemUnit(Item)));
-    assertTrue("Unit2 is not worte in", unit2.equals(Case.getItemUnit(Item2)));
-    assertTrue("Description1 is not worte in", text1.equals(Case.getItemDescription(Item)));
-    assertTrue("Description2 is not worte in", t
-    //qtan
-    //UC 04.03.01 Test Cases:
-    //make sure the currency is one of CAD, USD, EUR, GBP, CHF, JPY, or CNY
-    public void testItemItems040103(Item item){
-    	String[] myStringArray2 = {CAD, USD, EUR, GBP, CHF, JPY, CNY}
-    	assertTrue("out of option", myStringArray2.contains(item.getUnit()));
-    }
-    
-    
-    
-    //qtan
-    //UC 04.04.01 Test Case: create a new expense item and add/delete flag, then test if we can get the flag
-    public void testAddFlag() {
-	// create an expense 
-	ItemList itemList = new ItemList;
-	String ItemName = "aaa";
-	Item Flagtest = new Item(ItemName);
-	itemList_.addItem(Flagtest);
-	Flagtest.setDate("111");
-	Flagtest.setCategory("bbb");
-	Flagtest.setAmount(1);
-	Flagtest.setCurrency("CAD");
-	Flagtest.setDescription("ccc");
-	Item expense = new Item(expenseName);
-	//to add a flag then test if the project add it
-        Flagtest.addFlag();
-	assertTrue("no flag added",Flagtest.getFlag());
-	//to delete that flag if it is added and test if we delete it
-	Flagtest.deleteFlag();
-	assertFalse("cant delete",Flagtest.getFlag());
 	
-			
-}
-
-
-
     //qtan
     //UC 04.05.01 Test Cases: view an Item item and its details
-    public void viewItemTest() {
-        ItemActivity activity = ItemActivity();
-        TextView ItemName = (TextView) activity.findViewById(R.id.ItemName);
-        TextView ItemDate = (TextView) activity.findViewById(R.id.ItemDate);
-        TextView ItemCategory = (TextView) activity.findViewById(R.id.ItemCategory);
-        TextView ItemAmount = (TextView) activity.findViewById(R.id.ItemAmount);
-        TextView ItemDescrption = (TextView) activity.findViewById(R.id.ItemDescrption);
-        TextView ItemUnit = (TextView) activity.findViewById(R.id.ItemUnit);
-        assertNotNull("no activity",activity);
-        assertNotNull("no ItemName",ItemName);
-        assertNotNull("no ItemDate",ItemDate);
-        assertNotNull("no ItemCategory",ItemCategory);
-        assertNotNull("no ItemAmount",ItemAmount);
-        assertNotNull("no ItemUnit",ItemUnit);
-        assertNotNull("no ItemDescrption",ItemDescrption);
+    public void testViewItem() {
+    	Expense expense1 = new Expense("expenseName", "fuel", "spend", "CAN","des");
+    	
+    	assertNotNull("Name not changed", expense1.getName());
+    	assertNotNull("Category not changed", expense1.getCategory());
+    	assertNotNull("Spend not changed", expense1.getSpend());
+    	assertNotNull("Currency not changed", expense1.getCurrency());
+    	assertNotNull("Description not changed", expense1.getDescription());
     }
     
     
-    
-    
+    /*   
     //qtan
-    //UC 04.06.01 Test Cases:
-    //make sure the edit works
-    public void editItemTest() {
-        Date date1= new Date(111);
-        Date date2= new Date(222);
-        String category1 = "aaa";
-        String category2 = "bbb";
-        String text1 = "ccc";
-        String text2 = "ddd";
-        int amount1 = 1;
-        int amount2 = 2;
-        String unit1 ="CAD";
-        String unit2= "USD";
-        Item Item = new Item(data1, category1, amount1,unit1,text1);
-        Item.setDate(data2);
-        Item.setCategory(category2);
-        Item.setText(amount2);
-        Item.setAmount(unit2);
-        Item.setUnit(text2);
-
-        assertTrue("Date did not change", date2.equals(Item.getDate()));
-        assertTrue("Category did not change", category2.equals(Item.getStartCategory()));
-        assertTrue("Unit did not change", unit2.equals(Item.getUnit()));
-        assertTrue("Amount did not change", amount2.equals(Item.getAmount()));
-        assertTrue("Description did not change", text2.equals(Item.getDescription()));
-    }
-    
-    
-    
-    //qtan
-     //UC 04.07.01 Test Cases
-    //make sure the delete works (EXOENSE ITEM LIST)
-    public void deleteItemTest() {
-        Date date1= new Date(111);
-        Date date2= new Date(222);
-        String category1 = "aaa";
-        String text1 = "ccc";       
-        int amount1 = 1;
-        String unit1 ="CAD";
-        Item item = new item(data1, category1, amount1,unit1,text1);
-        ItemList itemList = new ItemList();
-        ItemList.addItem(item);
-        assertTrue("Item list size isn's big enough",ItemList.size() == 1);
-        assertTrue("not created",ItemList.contains(item));
-        claimList.deleteItem(item);
-        assertTrue("Item list size isn't small enough",ItemList.size() == 0);
-        assertFalse("Test Item still contained?",ItemList.contains(item));
-    
-
-
-}
-    //qtan
-    //UC 04.08.01
-    // we can test it by select the Claimant after log in as "claimant" 
-    //then select an claim by clicking to selcet the ItemList
-    //to see if it is work//qtan
-//UC 04.01.01 Test Cases to test if one Item claim has a date,category,textual description,amount spent, and unit on its Item item
-public void testItemItems040101(){
-    //Data initial
-    Item Item = Case.newItem();
-    Item Item2 =Case.newItem();
-    Date date1= new Date(111);
-    Date date2= new Date(222);
-    String category1 = "aaa";
-    String category2 = "bbb";
-    String text1 = "ccc";
-    String text2 = "ddd";
-    int amount1 = 1;
-    int amount2 = 2;
-    String unit1 ="CAD";
-    String unit2= "USD";
-
-
-
-
-    //Add 2 different Item in one Claim Case 
-    Case.addItemDate(Item,date1);
-    Case.addItemDate(Item2,date2);
-    Case.addItemCategory(Item,category1);
-    Case.addItemCategory(Item2,category2);
-    Case.addItemDescription(Item,text1);
-    Case.addItemDescription(Item2,text2);
-    Case.addItemAmountSpent(Item,amount1);
-    Case.addItemAmountSpent(Item2,amount2);
-    Case.addItemUnit(Item,unit1);
-    Case.addItemUnit(Item2,unit2);
-
-
-
-
-    //test if it is work
-    assertTrue("Date1 is not wrote in", date1.equals(Case.getItemDate(Item)));
-    assertTrue("Date2 is not wrote in", date2.equals(Case.getItemDate(Item2)));
-    assertTrue("Category1 is not worte in", category1.equals(Case.getItemCategory(Item)));
-    assertTrue("Category2 is not worte in", category2.equals(Case.getItemCategory(Item2)));
-    assertTrue("Amount1 is not worte in", amount1.equals(Case.getItemAmount(Item)));
-    assertTrue("Amount2 is not worte in", amount2.equals(Case.getItemAmount(Item2)));
-    assertTrue("Unit1 is not worte in", unit1.equals(Case.getItemUnit(Item)));
-    assertTrue("Unit2 is not worte in", unit2.equals(Case.getItemUnit(Item2)));
-    assertTrue("Description1 is not worte in", text1.equals(Case.getItemDescription(Item)));
-    assertTrue("Description2 is not worte in", text2.equals(Case.getItemDescription(Item2)));
-    
-    
-    
-    //qtan
-    //UC 04.02.01 Test Cases:
-    //make sure the category is  one of air fare, ground transport, vehicle rental, private automobile, fuel, parking, registration, accommodation, meal, or supplies
-    public void testItemItems040102(Item item){
-        String[] myStringArray = {"air fare", "ground transport", "vehicle rental", "private automobile", "fuel", "parking", "registration", "accommodation", "meal","supplies"}
-        assertTrue("out of option", myStringArray.contains(item.getCategory()));
-         }
-    
-    
-    //qtan
-	Flagtest.setCurrency("CAD");
-	Flagtest.setDescription("ccc");
-	Item expense = new Item(expenseName);
-	//to add a flag then test if the project add it
-        Flagtest.addFlag();
-	assertTrue("no flag added",Flagtest.getFlag());
-	//to delete that flag if it is added and test if we delete it
-	Flagtest.deleteFlag();
-	assertFalse("cant delete",Flagtest.getFlag());
+    //UC 04.04.01 Test Case: create a new expense item and flag as incomplete,
+    //then test if we can get the flag
+    public void testAddFlag() {
+	// create an expense 
+    Expense expense1 = new Expense("expenseName", "vehicle rental", "spend", "USD","des");
 	
+    //add flag
+    Status status = Status.Incomplete;
+	}
+*/
 			
-}
 
-
-
-    //qtan
-    //UC 04.05.01 Test Cases: view an Item item and its details
-    public void viewItemTest() {
-        ItemActivity activity = ItemActivity();
-        TextView ItemName = (TextView) activity.findViewById(R.id.ItemName);
-        TextView ItemDate = (TextView) activity.findViewById(R.id.ItemDate);
-        TextView ItemCategory = (TextView) activity.findViewById(R.id.ItemCategory);
-        TextView ItemAmount = (TextView) activity.findViewById(R.id.ItemAmount);
-        TextView ItemDescrption = (TextView) activity.findViewById(R.id.ItemDescrption);
-        TextView ItemUnit = (TextView) activity.findViewById(R.id.ItemUnit);
-        assertNotNull("no activity",activity);
-        assertNotNull("no ItemName",ItemName);
-        assertNotNull("no ItemDate",ItemDate);
-        assertNotNull("no ItemCategory",ItemCategory);
-        assertNotNull("no ItemAmount",ItemAmount);
-        assertNotNull("no ItemUnit",ItemUnit);
-        assertNotNull("no ItemDescrption",ItemDescrption);
-    }
     
     
-    
-    
-    //qtan
-    //UC 04.06.01 Test Cases:
-    //make sure the edit works
-    public void editItemTest() {
-        Date date1= new Date(111);
-        Date date2= new Date(222);
-        String category1 = "aaa";
-        String category2 = "bbb";
-        String text1 = "ccc";
-        String text2 = "ddd";
-        int amount1 = 1;
-        int amount2 = 2;
-        String unit1 ="CAD";
-        String unit2= "USD";
-        Item Item = new Item(data1, category1, amount1,unit1,text1);
-        Item.setDate(data2);
-        Item.setCategory(category2);
-        Item.setText(amount2);
-        Item.setAmount(unit2);
-        Item.setUnit(text2);
-
-        assertTrue("Date did not change", date2.equals(Item.getDate()));
-        assertTrue("Category did not change", category2.equals(Item.getStartCategory()));
-        assertTrue("Unit did not change", unit2.equals(Item.getUnit()));
-        assertTrue("Amount did not change", amount2.equals(Item.getAmount()));
-        assertTrue("Description did not change", text2.equals(Item.getDescription()));
-    }
-    
-    
-    
-    //qtan
-     //UC 04.07.01 Test Cases
-    //make sure the delete works (EXOENSE ITEM LIST)
-    public void deleteItemTest() {
-        Date date1= new Date(111);
-        Date date2= new Date(222);
-        String category1 = "aaa";
-        String text1 = "ccc";       
-        int amount1 = 1;
-        String unit1 ="CAD";
-        Item item = new item(data1, category1, amount1,unit1,text1);
-        ItemList itemList = new ItemList();
-        ItemList.addItem(item);
-        assertTrue("Item list size isn's big enough",ItemList.size() == 1);
-        assertTrue("not created",ItemList.conta
-    //Specified operation in story board
-
-    }
 }
     

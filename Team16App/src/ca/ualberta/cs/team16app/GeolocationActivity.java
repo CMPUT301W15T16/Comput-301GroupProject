@@ -98,7 +98,7 @@ public class GeolocationActivity extends Activity{
 	        e.printStackTrace();
 	    }
 	    catch (IOException e){
-	        return ;
+	        return;
 	    }
 		
 		Button sethome = (Button)findViewById(R.id.setHome);
@@ -164,6 +164,75 @@ public class GeolocationActivity extends Activity{
 				});
 				
 				alert.show();
+			}
+		});
+		
+		Button addDest = (Button)findViewById(R.id.addDest);
+		addDest.setOnClickListener(new View.OnClickListener(){
+			@Override
+			public void onClick(View v){
+				AlertDialog.Builder alert2 = new AlertDialog.Builder(GeolocationActivity.this);
+				alert2.setTitle("Please input destination, latitude and longitude");
+				
+				LinearLayout mainLayout=new LinearLayout(GeolocationActivity.this);
+				mainLayout.setLayoutParams(new LinearLayout.LayoutParams(-1,-2));
+				mainLayout.setOrientation(LinearLayout.VERTICAL);
+				LinearLayout.LayoutParams lp=new LinearLayout.LayoutParams(-1,-2);
+				lp.setMargins(20,0,20,0);
+				
+				TextView tv3 = new TextView(GeolocationActivity.this);
+				tv3.setLayoutParams(lp);
+				tv3.setText("Destination:");
+				final EditText et3 = new EditText(GeolocationActivity.this);
+				et3.setLayoutParams(lp); 
+				
+				TextView tv4 = new TextView(GeolocationActivity.this);
+				tv4.setLayoutParams(lp);
+				tv4.setText("Latitude:");
+				final EditText et4 = new EditText(GeolocationActivity.this);
+				et4.setLayoutParams(lp);
+				
+				TextView tv5 = new TextView(GeolocationActivity.this);
+				tv5.setLayoutParams(lp);
+				tv5.setText("Longitude:");
+				final EditText et5 = new EditText(GeolocationActivity.this);
+				et5.setLayoutParams(lp);
+				
+				mainLayout.addView(tv3);
+				mainLayout.addView(et3);
+				mainLayout.addView(tv4);
+				mainLayout.addView(et4);
+				mainLayout.addView(tv5);
+				mainLayout.addView(et5);
+				alert2.setView(mainLayout);
+				
+				alert2.setPositiveButton("Add", new DialogInterface.OnClickListener(){
+					public void onClick(DialogInterface dialog, int whichButton) {
+						if (et3 != null & et4 != null) {
+							 try {
+						            FileOutputStream outStream = openFileOutput("destination.txt",Context.MODE_APPEND);
+						            outStream.write(new String(et3.getText().toString()+"\n").getBytes());
+						            outStream.write(new String(et4.getText().toString()+"\n").getBytes());
+						            outStream.write(new String(et5.getText().toString()+"\n").getBytes());
+						            outStream.close();
+						        } catch (FileNotFoundException e) {
+						            return;
+						        }
+						        catch (IOException e){
+						            return ;
+						        }
+							
+						}
+					}
+
+				});
+				
+				alert2.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
+					public void onClick(DialogInterface dialog, int whichButton) {
+					}
+				});
+				
+				alert2.show();
 			}
 		});
 		

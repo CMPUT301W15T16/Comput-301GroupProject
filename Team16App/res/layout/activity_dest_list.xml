@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignRight="@+id/textView2"
         android:onClick="addnewDest"
         android:text="Add new Destination" />
 
@@ -35,5 +35,17 @@
         android:layout_alignParentTop="true"
         android:text="Destinations"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/addnewDest"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/destList"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/addnewDest"
+        android:onClick="backtoclaim"
+        android:text="Back to ClaimList" />
 
 </RelativeLayout>
