@@ -1,23 +1,3 @@
-/**
- * Team16App: travel expense tracking application
- * Copyright (C) 2015 peijen  Chris Lin 
- * dmeng  Di Meng 
- * tshen
- * qtan  Qi Tan 
- * yuentung  
- * omoyeni  Omoyeni Adeyemo 
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- * You should have received a copy of the GNU General Public License
- * along with this program. If not, see <http://www.gnu.org/licenses/>.
-
- */
 package ca.ualberta.cs.team16app;
 
 import java.io.BufferedReader;
@@ -54,10 +34,22 @@ import android.widget.Toast;
 // Edited by Tiancheng Shen
 // Part of the codes are cited from lab sample "MockLocationTester"
 
+/**
+ * This class demonstrate usage of GPS. It receive GPS data and show on the screen. It also add destination geolocation and lead to map.
+ * 
+ * @author tshen
+ *
+ */
 public class GeolocationActivity extends Activity{
 
 	public static final String Geo_PROVIDER = "GeolocationProvider";
 	@Override
+	
+	/**
+	 * @param txt file
+	 * @print latitude and longitude
+	 * @throws FileNotFoundException and IOException
+	 */
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_geolocation);
@@ -104,6 +96,11 @@ public class GeolocationActivity extends Activity{
 		Button sethome = (Button)findViewById(R.id.setHome);
 		sethome.setOnClickListener(new View.OnClickListener(){
 			@Override
+			/**
+			 * @param txt file
+			 * @print latitude and longitude
+			 * @throws FileNotFoundException and IOException
+			 */
 			public void onClick(View v){
 				AlertDialog.Builder alert = new AlertDialog.Builder(GeolocationActivity.this);
 				alert.setTitle("Please input the latitude and longitude of your home geolocation");
@@ -170,6 +167,11 @@ public class GeolocationActivity extends Activity{
 		Button addDest = (Button)findViewById(R.id.addDest);
 		addDest.setOnClickListener(new View.OnClickListener(){
 			@Override
+			/**
+			 * @param txt file
+			 * @return file
+			 * @throws FileNotFoundException and IOException
+			 */
 			public void onClick(View v){
 				AlertDialog.Builder alert2 = new AlertDialog.Builder(GeolocationActivity.this);
 				alert2.setTitle("Please input destination, latitude and longitude");
@@ -247,7 +249,11 @@ public class GeolocationActivity extends Activity{
         });
 	}
 	
-
+	/**
+	 * @param latitude and longitude
+	 * @print latitude and longitude
+	 * @throws no exception
+	 */
 	private final LocationListener listener = new LocationListener() {
 		public void onLocationChanged (Location location) {
 			TextView tv = (TextView) findViewById(R.id.gps);
