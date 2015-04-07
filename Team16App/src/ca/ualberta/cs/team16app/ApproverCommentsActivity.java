@@ -123,5 +123,13 @@ public class ApproverCommentsActivity extends Activity {
 		 }
 	}
 	
+	public void backToClaimList(View v){
+		Toast.makeText(this,"canceled and go back to the Claim list", Toast.LENGTH_SHORT).show(); // show message
+		
+		Intent intent = new Intent(ApproverCommentsActivity.this,ApproverClaimListActivity.class);
+		startActivity(intent);
+		}
+
+	
 	
 }
