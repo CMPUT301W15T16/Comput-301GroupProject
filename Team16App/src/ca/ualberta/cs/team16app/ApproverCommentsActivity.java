@@ -222,6 +222,7 @@ public class ApproverCommentsActivity extends Activity {
 			try {
 				client.deleteClaim(this.claim);
 				client.insertClaim(this.claim);
+				client.insertBackClaim(this.claim);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

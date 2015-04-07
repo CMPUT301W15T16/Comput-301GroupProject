@@ -317,6 +317,48 @@ public class ESClient {
 		return claimExists;
 	}
 	
+	
+	
+	
+	public void insertBackClaim(Claim claim) throws IOException {
+
+		HttpPost httpPost = new HttpPost(WEBSERVICE_URI + CLAIM_FOLDER
+				+ claim.getClaimId()+claim.getST());
+
+		StringEntity stringentity = null;
+
+		try {
+			stringentity = new StringEntity(gson.toJson(claim));
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		httpPost.setHeader("Accept", "application/json");
+
+		httpPost.setEntity(stringentity);
+
+		HttpResponse response = null;
+		try {
+			response = httpclient.execute(httpPost);
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		
+		String status = response.getStatusLine().toString();
+		System.out.println(status);
+		HttpEntity entity = response.getEntity();
+		BufferedReader br = new BufferedReader(new InputStreamReader(
+				entity.getContent()));
+		String output;
+		System.err.println("Output from Server -> ");
+		while ((output = br.readLine()) != null) {
+			System.err.println(output);
+		}
+
+	}
 
 
 }
