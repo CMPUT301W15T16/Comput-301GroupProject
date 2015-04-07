@@ -6,8 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="ca.ualberta.cs.group_travelexpenseapp.GeolocationActivity"
-    android:background="@drawable/bg" >
+    tools:context="ca.ualberta.cs.group_travelexpenseapp.GeolocationActivity" >
 
     <TextView
         android:id="@+id/gps"
@@ -23,15 +22,6 @@
         android:layout_below="@+id/textHome"
         android:text="@string/home" />
 
-    <TextView
-        android:id="@+id/textHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/gps"
-        android:layout_below="@+id/gps"
-        android:layout_marginTop="152dp"
-        android:text="My home geolocation:" />
-
     <Button
         android:id="@+id/openMap"
         android:layout_width="wrap_content"
@@ -41,12 +31,30 @@
         android:layout_marginBottom="26dp"
         android:text="Open Map" />
 
+    <TextView
+        android:id="@+id/textHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/gps"
+        android:layout_below="@+id/gps"
+        android:layout_marginTop="90dp"
+        android:text="My home geolocation:" />
+
     <Button
         android:id="@+id/setHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/homeGeo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="78dp"
+        android:text="Set Home Geolocation" />
+
+    <Button
+        android:id="@+id/addDest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/openMap"
         android:layout_centerHorizontal="true"
-        android:text="Set Home Geolocation" />
+        android:text="Add Destination" />
 
 </RelativeLayout>
