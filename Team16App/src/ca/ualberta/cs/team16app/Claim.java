@@ -15,6 +15,10 @@ import java.util.Date;
 
 
 
+
+
+
+
 import android.content.ClipData.Item;
 import android.nfc.Tag;
 
@@ -26,6 +30,8 @@ public class Claim implements Serializable
 	 * Claim serializable ID
 	 */
 	private static final long serialVersionUID = -3335827024534601528L;
+
+
 	
 	/**
 	 * claim Name
@@ -33,6 +39,14 @@ public class Claim implements Serializable
 	protected String claimName;
 	protected transient ArrayList<Listener> itemListener;
 	
+	
+	String CADTotal = "0";
+	String USDTotal = "0";
+	String EURTotal = "0";
+	String GBPTotal = "0";
+	String CHFTotal = "0";
+	String JPYTotal = "0";
+	String CNYTotal = "0";
 	
 	/**
 	 * statuses for expense claims
@@ -367,5 +381,145 @@ public class Claim implements Serializable
 		String filename = getClaimId() + ".cache";
 		return filename;
 	}
+	
+	protected String totalcurrency(Claim claim) {
+		String CADTotal = "0";
+		String USDTotal = "0";
+		String EURTotal = "0";
+		String GBPTotal = "0";		
+		String CNYTotal = "0";
+		String JPYTotal = "0";
+		String CHFTotal = "0";	
+		
+		for (int i = 0; i < ItemList.size(); i++) {
+			if (ItemList.get(i).getCurrency().equals("CAD")) {
+				String itemprice = ItemList.get(i).getSpend();
+				try {
+					int amount = Integer.parseInt(itemprice);
+					int tempCAD = Integer.parseInt(CADTotal);
+					tempCAD += amount;
+					CADTotal = Integer.toString(tempCAD);
+					claim.setCADTotal(CADTotal.toString());
+				} catch (NumberFormatException nfe) {
 
+				}
+			} else if (ItemList.get(i).getCurrency().equals("USD")) {
+				String itemprice = ItemList.get(i).getSpend();
+				try {
+					int num = Integer.parseInt(itemprice);
+					int tempUSD = Integer.parseInt(USDTotal);
+					tempUSD += num;
+					USDTotal = Integer.toString(tempUSD);
+					claim.setUSDTotal(USDTotal.toString());
+				} catch (NumberFormatException nfe) {
+
+				}
+
+			} else if (ItemList.get(i).getCurrency().toString().equals("GBP")) {
+				String itemprice = ItemList.get(i).getSpend();
+				try {
+					int num = Integer.parseInt(itemprice);
+					int tempGBP = Integer.parseInt(GBPTotal);
+					tempGBP += num;
+					GBPTotal = Integer.toString(tempGBP);
+					claim.setGBPTotal(GBPTotal.toString());
+				} catch (NumberFormatException nfe) {
+
+				}
+
+			} else if (ItemList.get(i).getCurrency().toString().equals("EUR")) {
+				String itemprice = ItemList.get(i).getSpend();
+				try {
+					int num = Integer.parseInt(itemprice);
+					int tempEUR = Integer.parseInt(EURTotal);
+					tempEUR += num;
+					EURTotal = Integer.toString(tempEUR);
+					claim.setEURTotal(EURTotal.toString());
+				} catch (NumberFormatException nfe) {
+
+				}
+			}
+			
+			else if (ItemList.get(i).getCurrency().toString().equals("CHF")) {
+				String itemprice = ItemList.get(i).getSpend();
+				try {
+					int num = Integer.parseInt(itemprice);
+					int tempEUR = Integer.parseInt(EURTotal);
+					tempEUR += num;
+					EURTotal = Integer.toString(tempEUR);
+					claim.setCHFTotal(EURTotal.toString());
+				} catch (NumberFormatException nfe) {
+
+				}
+			}
+			
+			
+			
+		}
+		
+		
+		
+		return ("USD: "+USDTotal+"\nCAD: "+CADTotal+"\nEUR: "+EURTotal+"\nGBP: "+GBPTotal
+				+"\nCHF: "+CHFTotal+"\nCNY: "+CNYTotal+"\nJPY: "+JPYTotal);
+	}
+	
+	
+	public String getCADTotal() {
+		return CADTotal;
+	}
+
+	public void setCADTotal(String cADTotal) {
+		CADTotal = cADTotal;
+	}
+
+	public String getUSDTotal() {
+		return USDTotal;
+	}
+
+	public void setUSDTotal(String uSDTotal) {
+		USDTotal = uSDTotal;
+	}
+
+	public String getEURTotal() {
+		return EURTotal;
+	}
+
+	public void setEURTotal(String eURTotal) {
+		EURTotal = eURTotal;
+	}
+
+	public String getGBPTotal() {
+		return GBPTotal;
+	}
+
+	public void setGBPTotal(String gBPTotal) {
+		GBPTotal = gBPTotal;
+	}
+	
+	
+	public String getCHFTotal() {
+		return CHFTotal;
+	}
+
+	public void setCHFTotal(String total) {
+		CHFTotal = total;
+	}
+	
+	public String getCNYTotal() {
+		return CNYTotal;
+	}
+
+	public void setCNYTotal(String total) {
+		CNYTotal = total;
+	}
+	
+	public String getJPYTotal() {
+		return JPYTotal;
+	}
+
+	public void setJPYTotal(String total) {
+		JPYTotal = total;
+	}
+	
+	
 }

@@ -147,10 +147,12 @@ public class ClaimListActivity extends Activity {
 						+ list.get(index).getStartDate().toString()
 						+"\nEnd Date: "
 						+ list.get(index).getEndDate().toString()
-						+"Destination: "
+						+"\nDestination: "
 						+list.get(index).getDestList().toString()
 						+"\nDescribtion: "
 						+ list.get(index).getDescription().toString()
+						+"\nTotal Currency:\n "
+						+ list.get(index).totalcurrency(list.get(index))
 						
 						);
 				adb.setPositiveButton("Submit", new OnClickListener(){

@@ -86,7 +86,7 @@ public class AddExpenseActivity extends Activity
 		ClaimListManager.initManager(this.getApplicationContext());
 		Bundle extras = getIntent().getExtras();
 		int first = extras.getInt("claimPos");
-		
+		 
 		ClaimListController cm = new ClaimListController();
 		
 		
