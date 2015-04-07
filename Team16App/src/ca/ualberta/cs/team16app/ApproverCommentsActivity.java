@@ -71,6 +71,7 @@ public class ApproverCommentsActivity extends Activity {
 	public void saveCommentButton(View v){
 		Intent intent1 = getIntent();
 		Claim claim = (Claim) intent1.getSerializableExtra("claim");
+		
 		//user has to enter a comment to return a claim
 		if(comments.getText().toString().equals("")
 				||approverName.getText().toString().equals("")||(claim.getST()<2))
@@ -82,7 +83,10 @@ public class ApproverCommentsActivity extends Activity {
 	 else{
 		Toast.makeText(this,"Commented Saved and Claim Returned!", 
 				Toast.LENGTH_SHORT).show(); // show message
-			
+		
+		claim.approverName = approverName.getText().toString();
+		claim.comment = comments.getText().toString();
+		
 		Intent intent = new Intent(ApproverCommentsActivity.this,
 				ApproverClaimListActivity.class);
 		//Claim.Status status = Status.Returned;   //change status of claim
