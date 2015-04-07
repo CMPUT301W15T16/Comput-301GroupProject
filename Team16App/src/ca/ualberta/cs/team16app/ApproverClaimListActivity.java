@@ -63,7 +63,7 @@ import ca.ualberta.cs.team16app.elasitcSearch.ESClient;
  */
 public class ApproverClaimListActivity extends Activity {
 	
-	ArrayList<Claim> onlineStoryLibrary = new ArrayList<Claim>();
+	ArrayList<Claim> claimLibrary = new ArrayList<Claim>();
 
 	boolean networkConnected;
 	ESClient client = new ESClient(); 
@@ -162,13 +162,13 @@ public class ApproverClaimListActivity extends Activity {
 	 * 
 	 */
 	private void fetchDataFromServer() {
-		onlineStoryLibrary = client.getAllClaims();
+		claimLibrary = client.getAllClaims();
 		
-		cManagerInst.cacheData(onlineStoryLibrary);
+		cManagerInst.cacheData(claimLibrary);
 	}
 
 	/**
-	 * Initiate instances of the CacheManager and StoryManager for the current
+	 * Initiate instances of the CacheManager and claimManager for the current
 	 * activity.
 	 */
 	private void initializeGlobals() {
@@ -202,7 +202,7 @@ public class ApproverClaimListActivity extends Activity {
 			if (networkConnected) {
 				fetchDataFromServer();
 			} else {
-				onlineStoryLibrary = cManagerInst.getCacheLibrary();
+				claimLibrary = cManagerInst.getCacheLibrary();
 			}
 			return null;
 		}
@@ -231,7 +231,7 @@ public class ApproverClaimListActivity extends Activity {
 		
 		Collection<Claim> claims = ClaimListController.getClaimList().getClaims();	
 		
-		final ArrayList<Claim> list = onlineStoryLibrary;// share the list, not gonna change it		
+		final ArrayList<Claim> list = claimLibrary;// share the list, not gonna change it		
 		final ArrayAdapter<Claim> claimAdapter = new ArrayAdapter<Claim>(this, android.R.layout.simple_list_item_1, list);
 	    listView.setAdapter(claimAdapter);
 	    
@@ -254,7 +254,7 @@ public class ApproverClaimListActivity extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 
-				// This is the story object that is returned when a list item is
+				// This is the claim object that is returned when a list item is
 				// clicked.
 				//Claim claim = (Claim) listView.getItemAtPosition(position);
 				
@@ -307,7 +307,7 @@ public class ApproverClaimListActivity extends Activity {
 					}								
 				});
 				
-				//viewStory(story);
+				//viewclaim(claim);
 				adb.show();	
 			}
 		});
@@ -346,11 +346,11 @@ public class ApproverClaimListActivity extends Activity {
 	}
 	
 	/**
-	 * This function downloads the online story to the phone's memory.
+	 * This function downloads the online claim to the phone's memory.
 	 * 
-	 * @param storyClicked
+	 * @param claimClicked
 	 */
-	private void downloadStory(Claim claimClicked) {
+	private void downloadclaim(Claim claimClicked) {
 		sManagerInst.saveclaim(claimClicked, true);
 		Toast.makeText(this, "Downloaded: " + claimClicked.getName(),
 				Toast.LENGTH_LONG).show();
