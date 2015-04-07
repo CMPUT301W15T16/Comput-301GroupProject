@@ -1,22 +1,35 @@
 package ca.ualberta.cs.team16app;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Date;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.text.Editable;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 // Edited by Tiancheng Shen
 // Part of the codes are cited from lab sample "MockLocationTester"
@@ -47,6 +60,26 @@ public class GeolocationActivity extends Activity{
 			TextView tvhome = (TextView) findViewById(R.id.homeGeo);
 			tvhome.setText("Latitude: " + lat + "\nLongitude: " + lng);
 		}*/
+		
+		ArrayList<String> homeGeo = new ArrayList<String>();
+		try {
+	        FileInputStream inStream = this.openFileInput("homeGeo.txt");
+	        BufferedReader in = new BufferedReader(new InputStreamReader(inStream));
+			String line = in.readLine();
+			while (line != null) {
+				homeGeo.add(line);
+				line = in.readLine();
+			}
+	        in.close();
+	        inStream.close();
+	        TextView tvhome = (TextView) findViewById(R.id.homeGeo);
+	        tvhome.setText("Latitude: " + homeGeo.get(0).toString() + "\nLongitude: " + homeGeo.get(1).toString());
+	    } catch (FileNotFoundException e) {
+	        e.printStackTrace();
+	    }
+	    catch (IOException e){
+	        return ;
+	    }
 		
 		Button sethome = (Button)findViewById(R.id.setHome);
 		sethome.setOnClickListener(new View.OnClickListener(){
@@ -86,10 +119,23 @@ public class GeolocationActivity extends Activity{
 							String lat = et1.getText().toString();
 							String lng = et2.getText().toString();
 							tvhome.setText("Latitude: " + lat + "\nLongitude: " + lng);
+							 try {
+						            FileOutputStream outStream = openFileOutput("homeGeo.txt",Context.MODE_PRIVATE);
+						            outStream.write(new String(et1.getText().toString()+"\n").getBytes());
+						            outStream.write(new String(et2.getText().toString()+"\n").getBytes());
+						            outStream.close();
+						        } catch (FileNotFoundException e) {
+						            return;
+						        }
+						        catch (IOException e){
+						            return ;
+						        }
+							
 						} else {
 							tvhome.setText("You have not set home geolocation yet");
 						}
 					}
+
 				});
 				
 				alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
@@ -100,7 +146,18 @@ public class GeolocationActivity extends Activity{
 				alert.show();
 			}
 		});
+		
+		Button openMap = (Button)findViewById(R.id.openMap);
+        openMap.setOnClickListener(new OnClickListener() {
+        	
+        	@Override
+        	public void onClick(View v){
+        		Intent intent=new Intent(GeolocationActivity.this, Map.class);
+        		startActivity(intent);
+        	}
+        });
 	}
+	
 
 	private final LocationListener listener = new LocationListener() {
 		public void onLocationChanged (Location location) {
