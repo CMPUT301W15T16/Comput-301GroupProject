@@ -83,7 +83,7 @@ public class Claim implements Serializable
 	protected String approverName;
 	
 	
-	protected int st;
+	protected int st = 0;
 	/**
 	 * list of expense items
 	 */

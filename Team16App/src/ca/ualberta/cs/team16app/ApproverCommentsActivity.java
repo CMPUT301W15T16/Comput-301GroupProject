@@ -69,9 +69,11 @@ public class ApproverCommentsActivity extends Activity {
 	
 	//click save button to return to claim list
 	public void saveCommentButton(View v){
+		Intent intent1 = getIntent();
+		Claim claim = (Claim) intent1.getSerializableExtra("claim");
 		//user has to enter a comment to return a claim
 		if(comments.getText().toString().equals("")
-				||approverName.getText().toString().equals(""))
+				||approverName.getText().toString().equals("")||(claim.getST()<2))
 		{
 		Toast.makeText(getApplicationContext(), "Make sure both entries are filled!",
 		Toast.LENGTH_SHORT).show();
@@ -83,24 +85,10 @@ public class ApproverCommentsActivity extends Activity {
 			
 		Intent intent = new Intent(ApproverCommentsActivity.this,
 				ApproverClaimListActivity.class);
-		Claim.Status status = Status.Returned;   //change status of claim
+		//Claim.Status status = Status.Returned;   //change status of claim
 		startActivity(intent);// move to claim list
 		 }
 	}
 	
-	/*
-	//From: http://developer.android.com/training/basics/data-storage/files.html
-	File file = new File(context.getFilesDir(), filename);
-	String filename = "myfile";
-	String string = "Hello world!";
-	FileOutputStream outputStream;
-
-	try {
-	  outputStream = openFileOutput(filename, Context.MODE_PRIVATE);
-	  outputStream.write(string.getBytes());
-	  outputStream.close();
-	} catch (Exception e) {
-	  e.printStackTrace();
-	}
-	*/
+	
 }
