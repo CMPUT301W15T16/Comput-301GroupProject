@@ -29,7 +29,7 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f090046;
+        public static final int action_settings=0x7f090047;
         public static final int add_expense_button=0x7f090036;
         public static final int addimg=0x7f090017;
         public static final int addnewDest=0x7f09000b;
@@ -40,12 +40,12 @@ public final class R {
         public static final int approverNameReturns=0x7f090027;
         public static final int approverclaimlist=0x7f09001c;
         public static final int approvercomment=0x7f090026;
-        public static final int camera=0x7f09003e;
+        public static final int camera=0x7f09003f;
         public static final int category=0x7f090011;
         public static final int categorySpinner=0x7f090010;
         public static final int checkBox1=0x7f090015;
-        public static final int choose_Approver=0x7f090040;
-        public static final int choose_Claimant=0x7f090041;
+        public static final int choose_Approver=0x7f090041;
+        public static final int choose_Claimant=0x7f090042;
         public static final int claimNameInfo=0x7f090003;
         public static final int claimenddate=0x7f090022;
         public static final int claimstartdate=0x7f090021;
@@ -57,7 +57,7 @@ public final class R {
         public static final int currencyText=0x7f090012;
         public static final int deleteclaim=0x7f090000;
         public static final int deleteexpense=0x7f090014;
-        public static final int deleteimg=0x7f090044;
+        public static final int deleteimg=0x7f090045;
         public static final int deletetag=0x7f090019;
         public static final int destList=0x7f090034;
         public static final int destName=0x7f090009;
@@ -68,27 +68,28 @@ public final class R {
         public static final int expenseDate=0x7f09000d;
         public static final int expenseDescription=0x7f09000f;
         public static final int expense_listView=0x7f09002b;
-        public static final int geolocation1=0x7f09004a;
-        public static final int geolocation2=0x7f09004d;
-        public static final int geolocation3=0x7f09004c;
-        public static final int geolocation4=0x7f09004b;
-        public static final int geolocation5=0x7f090049;
-        public static final int geolocation6=0x7f090048;
-        public static final int geolocation7=0x7f090047;
-        public static final int geolocation8=0x7f090045;
+        public static final int geolocation1=0x7f09004b;
+        public static final int geolocation2=0x7f09004e;
+        public static final int geolocation3=0x7f09004d;
+        public static final int geolocation4=0x7f09004c;
+        public static final int geolocation5=0x7f09004a;
+        public static final int geolocation6=0x7f090049;
+        public static final int geolocation7=0x7f090048;
+        public static final int geolocation8=0x7f090046;
         public static final int gps=0x7f090037;
         public static final int homeGeo=0x7f090038;
-        public static final int imageView=0x7f090043;
+        public static final int imageView=0x7f090044;
         public static final int linearLayoutForProgress=0x7f09001d;
+        public static final int map=0x7f09003d;
         public static final int name=0x7f09000c;
         public static final int newclaim=0x7f090033;
         public static final int newtag=0x7f090031;
         public static final int openMap=0x7f090039;
-        public static final int password_create=0x7f090042;
+        public static final int password_create=0x7f090043;
         public static final int progressBar=0x7f09001e;
         public static final int reason=0x7f090001;
         public static final int reasonDest=0x7f09000a;
-        public static final int reciptimg=0x7f09003d;
+        public static final int reciptimg=0x7f09003e;
         public static final int return1=0x7f09002a;
         public static final int returnbutton=0x7f090025;
         public static final int saveapprovercomment=0x7f090028;
@@ -102,7 +103,7 @@ public final class R {
         public static final int textHome=0x7f090007;
         public static final int textView2=0x7f090035;
         public static final int updateExpense=0x7f090016;
-        public static final int uploadrecipt=0x7f09003f;
+        public static final int uploadrecipt=0x7f090040;
         public static final int userName_create=0x7f090008;
         public static final int user_approver=0x7f09003b;
         public static final int user_claimant=0x7f09003c;
@@ -127,9 +128,10 @@ public final class R {
         public static final int activity_expense_list=0x7f04000f;
         public static final int activity_geolocation=0x7f040010;
         public static final int activity_main=0x7f040011;
-        public static final int activity_reciept_attachment=0x7f040012;
-        public static final int activity_register=0x7f040013;
-        public static final int activity_show_image=0x7f040014;
+        public static final int activity_map=0x7f040012;
+        public static final int activity_reciept_attachment=0x7f040013;
+        public static final int activity_register=0x7f040014;
+        public static final int activity_show_image=0x7f040015;
     }
     public static final class menu {
         public static final int activity__add__tag=0x7f080000;

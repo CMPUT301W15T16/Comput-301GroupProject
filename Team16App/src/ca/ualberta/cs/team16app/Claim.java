@@ -19,6 +19,7 @@ import java.util.Date;
 
 
 
+
 import android.content.ClipData.Item;
 import android.nfc.Tag;
 
@@ -78,7 +79,11 @@ public class Claim implements Serializable
 	 * start date of claims
 	 */
 	protected String startdate;
+	protected String comment;
+	protected String approverName;
 	
+	
+	protected int st;
 	/**
 	 * list of expense items
 	 */
@@ -519,6 +524,32 @@ public class Claim implements Serializable
 
 	public void setJPYTotal(String total) {
 		JPYTotal = total;
+	}
+	
+	
+	public String getApproverName() {
+		return approverName;
+	}
+
+	public void setApproverName(String total) {
+		approverName = total;
+	}
+	
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String total) {
+		comment = total;
+	}
+	
+	
+	public int getST() {
+		return st;
+	}
+
+	public void setST(int total) {
+		st = total;
 	}
 	
 	
